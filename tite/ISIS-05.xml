@@ -5,7 +5,7 @@
 <pb n="i" facs="isiscb1913-1965_whitrow_vol5_b_001.jpg"/>
 <titlePage type="half-title">
 <docTitle>
-<titlePart type="main">ISIS Cumulative Bibliography 1913–65</titlePart>
+<titlePart type="main">ISIS Cumulative Bibliography</titlePart>
 </docTitle>
 </titlePage>
 <pb n="ii" facs="isiscb1913-1965_whitrow_vol5_b_002.jpg"/>
@@ -783,8 +783,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <head>The Bibliography</head>
 <pb n="2" facs="isiscb1913-1965_whitrow_vol5_c_002.jpg"/>
 <pb n="3" facs="isiscb1913-1965_whitrow_vol5_c_003.jpg"/>
-<div2>
-<head>6 Renaissance and Reformation</head>
+<p><b>6 Renaissance and Reformation</b></p>
 <p>Fifteenth and sixteenth centuries</p>
 <p><b>6 A SCIENCE</b></p>
 <p><b>6 Ac general history</b></p>
@@ -2832,7 +2831,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>DELABARRE, Edmund Burke. Dighton Rock: the earliest and most puzzling of New England antiquities. <i>Old-Time New Engl.,</i> October 1923, 14: no. 2, 51–72, ill. [CB 24/437]</p>
 <p>DE SOUSA, J.M. Cordeiro. A inscriçâo portuguesa da pedra de Dighton. <i>Petrus Nonius,</i> 1939, 2: 121–2.</p>
 <p><b>6 HKBtk</b></p>
-<p>CASTELLANOS, Juan de. Discurso de el Capitán Francisco Draque que compuso Joan de Castellanos … 1586–8. [Ed. with an historical introduction by Angel Gonzalez Palencia.] 2, cxviii, 384 p., ill., 9 pl. Madrid: Institvo de Valencia de D. Jvan, 1921.</p>
+<p>CASTELLANOS, Juan de. Discurso de el Capitán Francisco Draque que compuso Joan de Castellanos … 1586–7. [Ed. with an historical introduction by Angel Gonzalez Palencia.] 2, cxviii, 384 p., ill., 9 pl. Madrid: Institvo de Valencia de D. Jvan, 1921.</p>
 <p>The poem originally formed part of the author's “Elegias de varones ilustres de Indias”.</p>
 <p><b>6 HKBwe</b></p>
 <p>QUINN, David Beers, ed. The Roanoke voyages, 1584–1590. Documents to illustrate the English voyages to North America under the patent granted to Walter Raleigh in 1584. 2 vol. xxxvi, 496 p., front.; vi, p. 497–1003, 12 ill., 4 app. (Hakluyt Society, <i>2nd ser.,</i> 104) London: Hakluyt Society, 1955.</p>
@@ -2847,7 +2846,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Reviewed by Aldo Mieli, <i>Archeion,</i> 1943, 78–9.</p>
 <p>ALVARADO, Pedro de. An account of the conquest of Guatemala in 1524 by Pedro de Alvarado. Edited by Sedley J. Mackie, with a fascimile of the Spanish original, 1525. 146 p., map, portr. (Documents and narratives concerning the discovery and conquest of Latin America, 3) New York: The Cortes Socieity, 1924.</p>
 <p>BOWEN, W.H. L'histoire de la terre neuve du Peru. A translation by Jacques Gohory. <i>Isis,</i> 1938, 28: 330–40. 2 fig.</p>
-<p>The author described this first account in French of the conquest of Peru by Pizarro and discusses the identity of the French translator.</p>
+<p>The author describes this first account in French of the conquest of Peru by Pizarro and discusses the identity of the French translator.</p>
 <p>CHAMBERLAIN, Robert S. The conquest and colonization of Yucatan, 1517–1550. vii, 365 p., front., 10 ill., 2 maps. (Publication 582) Washington, D.C.: Carnegie Institution of Washington, 1948.</p>
 <p>CÓRDOBA, Francisco Hernández de. The discovery of Yucatan. A translation of the original texts, with an introduction and notes by Henry R. Wagner. vii, 85 p. (Documents and Narratives Concerning the Discovery and Conquest of Latin America, new ser., 1) Berkeley: Cortés Society, 1942.</p>
 <p>DIAZ DEL CASTILLO, Bernal. Hernando Cortés, die Eroberung von Maxiko; nach dem Bericht des Diaz del Castillo bearbeitet von H.G. Bonte. 158 p., 2 maps, pl. (Alte Reisen und Abenteuer, 9) Leipzig: Brockhaus, 1924. [CB 21/512]</p>
@@ -2855,7 +2854,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Facsimile of an unique broadsheet containing an early account of the inhabiutants of South America together with a short version of Heinrich Sprenger's “Voyage to the Indies”.</p>
 <p>FEDERMANN, Nikolaus. Narracion del primer viaje de Federmann a Venezuela; traducida y anotada por Pedro Manuel Arcaya. Caracas: Tip. del Comercio, 1916. [CB 16/205]</p>
 <p>GARCILASO DE LA VEGA; ACOSTA, José de. Francisco Pizarro. Der Sturz des Inkareichs. Nach den Berichten des Garcilaso de la Vega und des Paters José Acosta. Bearb. von H.G. Bonte. 158 p., pl., portr. (Alte Reisen und Abenteuer, 14) Leipzig: Brockhaus, 1925.</p>
-<p>GINORIO, José Gonzäles. El descubrimiento de Puerto Rico. xii, 328 p Suplemento bibliogräfico. 69 p. San Juan: Puerto Rico, 1936, 1938.</p>
+<p>GINORIO, José Gonzälez. El descubrimiento de Puerto Rico. xii, 328 p Suplemento bibliográfico. 69 p. San Juan: Puerto Rico, 1936, 1938.</p>
 <p>Reviewed by A.Z.C., <i>Geogr.J.,</i> 1938, 92: 471–2.</p>
 <p><b>IJZERMAN, J.W. <i>See</i> 6 HKT</b></p>
 <p>KUNZE, Albert F. The Amazon — has it been fully discovered? <i>Sci.Mon.,</i> 1944, 58: 16–23.</p>
@@ -2864,7 +2863,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Reviewed by Ralph L. Roys, <i>Amer.Hist.Rev.,</i> 1943, 49: 133–4.</p>
 <p>LÉRY, Jean de. Le voyage au Brésil (1556–1558) Avec une introduction par Charly Clerc, gravures d'un anonyme du XVI<sup>e</sup> siècle. 319 p. Paris: Payot, 1927. [CB 24/441]</p>
 <p>Reviewed by Pierre Guéguen, <i>Larousse Mens.,</i> 1929, 8: 71–2.</p>
-<p>MARCONDES DE SOUZA, Thomas Oscar. O descobrimento do Brasil: estudo critico de accordo com a documentaçâo historicocartografica e a nautica. xviii, 382 p. (Brasiliana, 253) Sâo Paulo: Companhia Editora Nacional, 1946.</p>
+<p>MARCONDES DE SOUZA, Thomas Oscar. O descobrimento do Brasil: estudo critico de accordo com a documentação historicocartografica e a nautica. xviii, 382 p. (Brasiliana, 253) São Paulo: Companhia Editora Nacional, 1946.</p>
 <p>Draws the conclusion that the coastline was first discovered by Pinzon.</p>
 <p>Reviewed by G.R. Crone, <i>Geogr.J.,</i> 1948, 111: 126.</p>
 <p>MAYNARD, Theodore. De Soto and the conquistadores. xiii, 297 p. London/New York: Longmans, 1930/31.</p>
@@ -3729,7 +3728,7 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>STRASSMANN, Paul. Aus der Medizin des Rinascimento an der Hand des “Leben von Benvenuto Cellini” nach der Übersetzung Goethes. 56 p., 22 pl. Leipzig: Thieme, 1930. [CB 30/414]</p>
 <p>TAYLOR, James Spottiswoode. Montaigne and medicine. xix, 244 p., ill. New York: Hoeber, 1922. [CB 14/509]</p>
 <p>WILLCOX, Alice. Medical references in the dramas of John Lyly. <i>Ann.Med.Hist.,</i> 1938, 10: 117–26.</p>
-<p>ZEHL, Curt Alfred. Der humanistische Arzt Dr. Erhard Winsberger (Ventimontanus Aeolides), Professor in Ingolstadt, und seine literarische Betätigung. (Diss., Leipzig). 56 p. Borna-Leipzig: r. Noske, 1919. [CB 12/588]</p>
+<p>ZEHL, Curt Alfred. Der humanistische Arzt Dr. Erhard Winsberger (Ventimontanus Aeolides), Professor in Ingolstadt, und seine literarische Betätigung. (Diss., Leipzig). 56 p. Borna-Leipzig: R. Noske, 1919. [CB 12/588]</p>
 <p>FOR the relation of medicine and literature <i>see also</i></p>
 <p>Volume 1 under Cervantes Saavedra</p>
 <p>Volume 2 under Rabelais</p>
@@ -6344,11 +6343,9 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>MEERSSEMAN, Gilles. La bibliothèque des Frères Précheurs de la Minerve à la find u XV<sup>e</sup> siècle. <i>Mélanges Auguste Pelzer,</i> p. 605–34. Louvain: 1947.</p>
 <p><b>6 YTwm</b></p>
 <p>COLLIJN, Isak. Kartusianerklostret Mariefred vid Gripsholm och dess bibliotek. [The Carthusian monastery Mariefred near Gripsholm and its library. (In Swedish)] <i>Nord.Tidskr.Bok.Biblioteksväs.,</i> 1935, 22: 147–78.</p>
-</div2>
 <pb n="100" facs="isiscb1913-1965_whitrow_vol5_c_100.jpg"/>
 <pb n="101" facs="isiscb1913-1965_whitrow_vol5_c_101.jpg"/>
-<div2>
-<head>7 Seventeenth century</head>
+<p><b>7 Seventeenth century</b></p>
 <p>including references that cover the Renaisssance and the seventeenth century</p>
 <p><b>7 A SCIENCE</b></p>
 <p><b>7 Ac general history</b></p>
@@ -11183,11 +11180,9 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Joseph Planta was librarian of the British Museum.</p>
 <p>JOHN EVELYN's plan for a library. <i>Notes Roy.Soc.Lond.,</i> 1950, 7: 193–4.</p>
 <p>SABA, Agostino. La Biblioteca Ambrosiana (1609–1632). <i>Aevum,</i> 1932, 6: 531–621.</p>
-</div2>
 <pb n="184" facs="isiscb1913-1965_whitrow_vol5_c_184.jpg"/>
 <pb n="185" facs="isiscb1913-1965_whitrow_vol5_c_185.jpg"/>
-<div2>
-<head>8 Eighteenth century</head>
+<p><b>8 Eighteenth century</b></p>
 <p>including references that cover the seventeenth and the eighteenth centuries</p>
 <p><b>8 A SCIENCE</b></p>
 <p><b>8 Ac general history</b></p>
@@ -18038,11 +18033,9 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>PREDEEK, Albert. Bibliotheksbesuche eines gelehrten Reisenden im Anfange des 18. Jahrhunderts. <i>Zentralbl.Bibl.,</i> 1928, 45: 221–65, 342–54, 393–407.</p>
 <p>Apropos of Christian Gabriel Fischer.</p>
 <p>SCHULLIAN, Dorothy M. The libraries of Rome in the “Iter Italicum” (1765) of Domenico Cotugno. <i>J.Hist.Med.,</i> 1962, 17: 168–81.</p>
-</div2>
 <pb n="298" facs="isiscb1913-1965_whitrow_vol5_c_298.jpg"/>
 <pb n="299" facs="isiscb1913-1965_whitrow_vol5_c_299.jpg"/>
-<div2>
-<head>9 Nineteenth century</head>
+<p><b>9 Nineteenth century</b></p>
 <p>including references that cover the eighteenth and the nineteenth centuries</p>
 <p><b>9 A SCIENCE</b></p>
 <p><b>9 Ac general history</b></p>
@@ -26272,16 +26265,13 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Includes illustrations of the Salle Jean-Stas at the University of Brussels.</p>
 <p><b>9 YRwn-oq</b></p>
 <p>CARPELAN, Tor. Helsingfors Universitets Studentmatrikel 1828–1852. Utgiven med. understöd av Universitetet till 100-års minnet av dess flyttning till Helsingfors. ix, 245 p. (Svenska Litteratursällskapet i Finland, 203) Helsingfors: Frenckellska Tryckeri Aktiebolaget, 1928–1930.</p>
-</div2>
 <pb n="434" facs="isiscb1913-1965_whitrow_vol5_c_434.jpg"/>
 <pb n="435" facs="isiscb1913-1965_whitrow_vol5_c_435.jpg"/>
-<div2>
-<head>Addenda and Corrigenda<lb/>to Volumes 1, 2 and 3</head>
+<p><b>Addenda and Corrigenda to Volumes 1, 2 and 3</b></p>
 <p>In all three sections an asterisk (*) denotes a corrected entry; in the Personalities and Institutions section a dagger († or †) denotes an additional item.</p>
 <pb n="436" facs="isiscb1913-1965_whitrow_vol5_c_436.jpg"/>
 <pb n="437" facs="isiscb1913-1965_whitrow_vol5_c_437.jpg"/>
-<div3>
-<head>Personalities</head>
+<p><b>Personalities</b></p>
 <p>Addenda to vols 1 &amp; 2</p>
 <p><b>*&#8216;ABBĀS I, <i>Khidaywī</i> (1813 – 54)</b></p>
 <p>TOUSSOUN, Omar, <i>Prince.</i> Les missions scientifiques à l'époque de Muhammad &#8216;Alī, de &#8216;Abbās al-Awwal et de Sa&#8217;īd. 638 p. (en arabe) Alexandrie: Imprimerie Salāhuddīn, 1934.</p>
@@ -29822,10 +29812,8 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>GRIGORIAN, A.T.; KUZNETSOV, B.G.; YUSHKEVICH, A.P. Vassili Pavlovitch Zoubov. <i>Arch.Int.Hist.Sci.,</i> 1963, 16: 305–6.</p>
 <p><b>†ZUNIGA, Eduardo Garcia de</b></p>
 <p><b><i>see</i> GARCIA DE ZUNIGA, Eduardo</b></p>
-</div3>
 <pb n="497" facs="isiscb1913-1965_whitrow_vol5_c_497.jpg"/>
-<div3>
-<head>Institutions</head>
+<p><b>Institutions</b></p>
 <p>Addenda to vol. 2</p>
 <p><b>ABO AKADEMI</b></p>
 <p>LÖNNQUIST, Berat. Einige bemerkensverte Aerzte an der Akademie zu A&#803;bo (Finland) 1640–l837. <i>Janus,</i> 1927, 31: 368–74.</p>
@@ -31784,10 +31772,8 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p>Reviewed by John B. Blake, <i>Science,</i> 1964, 144: 725–6.</p>
 <p><b>†ZÜRICH. ZENTRALBIBLIOTHEK</b></p>
 <p>GOLDSCHMIDT, Günther. Katalogisierung der mittelalterlichen medizinischen und alchimistischen Handschriften der Zentralbibliotek Zürich. <i>Gesnerus,</i> 1945, 2: 151–62.</p>
-</div3>
 <pb n="532" facs="isiscb1913-1965_whitrow_vol5_c_532.jpg"/>
-<div3>
-<head>Subjects</head>
+<p><b>Subjects</b></p>
 <p>Addenda to vol. 3</p>
 <p><b>A SCIENCE</b></p>
 <p><b>Ac/h general history; bibliography; historiography</b></p>
@@ -33079,8 +33065,6 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <p><b>YTwp</b></p>
 <p>HOWARD, Harry N. Preliminary materials for a survey of the libraries and archives of Istanbul. <i>J.Amer.Orient.Soc.,</i> 1939, 59: 227–46.</p>
 <p>ŠEVČENKO, Ihor. Observations sur les recueils des discours et des poèmes de Th. Métochite et sur la bibliothèque de Chora à Constantinople. <i>Scriptorium,</i> 1951, 5: 279–88, 2 pl.</p>
-</div3>
-</div2>
 </div1>
 </body>
 <back>
