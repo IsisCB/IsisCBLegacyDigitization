@@ -7,21 +7,56 @@
 	xmlns:cx="http://xmlcalabash.com/ns/extensions"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 	xmlns:isis="tag:conaltuohy.com,2015:isis"
+	xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
 	<p:input port="parameters" kind="parameter"/>
 
 	<file:mkdir href="../../build" fail-on-error="false"/>
+	<file:mkdir href="../../build/report" fail-on-error="false"/>
 	<file:mkdir href="../../build/p5" fail-on-error="false"/>
 	<file:mkdir href="../../build/upconverted" fail-on-error="false"/>
 	<file:mkdir href="../../build/sample" fail-on-error="false"/>
+	
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
 		<p:iteration-source select="/c:directory/c:file"/>
 		<p:variable name="filename" select="encode-for-uri(/c:file/@name)"/>
-		<p:load>
+		<p:load name="tite">
 			<p:with-option name="href" select="concat('../tite/', $filename)"/>
-		</p:load>		
+		</p:load>	
+		
+		<p:try name="validate-tite-assumptions">
+			<p:group name="check-assertions">
+				<p:validate-with-schematron>
+					<p:input port="schema">
+						<p:document href="../schema/tite.sch"/>
+					</p:input>
+				</p:validate-with-schematron>
+			</p:group>
+			<p:catch name="report-on-failed-assertions">
+				<p:validate-with-schematron name="schematron-report" assert-valid="false">
+					<p:input port="schema">
+						<p:document href="../schema/tite.sch"/>
+					</p:input>
+				</p:validate-with-schematron>
+				<p:wrap-sequence wrapper="reports">
+					<p:input port="source">
+						<p:pipe step="schematron-report" port="report"/>
+					</p:input>
+				</p:wrap-sequence>
+				<p:delete match="svrl:fired-rule"/>
+				<p:store>
+					<p:with-option name="href" select="concat('../../build/report/', $filename)"/>
+				</p:store>
+				<p:identity>
+					<p:input port="source">
+						<p:pipe step="schematron-report" port="result"/>
+					</p:input>
+				</p:identity>
+			</p:catch>
+		</p:try>		
+		
 		<isis:transform name="p5" xslt="tite-to-p5.xsl"/>
 		<isis:transform xslt="group-citations.xsl"/>
 		<isis:transform xslt="make-bibl.xsl"/>
@@ -45,6 +80,7 @@
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/sample/', $filename)"/>
 		</p:store>
+		
 	</p:for-each>
 	
 	<p:declare-step type="isis:transform" name="transform">
