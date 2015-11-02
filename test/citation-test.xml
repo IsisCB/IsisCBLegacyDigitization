@@ -1,0 +1,34 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Citation Test Corpus</title>
+				<author>IsisCB editors</author>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>The University of Oklahoma</publisher>
+				<pubPlace>Norman</pubPlace>
+				<date>2015</date>
+			</publicationStmt>
+			<sourceDesc>
+				<p>Examples selected from the transcribed volumes of the IsisCB</p>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<p>Examples (test cases) are drawn from the transcribed bibliographies of the IsisCB volumes.</p>
+			<p>Each distinct example is enclosed in a div element, whose children are a sequence of p elements which contain one or more bibliographic citations. After the p elements should follow a sequence of one or more bibl elements containing a marked up version of the original paragraphs.</p>
+			<p>The text within the bibl elements should exactly match the text content of the corresponding preceding paragraphs (i.e. text, other than white space, should nto be added or removed).</p>
+		</encodingDesc>
+	</teiHeader>
+	<text>
+<body>
+<div xml:id="cit1">
+<p>ACADEMIA REPUBLICII POPULARE ROMÎNE. Études d'histoire et de philosophie des sciences. 311 p. Bucharest: L'Académie de la République Populaire Roumaine, 1962.</p>
+<p>Reviewed by R. Bruce Lindsay, <hi rend="i">Phys.Today,</hi> 1964, 17: no. 1, 80–2.</p>
+<bibl><author>ACADEMIA REPUBLICII POPULARE ROMÎNE.</author> <title>Études d'histoire et de philosophie des sciences.</title> <extent><measure unit="pages" quantity="311">311 p.</measure></extent> <pubPlace>Bucharest</pubPlace>: <publisher>L'Académie de la République Populaire Roumaine,</publisher> <date>1962</date>.
+<note><bibl><respStmt><resp key="reviewer">Reviewed by</resp> <persName>R. Bruce Lindsay</persName></respStmt>, <title>Phys.Today,</title> <date>1964</date>, <biblScope unit="volume">17</biblScope>: no. <biblScope unit="issue">1</biblScope>, <biblScope unit="page" from="80" to="82">80–2</biblScope>.</bibl></note></bibl>
+</div>
+<!-- TODO add further <div> elements containing examples -->
+</body>
+</text>
+</TEI>
