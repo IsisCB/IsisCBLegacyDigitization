@@ -1,0 +1,5 @@
+# files to not be committed to the repository
+
+# ignore backup, lock, and autosave files
+*.*~
+*.*#
