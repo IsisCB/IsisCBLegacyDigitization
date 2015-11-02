@@ -45,7 +45,7 @@
 						<p:pipe step="schematron-report" port="report"/>
 					</p:input>
 				</p:wrap-sequence>
-				<p:delete match="svrl:fired-rule"/>
+				<!--<p:delete match="svrl:fired-rule"/>-->
 				<p:store>
 					<p:with-option name="href" select="concat('../../build/report/', $filename)"/>
 				</p:store>
