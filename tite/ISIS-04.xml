@@ -1926,20 +1926,16 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <pb n="17" facs="isiscb1913-1965_whitrow_vol4_c_017.jpg"/>
 <div2>
 <head>15 Ancient Near East</head>
-<p>including the history of the ancient world in general</p>
-<table>
-<row>
-<cell>16 Ancient Egypt</cell>
-<cell rows="2">19 Ancient Palestine, Syria and Phoenicia</cell>
-</row>
-<row>
-<cell>17 Sumer; Babylonia; Assyria</cell>
-</row>
-<row>
-<cell>18 Hittite civilization; Ancient Anatolia</cell>
-<cell>2 Ancient Israel; Judaea</cell>
-</row>
-</table>
+<head>including the history of the ancient world in general</head>
+<head>
+<list>
+<item>16 Ancient Egypt</item>
+<item>17 Sumer; Babylonia; Assyria</item>
+<item>18 Hittite civilization; Ancient Anatolia</item>
+<item>19 Ancient Palestine, Syria and Phoenicia</item>
+<item>2 Ancient Israel; Judaea</item>
+</list>
+</head>
 <p><b>15 bz prehistory</b></p>
 <p>MORGAN, Jacques de. La préhistoire orientale. 3 vol. 1. Generalités. xxxvi, 334 p., 55 fig. 2. L'Égypte et l'Afrique du Nord. vi, 438 p., 5 pl., 455 fig. 3. L'Asie antérieure. vi, 460 p., 380 fig., 3 pl. Paris: Geuthner, 1925–27. [CB 22/217 and CB 26/220]</p>
 <p>Vol. 1 reviewed by Leon Guinet, <i>Isis,</i> 1926, 8: 519–21.</p>
@@ -6181,12 +6177,12 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <pb n="87" facs="isiscb1913-1965_whitrow_vol4_c_087.jpg"/>
 <div2>
 <head>25 Classical antiquity (Greece and<lb/>Rome combined)</head>
-<table>
-<row>
-<cell>26 Greece</cell>
-<cell>28 Rome</cell>
-</row>
-</table>
+<head>
+<list>
+<item>26 Greece</item>
+<item>28 Rome</item>
+</list>
+</head>
 <p><b>25 c general history</b></p>
 <p><b>25 c-be</b></p>
 <p>LAMER, Hans. Wörterbuch der Antike mit Berücksichtigung ihres Fortwirkens. In Verbindung mit E. Bux und W. Schöne. xii, 784 p. Leipzig: Kröner, 1933.</p>
@@ -11109,22 +11105,17 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <pb n="169" facs="isiscb1913-1965_whitrow_vol4_c_169.jpg"/>
 <div2>
 <head>3 Asia</head>
-<p>Prehistory, primitive societies and indigenous civilizations</p>
-<p><i>For</i> the geography, etc. of Asia <i>see</i> Index</p>
-<table>
-<row>
-<cell>32 Western Asia</cell>
-<cell>39 Far East</cell>
-</row>
-<row>
-<cell>35 Central and Northern Asia</cell>
-<cell>43 South East Asia</cell>
-</row>
-<row>
-<cell>37 India</cell>
-<cell></cell>
-</row>
-</table>
+<head>Prehistory, primitive societies and indigenous civilizations</head>
+<head><i>For</i> the geography, etc. of Asia <i>see</i> Index</head>
+<head>
+<list>
+<item>32 Western Asia</item>
+<item>35 Central and Northern Asia</item>
+<item>37 India</item>
+<item>39 Far East</item>
+<item>43 South East Asia</item>
+</list>
+</head>
 <p><b>3 c general history</b></p>
 <p>FAIRSERVIS, Walter A. The origins of Oriental civilization. vi, 192 p., fig., ill. bibliogr. (Mentor Book; MD 251) New York: New American Library of World Literature, Inc., 1959.</p>
 <p>GROUSSET, René. Les civilisations de l'Orient. 4 vol. Paris: Crès, 1929–30.</p>
@@ -13492,16 +13483,13 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <pb n="213" facs="isiscb1913-1965_whitrow_vol4_c_213.jpg"/>
 <div2>
 <head>39 Far East</head>
-<table>
-<row>
-<cell>4 China</cell>
-<cell>42 Japan</cell>
-</row>
-<row>
-<cell>41 Korea</cell>
-<cell></cell>
-</row>
-</table>
+<head>
+<list>
+<item>4 China</item>
+<item>41 Korea</item>
+<item>42 Japan</item>
+</list>
+</head>
 <p><b>39 bz prehistory</b></p>
 <p><i>Congress of Prehistorians of the Far East. Proceedings.</i> 1st Congr. 1938. Singapore: 1938–</p>
 <p>Proceedings of the 3rd Congress (1940) reviewed by R.O. Winstedt, <i>J.Roy.Asiatic Soc.,</i> 1949, 98.</p>
@@ -18148,16 +18136,14 @@ capital letters so that 15 (1.5) files before 2 and Bce (B.ce) files before BAce
 <pb n="293" facs="isiscb1913-1965_whitrow_vol4_c_293.jpg"/>
 <div2>
 <head>5 Middle Ages, in general,<lb/>from <i>c.</i> A.D. 500 to <i>c.</i> 1400; Latin Europe</head>
-<table>
-<row>
-<cell>52 Byzantium</cell>
-<cell>54 Islam</cell>
-</row>
-<row>
-<cell>53 Armenia</cell>
-<cell>55 Hebrew</cell>
-</row>
-</table>
+<head>
+<list>
+<item>52 Byzantium</item>
+<item>53 Armenia</item>
+<item>54 Islam</item>
+<item>55 Hebrew</item>
+</list>
+</head>
 <p><b>5 A SCIENCE</b></p>
 <p><b>5 Ac general hsitory</b></p>
 <p>BARK, William Carroll. Origins of the medieval world. ix, 162 p. (Stanford Studies in History, Economics, and Political Science, 14) Stanford: Stanford University Press, 1958. [CB 83/220]</p>
