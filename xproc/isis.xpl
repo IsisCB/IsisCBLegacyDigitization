@@ -13,6 +13,7 @@
 	<p:input port="parameters" kind="parameter"/>
 
 	<file:mkdir href="../../build" fail-on-error="false"/>
+	<file:mkdir href="../../build/normalized-tite" fail-on-error="false"/>
 	<file:mkdir href="../../build/report" fail-on-error="false"/>
 	<file:mkdir href="../../build/p5" fail-on-error="false"/>
 	<file:mkdir href="../../build/upconverted" fail-on-error="false"/>
@@ -24,7 +25,7 @@
 		<p:variable name="filename" select="encode-for-uri(/c:file/@name)"/>
 		<p:load name="tite">
 			<p:with-option name="href" select="concat('../tite/', $filename)"/>
-		</p:load>	
+		</p:load>
 		
 		<p:try name="validate-tite-assumptions">
 			<p:group name="check-assertions">
@@ -45,9 +46,6 @@
 						<p:pipe step="schematron-report" port="report"/>
 					</p:input>
 				</p:wrap-sequence>
-				<!--
-				<p:delete match="svrl:fired-rule"/>
-				-->
 				<isis:transform name="to-html" xslt="svrl-to-html.xsl"/>
 				<p:store>
 					<p:with-option name="href" select="concat('../../build/report/', substring-before($filename, '.xml'), '.html')"/>
@@ -81,6 +79,15 @@
 			</p:input>
 		</p:store>
 		
+		<isis:transform xslt="normalize-tite.xsl">
+			<p:input port="source">
+				<p:pipe step="tite" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store>
+			<p:with-option name="href" select="concat('../../build/normalized-tite/', $filename)"/>
+		</p:store>
+
 		<isis:transform xslt="make-sample.xsl">
 			<p:input port="source">
 				<p:pipe step="p5" port="result"/>
