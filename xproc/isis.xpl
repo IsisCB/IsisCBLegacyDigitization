@@ -40,14 +40,23 @@
 						<p:document href="../schema/tite.sch"/>
 					</p:input>
 				</p:validate-with-schematron>
-				<p:wrap-sequence wrapper="reports">
+				<p:wrap-sequence name="reports" wrapper="reports">
 					<p:input port="source">
 						<p:pipe step="schematron-report" port="report"/>
 					</p:input>
 				</p:wrap-sequence>
-				<!--<p:delete match="svrl:fired-rule"/>-->
+				<!--
+				<p:delete match="svrl:fired-rule"/>
+				-->
+				<isis:transform name="to-html" xslt="svrl-to-html.xsl"/>
+				<p:store>
+					<p:with-option name="href" select="concat('../../build/report/', substring-before($filename, '.xml'), '.html')"/>
+				</p:store>
 				<p:store>
 					<p:with-option name="href" select="concat('../../build/report/', $filename)"/>
+					<p:input port="source">
+						<p:pipe step="reports" port="result"/>
+					</p:input>
 				</p:store>
 				<p:identity>
 					<p:input port="source">
