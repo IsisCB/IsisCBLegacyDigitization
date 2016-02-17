@@ -12,7 +12,7 @@
 		</xsl:copy>
 	</xsl:template>
 	
-	<xsl:template match="tei:body/tei:div/tei:div">
+	<xsl:template match="tei:body//tei:div">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<!-- handle all the citations -->
@@ -30,7 +30,7 @@
 					">
 						<bibl>
 							<xsl:apply-templates select="current-group()"/>
-						</bibl>
+						</bibl><xsl:value-of select="codepoints-to-string(10)"/>
 					</xsl:when>
 					<xsl:otherwise><!-- page breaks and misc global elements -->
 						<xsl:apply-templates select="current-group()"/>
@@ -40,15 +40,15 @@
 		</xsl:copy>
 	</xsl:template>
 	
-	<!-- a paragraph which begins a bibliographic citation just needs to be unwrapped from it's para -->
-	<xsl:template priority="100" match="tei:body/tei:div/tei:div/	tei:p
+	<!-- a paragraph which begins a bibliographic citation just needs to be unwrapped from its para -->
+	<xsl:template priority="100" match="tei:body//tei:div/tei:p
 		[string-length(substring-before(., ' ')) &gt; 1]
 		[upper-case(substring-before(., ' ')) = substring-before(., ' ')]">
 		<xsl:apply-templates/>
 	</xsl:template>
 	
 	<!-- a paragraph which follows on from a previous para in a bibliographic citation is a note -->
-	<xsl:template match="tei:body/tei:div/tei:div/	tei:p">
+	<xsl:template match="tei:body//tei:div/tei:p[preceding-sibling::tei:p]">
 		<note><xsl:apply-templates/></note>
 	</xsl:template>
 	

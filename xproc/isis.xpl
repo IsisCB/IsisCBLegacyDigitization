@@ -19,6 +19,9 @@
 	<file:mkdir href="../../build/upconverted" fail-on-error="false"/>
 	<file:mkdir href="../../build/sample" fail-on-error="false"/>
 	
+	<isis:test/>
+	
+	
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
 		<p:iteration-source select="/c:directory/c:file"/>
@@ -65,8 +68,7 @@
 		</p:try>		
 		
 		<isis:transform name="p5" xslt="tite-to-p5.xsl"/>
-		<isis:transform xslt="group-citations.xsl"/>
-		<isis:transform xslt="make-bibl.xsl"/>
+		<isis:upconvert-document/>
 		
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
@@ -120,5 +122,32 @@
 			</p:input>
 		</p:xslt>
 	</p:declare-step>	
+	
+	<p:declare-step type="isis:upconvert-document" name="upconvert-document">
+		<p:input port="source"/>
+		<p:output port="result"/>
+		<p:input port="parameters" kind="parameter"/>
+		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
+		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
+		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
+		<isis:transform xslt="group-citations.xsl"/>
+		<isis:transform xslt="make-bibl.xsl"/>
+		<isis:transform xslt="recognise-citations-in-notes.xsl"/>
+		<isis:transform xslt="categorize-citations.xsl"/>
+		<isis:transform xslt="recognise-authors.xsl"/>
+		<isis:transform xslt="recognise-journal-titles.xsl"/>
+		<isis:transform xslt="recognise-cb-references.xsl"/>
+		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
+		<isis:transform xslt="recognise-book-extents.xsl"/>
+		<isis:transform xslt="recognise-book-titles.xsl"/>
+		<isis:transform xslt="recognise-imprint.xsl"/>
+	</p:declare-step>
+	
+	<p:declare-step type="isis:test" name="test">
+		<p:input port="parameters" kind="parameter"/>
+		<p:load href="../test/citation-test.xml"/>
+		<isis:upconvert-document/>
+		<p:store href="../../build/citation-test.xml"/>
+	</p:declare-step>
 </p:declare-step>
 	

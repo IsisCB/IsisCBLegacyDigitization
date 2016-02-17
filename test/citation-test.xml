@@ -22,13 +22,977 @@
 	</teiHeader>
 	<text>
 <body>
-<div xml:id="cit1">
-<p>ACADEMIA REPUBLICII POPULARE ROMÎNE. Études d'histoire et de philosophie des sciences. 311 p. Bucharest: L'Académie de la République Populaire Roumaine, 1962.</p>
-<p>Reviewed by R. Bruce Lindsay, <hi rend="i">Phys.Today,</hi> 1964, 17: no. 1, 80–2.</p>
-<bibl><author>ACADEMIA REPUBLICII POPULARE ROMÎNE.</author> <title>Études d'histoire et de philosophie des sciences.</title> <extent><measure unit="pages" quantity="311">311 p.</measure></extent> <pubPlace>Bucharest</pubPlace>: <publisher>L'Académie de la République Populaire Roumaine,</publisher> <date>1962</date>.
-<note><bibl><respStmt><resp key="reviewer">Reviewed by</resp> <persName>R. Bruce Lindsay</persName></respStmt>, <title>Phys.Today,</title> <date>1964</date>, <biblScope unit="volume">17</biblScope>: no. <biblScope unit="issue">1</biblScope>, <biblScope unit="page" from="80" to="82">80–2</biblScope>.</bibl></note></bibl>
+<div n="1">
+<head>Citations as raw formatted text</head>
+<div type="articles">
+<head>Articles</head>
+<p>STRUIK, D.J. Outline of a history of differential geometry. <hi rend="i">Isis,</hi> 1933, 19: 92–100; 20: 161–91. [CB 39/450 and CB 40/387]</p>
+<p>DOREMUS, Charles A. retrospect in biochemistry. <hi rend="i">Biochem.Bull.,</hi> 1912, 1: 245–55.</p>
+<p>HAMBRUGER, H.J. Zur Geschichte und Entwicklung der physikalisch-chemischen Forschung in der Biologie. <hi rend="i">Int.Z.Phys.Chem.Biol.,</hi> 1914, 1: 6–27. [CB 6/460]</p>
+<!--
+worked example missing
+<p>KIEFFER, Lucien. La construction des axes en axonométrie orthogonale. (Aperçu historique) <hi rend="i">Sci.Hist.,</hi> 1964, 6: 185–91.</p>-->
+<p>LORIA, Gino. Da Descartes e Fermat a Monge e Lagrange. Contributo alla storia della geometria analitica. <hi rend="i">Atti Accad.Naz.Lincei Mem.Cl.Sci.Fis.Mat.Natur., 5th ser.,</hi> 1923, 14: 777–845. [CB 18/606]</p>
+<p>LYSENKO, V.I. Iz ustorii voprosa o tochkakh vozvrata ploskoǐ krivoĭ. [Historical questions relating to the turning point of a plane curve. (In Russian)] <hi rend="i">Ist.Mat.Issled.,</hi> 1961, 14: 517–26.</p>
+<p>MILNE, John J. The story of a problem and its solution. <hi rend="i">Math.Gaz.,</hi> 1930, 15: 142–4.</p>
+<p>The ‘locus ad tres et quatuour lineas’ problem in the third book of the “Conics” of Apollonius and its discussion by Pappus, Descartes and Newton.</p>
+<p>MORDUKHAI-BOLTOVSKOI, D.D. [From the past of analytical geometry. (In Russian)]. <hi rend="i">Tr.Inst.Ist.Est.,</hi> 1952, 4: 216–35.</p>
+<p>ROSENBLATT, A. Postepy teoryi powierzchni algebraicznych. [Development of the theory of algebraic surfaces. (In Polish)] <hi rend="i">Prace Mat.Fiz.,</hi> 1912, 23: 51–192.</p>
+<p>CRAMÉR, Harald. A.I. Khinchin's work in mathematical probability. <hi rend="i">Ann.Math.Statist.,</hi> 1962, 33: 1227–37.</p>
+<p>DUNGEN, F.H. van den; COX, J.F.; MIEGHEM, J. van. Sur quelques astronomes qui n&#8217;ont pas postulé implicitement l'uniformité de la rotation de la terre. <hi rend="i">Scientia,</hi> 1957, 92: 269–72.</p>
+<p>DANTZIG, D. van. Laplace, probabiliste et statisticien, et ses précurseurs. <hi rend="i">Arch.Int.Hist.Sci.,</hi> 1955, 8: 27–37.</p>
+<p>RAYLEIGH, Robert John Strutt, <hi rend="i">4th Baron.</hi> Meteorites and some of the problems which they present. <hi rend="i">Endeavour,</hi> 1944, 3: 127–34, 8 fig.</p>
+<!-- missing marked up version
+<p>STRAECKEL, Paul. Beiträge zur Kritik der Differentialgeometrie. 27 p. (<hi rend="i">Sitzungsber.Heidelb.Akad.Wissensch.Math.Naturwiss.Kl.Abt.A.Math.Phys.Wiss.,</hi> 1914, vol. 5) Heidelberg: 1914.</p>
+-->
 </div>
-<!-- TODO add further <div> elements containing examples -->
+<div type="books">
+<head>Books</head>
+<!-- missing marked up version -->
+<!--<p>HOPKINS, Frederick Gowland. Hopkins and biochemistry 1861–1947. Papers concerning Sir Frederick Gowland Hopkins, O.M., P.R.S., with a selection of his addresses and a bibliography of his publications. Ed. by Joseph Needham and Ernest Baldwin. ix, 361 p., pl., portr., bibliogr. Cambridge: Heffer, 1949.</p>
+<p>A commemorationi volume prepared on the occasion of the First International Congress of Biochemistry, Cambridge 1949.</p>-->
+<!-- actually a journal? 
+<p>WAERDEN, B.L. van der. The foundation of algebraic geometry. A very incomplete historical survey. <hi rend="i">Studies and essays presented to r. Courant,</hi> p. 437–9. New York: Interscience, 1948.</p>-->
+<p>WIELEITNER, Heinrich. Die Geburt der modernen Mathematik. Historisches und Grundsätzliches. 2 vol. 1. Die analytische Geometrie; 2. Die Infinitesimalrechnung. (Wissen und Wirken, 12 &amp; 13) Karlsruhe in Baden: Braun, 1924–25. [CB 17/593]</p>
+<p>BOREL, Emile. Le hasard. 311 p. (Nouvelle Collection Sciencetifique) Paris: Alcan, 1914.</p>
+<p>DAVID, F.N. Games, gods and gambling. The origins and history of probability and statistical ideas from the earliest times to the Newtonian era. xvi, 275 p., pl., fig. New York: Hafner, 1962.</p>
+<p>Reviewed by Christoph J. Scriba, <hi rend="i">Isis,</hi> 1964, 55: 217–18.</p>
+</div>
+<div type="books-with-review">
+<head>Books with review</head>
+<p>DU PASQUIER, Louis Gustave. Le calcul des probabilités, son évolution mathématique et philosophique. xxi, 304 p. Paris: J. Hermann, 1926.</p>
+<p>Reviewed by P.J. Richard, <hi rend="i">Rev.Gén.Sci.,</hi> 1927, 38: 83–4; by F.A. Foraker, <hi rend="i">Amer.Math.Mon.,</hi> 1928, 35: 31–2.</p>
+<p>WAERDEN, B.L. van der. Over de ruimte. [Concerning space. (In Dutch)]. 18 p. Groningen-Djakarta: Noordhoff, 1950.</p>
+<p>CITTERT, P.H. van. Descriptive catalogue of the collection of microscopes in charge of the Utrecht University Museum. With an introductory historical survey of the resolving power of the microscope. 110 p., ill. Groningen: Noordhoff, 1934.</p>
+<p>Reviewed by M.A. Van Andel, <hi rend="i">Bijdr.Gesch.Geneesk.,</hi> 1935, 15: 68.</p>
+<p>GÜTTLER, A.; PETRI, W. Der Mond. Kulturgeschichte und Astronomie des Erdtrabanten. 71 p., ill. Heidelberg: Heinz Moos Verlag, 1962.</p>
+<p>Reviewed by Heinz Degen, <hi rend="i">Naturwiss.Rundsch.,</hi> 1963, 16: 118.</p>
+<p>VAUCOULEURS, Gérard de. The planet Mars. Translated from the French by Patrick A. Moore. 87 p., ill. London: Faber, 1950.</p>
+<p>French edition: Le problème Martien (Paris: Elzévir, 1946) reviewed by P.L. Dupont, <hi rend="i">Ciel Terre,</hi> 1947, 63: 61.</p>
+<p>ARRHENIUS, Svante. the destinies of the stars. Transl. from the Swedish by J.E. Fries. xvii, 256 p. New York: Putnam, 1918.</p>
+<p>Swedish original: Stjarnernes öden. 1915.</p>
+<p>French translation: Le destin des étoiles. Paris; Alcan, 1921. [CB 11/437]</p>
+<p>ARRHENIUS, Svante. Die Sternenwelt. Nach hinterlassenen Aufzeichnungen bearbeitet und ergänzt von Knut Lundmark. Übers. von Alexis Finkelstein. x, 359 p., 1 pl., 61 fig. Leipzig: Akademische Verlagsgesellschaft, 1931.</p>
+<p>Translation of “Stjärnwärlden”, the second part of an enlarged edition of “Världarnas utveckling”, 1906.</p>
+<p>Reviewed by P. Kirchberger, <hi rend="i">Deut.Lit.Zeitung,</hi> 1932, 3: 1288–90.</p>
+<p>THOMAS, H.L. U Scorpii as a recurrent nova. <hi rend="i">Bull.Astron.Observ.Harvard Univ.,</hi> 1940, no. 912, 10–12, 2 fig.</p>
+<p>WAERDEN, B.L. van der. Die Sichtbarkeit der Sterne in der Nähe des Horizontes. <hi rend="i">Verteljahrsschr.Naturforsch.Ges.Zürich,</hi> 1954, 99: 20–39, 5 fig.</p>
+<p>&#8216;ABD al-RAHMĀN ISMĀ&#8217;IL. Folk medicine in modern Egypt. Being the relevant parts of the “Tibb al-rukka” or “Old wives' medicine” of &#8216;Abd al-Rahmān Ismā&#8217;īl, by John Walker. 128 p., 4 pl. London: Luzac, 1934. [CB 43/264]</p>
+<p>VELDE, A.J.J. van de. [Men and food. (In Dutch)] <hi rend="i">Alumni,</hi> 1949, 18: 280–91. [CB 76/399]</p>
+<p><gap/>APEK, A. Tabák v <gap/>echách. [Tobacco in Bohemia. (In Czech)] 420 p. Prague: Librairie technique, 1947.</p>
+<p>History of the cultivation, handling and trade of tobacco in Bohemia since the 16th century.</p>
+<p>BLOCH, Iwan. Die Prostitution. Vol. 1. xxxvi, 870 p. Vol. 2, pt. 1. (with Georg Loewenstein) 728 p. (Handbuch der gesamten Sexualwissenschaft in Einzeldarstellungen) Berlin: Louis Marcus, 1912–25.</p>
+<p>No more published.</p>
+<p>Vol. 1 reviewed by George Sarton, <hi rend="i">Isis,</hi> 1913, 1: 284–5; Vol. 2 by Stephen d'Irsay, <hi rend="i">Ibid.,</hi> 1926, 8: 521–5.</p>
+<p>HUME, Edgar Erskine. Medical work of the Knights Hospitallers of Saint John of Jerusalem. xxii, 371 p., ill. (In stitute of the History of Medicine of the Johns Hopkins University) Baltimore, Md.: Johns Hopkins Press, 1940.</p>
+<p>Reprinted from <hi rend="i">Bull.Inst.Hist.Med.,</hi> 1938, vol. 6.</p>
+<p>Reviewed in <hi rend="i">Ann.Med.Hist.,</hi> 1941, 3: 169–79; by Loren C. MacKinney, <hi rend="i">Amer.Hist.Rev.,</hi> 1941, 46: 857–8.</p>
+<p>DU COUÉDIC, -, <hi rend="i">Mère.</hi> Les Hospitalières de Besançon (histoire et souvenirs). 320 p., ill. [Besançon?]: 1935.</p>
+<p>Reviewed by Marcel Fosseyeux, <hi rend="i">Bull.Soc.Franç.Hist.Méd.,</hi> 1937, 31: 56–8.</p>
+<p>MacQUIDY, Ernest L. Early American hospitals. <hi rend="i">Hospitals,</hi> 1938, 12: 76–9.</p>
+<p>GEYSKES, D.C.; KLAAUW, C.J. van der. Der heutige Zustand der anatomischen Kabinette früherer Jahrhunderte in Leiden. <hi rend="i">Janus,</hi> 1934, 38: 179–92, 6 fig.</p>
+<p>IZQUIERDO, José Joaquin. En que ha contribuido la escuela médico militar al desarrollo de la fisiología experimental en México. Reflexiones a propósito de la inauguración de su nuevo laboratorio. 51 p., 31 fig. México: 1937.</p>
+<p>IZQUIERDO, JoséJoaquín/ Ideas fundamentales para la estructuracion material y funcional del nuevo departamento de fisiologia de la Facultad de Medicina, basadas en los antecedentes del actual departamento. 45 p. México, D.F.: Universidad Nacional Autonoma de México, 1950.</p>
+<p>ROOSEBOOM, M.; VRIEND-VERMEER, W.; ed. Some Dutch contributions to the development of physiology. 60 p., pl., bibliogr. (Mededeling, 118) Leiden: Rijksmuseum voor de Geschiedenis der Natuurwetenschappen, 1962. [CB 88/551]</p>
+<p>KOSHTOIANTS, Kh.S. Essays on the history of physiology in Russia. Ed. by Donald B. Lindsley. English transl. by David Boder, Kristan Hanes, and Natalie O'Brien. xiv, 321 p., facs., portr. Washington: American Institute of Biological Sciences, 1964.</p>
+<p>Translation of: Ocherki po istorii fizidogii v Rossii. Moscow: Izdatelstvo Akademii Nauk SSSR, 1946.</p>
+<p>INTERNATIONAL CONFERENCE ON THE DEVELOPMENT, GROWTH AND REGENERATION OF THE NERVOUS SYSTEM, University of Chicago, 1949. Genetic neurology. Ed. Paul Weiss. xii, 239 p. Chicago: University of Chicago Press, 1950. [CB 78/191]</p>
+<p>POYNTER, F.N.L., ed. The history and philosophy of knowledge of the brain and its functions. An Anglo-American Symposium, London, July 15–17, 1957. x, 272 p., ill. Oxford: Blackwell Scientific Publications; Springfield, Ill.: Charles C. Thomas 1958.</p>
+<p>Reviewed by John M. Brookhart, <hi rend="i">Isis,</hi> 1960, 51: 99–101; for other reviews <hi rend="i">see</hi> CB 85/400 and CB 86/471.</p>
+<p>For note on the Symposium <hi rend="i">see J.Hist.Med.,</hi> 1957, 12: 520–1.</p>
+<p>BURR, H.S. ed. Classics in neurology. Selected by Richard Sherman Lyman. vii, 176 p. Springfield, Ill.: Charles C. Thomas, 1963.</p>
+<p>KRÜCKE, W.; SPATZ; H., ed. Ludwig Edinger 1855–1918. Gedenkschrift zu seinem 100. Geburtstag und zum 50. jährigen Besthen des Neurologischen Instituts (Edinger-Inst.) der Universität Frankfurt a.M. 97 p., front., 17 pl. (Schriften der wissenschaftlichen Gesellschaft ander Johann Wolfgang Goethe-Universität Frankfurt a.M., Naturwissenschaftliche Reihe) Wiesbaden: Steiner, 1959.</p>
+<p>Reviewed by Gunter Mann, <hi rend="i">Sudhoffs Arch.,</hi> 1960, 44: 372–3.</p>
+<p>MAY, Rollo; ANGEL, Ernest; ELLENBERGER, Henri F.; ed. Existence, a new dimension in psychiatry and psychology. 445 p. New York: Basic Books, 1958.</p>
+<p>Reviewed by Fritz Schmidl, <hi rend="i">Isis,</hi> 1959, 50: 271–2.</p>
+<p>FREUD, Sigmund. Collected papers. 5 vol. 1. Early papers. On the history of the psycho-analytic movement. 359 p.; 2. Clinical papers. Papers on technique. 404 p.; 3. Case histories. 607 p.; 4. Papers on metapsychology. Papers on applied psycho-analysis. 508 p.; 5. Miscellaneous papers, 1888–1938. Ed. by James Strachey. 396 p. Reference bibliography in each volume. New York: Basic Books, 1959.</p>
+<p>FREUD, Sigmund. The origins of psychoanalysis, letters to Wilhelm Fliess, drafts and notes: 1887–1902. Edited by Marie Bonaparte, Anna Freud, Ernst Kris. Authorized translation by Eric Mosbacher and James Strachey. Introduciton by Ernst Kris. xi, 486 p. New York: Basic Books, 1954. [CB 80/197]</p>
+<p>NEW YORK UNIVERSITY INSTITUTE OF PHILOSOPHY, 2nd, 1958. Psychoanalysis, scientific method and philosophy. A symposium ed. by Sidney Hook. xiii, 370 p. New York: New York University Press, 1959.</p>
+<p>Reviewed by Max Teichmann, <hi rend="i">Brit.J.Phil.Sci.,</hi> 1962, 13: 56–65.</p>
+<p>PFISTER, O. Psychoanalysis in the service of education, being an introduction to psychoanalysis. Authorized translation. xii, 176 p. London: H. Kimpton, 1922.</p>
+<p>Translatio of: Was bietet die Psychoanalyse dem Erzieher (Leipzig: Klinkhardt, 1917; 2nd ed. 1923). For French translation (Berne: 1921) <hi rend="i">see</hi> CB 13/303.</p>
+<p>BREUER, Joseph; FREUD, Sigmund. Studies on hysteria. Transl. from the German and ed. by James Strachey, in collaboration with Anna Freud, assisted by A. Strachey and Alan Tyson. xxxi, 335 p., front., 1 pl. New York: Basic Books, 1957. [CB 83/204]</p>
+<p>The importance of Freud's collaboration with Breuer is evaluated in the introduction.</p>
+</div>
+</div>
+<div n="2">
+<head>Citations parsed into fairly free-form bibl elements</head>
+<div type="articles">
+<head>Articles</head>
+<bibl type="journalArticle"><author>STRUIK, D.J.</author>. <title>Outline of a history of differential geometry</title> <title level="j">Isis</title>, <date>1933</date>, <biblScope unit="volume">19</biblScope>: <biblScope unit="page">92–100</biblScope>.</bibl>
+<bibl type="journalArticle"><author>DOREMUS, Charles A.</author>. <title> Retrospect in Biochemistry</title> <title level="j">Biochem.Bull.,</title>, <date>1912</date>, <biblScope unit="volume">1</biblScope>: <biblScope unit="page">245–255</biblScope>.</bibl>
+<bibl type="journalArticle"><author> HAMBRUGER, H.J.</author>. <title> Zur Geschichte und Entwicklung der physikalisch-chemischen Forschung in der Biologie.</title> <title level="j"> Int.Z.Phys.Chem.Biol.,</title>, <date>1914</date>, <biblScope unit="volume">1</biblScope>: <biblScope unit="page">6–27</biblScope>.</bibl>
+<bibl type="journalArticle"><author>LORIA, Gino.</author>. <title> Da Descartes e Fermat a Monge e Lagrange. Contributo alla storia della geometria analitica </title> <title level="j"> Atti Accad.Naz.Lincei Mem.Cl.Sci.Fis.Mat.Natur. </title>, <date>1923</date>, <biblScope unit="volume">14</biblScope>: <biblScope unit="page">777–845</biblScope>.</bibl>
+<bibl type="journalArticle"><author>LYSENKO, V.I.</author>.<title>Iz ustorii voprosa o tochkakh vozvrata ploskoǐ krivoĭ. [Historical questions relating to the turning point of a plane curve. (In Russian)]</title> <title level="j">Ist.Mat.Issled</title>, <date>1961</date>,<biblScope unit="volume">, 14</biblScope>: <biblScope unit="page"> 517–26</biblScope>.</bibl>
+<bibl type="journalArticle"><author> MILNE, John J.</author>. <title>The story of a problem and its solution.</title> <title level="j"> Math.Gaz.,</title>, <date>1930</date>, <biblScope unit="volume">15</biblScope>: <biblScope unit="page">142–4</biblScope>.
+<note>[The ‘locus ad tres et quatuour lineas’ problem in the third book of the “Conics” of Apollonius and its discussion by Pappus, Descartes and Newton.]</note></bibl>
+<bibl type="journalArticle"><author>MORDUKHAI-BOLTOVSKOI, D.D.</author>. <title>[From the past of analytical geometry. (In Russian)].</title> <title level="j">Tr.Inst.Ist.Est.,</title>, <date>1952</date>, <biblScope unit="volume">19</biblScope>: <biblScope unit="page">216–235</biblScope>.</bibl>
+<bibl type="journalArticle"><author>ROSENBLATT, A.</author>. <title>Postepy teoryi powierzchni algebraicznych. [Development of the theory of algebraic surfaces. (In Polish)]</title> <title level="j"> Prace Mat.Fiz.,</title>, <date>1912</date>, <biblScope unit="volume">23</biblScope>: <biblScope unit="page">51–92</biblScope>.</bibl>
+<bibl type="journalArticle"><author> CRAMÉR, Harald. A.I.</author>. <title>Khinchin's work in mathematical probability. </title> <title level="j"> Ann.Math.Statist.,</title>, <date>1912</date>, <biblScope unit="volume">23</biblScope>: <biblScope unit="page">51–92</biblScope>.</bibl>
+<bibl type="journalArticle"><author> DUNGEN, F.H. van den</author>,<author>COX, J.F.</author>,<author>MIEGHEM, J. van.</author>. <title> Sur quelques astronomes qui n&#8217;ont pas postulé implicitement l'uniformité de la rotation de la terre. </title> <title level="j"> Arch.Int.Hist.Sci.,</title>, <date>1955</date>, <biblScope unit="volume">8</biblScope>: <biblScope unit="page">27–37</biblScope>.</bibl>
+<bibl type="journalArticle"><author> DANTZIG, D. van.</author>. <title>Laplace, probabiliste et statisticien, et ses précurseurs.</title> <title level="j">Scientia,</title>, <date>1957</date>, <biblScope unit="volume">92</biblScope>: <biblScope unit="page">269–272</biblScope>.</bibl>
+<bibl type="journalArticle"><author>RAYLEIGH, Robert John Strutt</author>. <title> Meteorites and some of the problems which they present.</title> <title level="j"> Endeavour,</title>, <date>1944</date>, <biblScope unit="volume">3</biblScope>: <biblScope unit="page">127–34</biblScope>. [8 fig.]</bibl>
+</div>
+<div type="books">
+<head>Books</head>
+<!-- invalid: what does the content of physDesc mean? is it a page extent? If so, why the range?-->
+<!--
+<bibl type="book"><author>WAERDEN, B.L. van der.</author> <title> The foundation of algebraic geometry. A very incomplete historical survey.</title>. <physDesc>p. 437–9.</physDesc> <pubPlace>New York</pubPlace>: <publisher>Interscience</publisher>, <date>1948</date>.</bibl>
+-->
+<bibl type="book"><author>WIELEITNER, Heinrich.</author> <title>Die Geburt der modernen Mathematik. Historisches und Grundsätzliches. 2 vol. 1. Die analytische Geometrie; 2. Die Infinitesimalrechnung.</title>. <extent>2 vols.</extent> <pubPlace>Braun</pubPlace>: <publisher> Karlsruhe in Baden</publisher>, <date>1924–5</date>.</bibl>
+<bibl type="book">
+<author> BOREL, Emile.</author> <title> Le hazard.</title>. <extent>p. 311</extent> (<title level="s">Nouvelle Collection Sciencetifique</title>) <pubPlace>Paris</pubPlace>: <publisher> Alcan </publisher>, <date>1914</date>.</bibl>
+<bibl type="book"><author>WAERDEN, B.L. van der.</author> <title> Over de ruimte. [Concerning space. (In Dutch)].</title>. <extent>p. 18</extent> <pubPlace> Groningen-Djakarta</pubPlace>: <publisher> Noordhoff </publisher>, <date>1950</date>.</bibl>
+<bibl type="book"><author>ARRHENIUS, Svante</author> <title> the destinies of the stars </title>. <note>Transl. from the Swedish by J.E. Fries</note>. <extent>xvii, p. 256.</extent> <pubPlace>New York</pubPlace>: <publisher> Putnam </publisher>, <date>1918</date>.
+<note>Swedish original: Stjarnernes öden. 1915.
+French translation: Le destin des étoiles. Paris; Alcan, 1921. </note></bibl>
+</div>
+<div type="books-with-review">
+<head>Books with Review</head>
+<bibl type="book"><author>DU PASQUIER, Louis Gustave.</author> <title> Le calcul des probabilités, son évolution mathématique et philosophique.</title>. <extent>xxi, 304 p.</extent> <pubPlace>Paris</pubPlace>: <publisher> J. Hermann</publisher>, <date>1926</date>.
+<note><bibl type="review">
+Reviewed by <author> P.J. Richard</author>, <title level="j"> Rev.Gén.Sci.,</title> <date>1927</date>, <biblScope unit="volume">38</biblScope>: <biblScope unit="page">83–4</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author> CITTERT, P.H. van.</author> <title>Descriptive catalogue of the collection of microscopes in charge of the Utrecht University Museum. With an introductory historical survey of the resolving power of the microscope.</title>. <extent>110 p.</extent> <pubPlace> Groningen</pubPlace>: <publisher> Noordhoff</publisher>, <date>1934</date>.
+<note><bibl type="review">
+Reviewed by <author>M.A. Van Andel,</author>, <title level="j"> Bijdr.Gesch.Geneesk.,</title> <date>1935</date>, <biblScope unit="volume">15</biblScope>: <biblScope unit="page">68</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author> GÜTTLER, A.; PETRI, W. Der Mond.</author> <title> Kulturgeschichte und Astronomie des Erdtrabanten.</title>. <extent>71 p., ill.</extent> <pubPlace> Heidelberg </pubPlace>: <publisher> Heinz Moos Verlag </publisher>, <date>1962</date>.
+<note><bibl type="review">
+Reviewed by <author> Heinz Degen,</author>, <title level="j"> Naturwiss.Rundsch.,</title> <date>1963</date>, <biblScope unit="volume">16</biblScope>: <biblScope unit="page">118</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author> VAUCOULEURS, Gérard de.</author> <title> The planet Mars.</title>. <note>Translated from the French by Patrick A. Moore.</note> <extent>87 p., ill.</extent> <pubPlace> London </pubPlace>: <publisher> Faber </publisher>, <date>1950</date>.
+<note>French edition: Le problème Martien (Paris: Elzévir, 1946)
+<bibl type="review">reviewed by <author> P.L. Dupont</author>, <title level="j"> Ciel Terre,</title> <date>1947</date>, <biblScope unit="volume">63</biblScope>: <biblScope unit="page">61</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author> ARRHENIUS, Svante</author> <title>Die SternenweltNach hinterlassenen Aufzeichnungen bearbeitet und ergänzt von Knut Lundmark. Übers. von Alexis Finkelstein.</title> <extent>x, 359 p., ill.</extent> <pubPlace> Leipzig </pubPlace>: <publisher> Akademische Verlagsgesellschaft </publisher>, <date>1931</date>.
+<note> <p>Translation of “Stjärnwärlden”, the second part of an enlarged edition of “Världarnas utveckling”, 1906.</p>
+<bibl type="review">
+Reviewed by <author>P. Kirchberger</author>, <title level="j"> Deut.Lit.Zeitung,</title> <date>1932</date>, <biblScope unit="volume">3</biblScope>: <biblScope unit="page">1288–90</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author> BLOCH, Iwan</author>, <author>Georg Loewenstein.</author>. <title> Die Prostitution.</title>. <extent> 2 vols.</extent>. <extent>xiii, 370 p. and xxxvi, 870 p.</extent> <pubPlace>Berlin</pubPlace>: <publisher> Louis Marcus </publisher>, <date>1912–1925</date>.
+<note><bibl type="review">Reviewed vol. 1 by <author> George Sarton </author>, <title level="j">Isis,</title> <date>1913</date>, <biblScope unit="volume">1</biblScope>: <biblScope unit="page">284–5</biblScope>.</bibl>
+<bibl type="review">Reviewed vol. 2 by <author> Stephen d'Irsay</author>, <title level="j">Isis,</title> <date>1926</date>, <biblScope unit="volume">8</biblScope>: <biblScope unit="page">521–5</biblScope>.</bibl></note></bibl>
+<bibl type="book"><author>HUME, Edgar Erskine</author>. <title> Medical work of the Knights Hospitallers of Saint John of Jerusalem.</title>.<extent>xxii, 371 p., ill.</extent> <pubPlace>Baltimore, MD</pubPlace>: <publisher> Johns Hopkins Press </publisher>, <date>1940</date>.
+<note> (Institute of the History of Medicine of the Johns Hopkins University)
+<bibl type="review">Reviewed by <author>Max Teichmann</author>, <title level="j">Brit.J.Phil.Sci.,</title> <date>1962</date>, <biblScope unit="volume">13</biblScope>: <biblScope unit="page">56–65</biblScope>.</bibl></note></bibl>
+</div>
+</div>
+<div n="3">
+<head>Citations mapped to a rigid citation schema for export</head>
+<p>(To do)</p>
+<!--
+STEP 3
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Outline of a history of differential geometry </title>
+<author>
+<forename>D.J.</forename>
+<surname>Struik </surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Isis </title>
+<imprint>
+<biblScope unit="volume">19</biblScope>
+<biblScope unit="page">92–100</biblScope>
+<date>1964</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Retrospect in Biochemistry.</title>
+<author>
+<forename>Charles A.</forename>
+<surname>DOREMUS</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Biochem.Bull.,</title>
+<imprint>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="page">245–255</biblScope>
+<date>1912</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Zur Geschichte und Entwicklung der physikalisch-chemischen Forschung in der Biologie.</title>
+<author>
+<forename>H.J.</forename>
+<surname>HAMBRUGER</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Int.Z.Phys.Chem.Biol.,</title>
+<imprint>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="page">6–27</biblScope>
+<date>1914</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Da Descartes e Fermat a Monge e Lagrange. Contributo alla storia della geometria analitica.</title>
+<author>
+<forename>Gino.</forename>
+<surname>LORIA</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Atti Accad.Naz.Lincei Mem.Cl.Sci.Fis.Mat.Natur.,</title>
+<imprint>
+<biblScope unit="volume">14</biblScope>
+<biblScope unit="page">777–845</biblScope>
+<date>1923</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Iz ustorii voprosa o tochkakh vozvrata ploskoǐ krivoĭ.</title>
+<author>
+<forename>V.I.</forename>
+<surname>LYSENKO</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Ist.Mat.Issled.,</title>
+<imprint>
+<biblScope unit="volume">14</biblScope>
+<biblScope unit="page">517–26</biblScope>
+<date>1961</date>
+</imprint>
+</monogr>
+<note>[Historical questions relating to the turning point of a plane curve. (In Russian)]</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">The story of a problem and its solution.</title>
+<author>
+<forename>John J.</forename>
+<surname>MILNE</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Math.Gaz.,</title>
+<imprint>
+<biblScope unit="volume">15</biblScope>
+<biblScope unit="page">142–4</biblScope>
+<date>1930</date>
+</imprint>
+</monogr>
+<note>[The ‘locus ad tres et quatuour lineas’ problem in the third book of the “Conics” of Apollonius and its discussion by Pappus, Descartes and Newton.</p>].</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">>[From the past of analytical geometry. (In Russian)].</title>
+<author>
+<forename>D.D.</forename>
+<surname>MORDUKHAI-BOLTOVSKOI</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Tr.Inst.Ist.Est.,</title>
+<imprint>
+<biblScope unit="volume">19</biblScope>
+<biblScope unit="page">216–235</biblScope>
+<date>1952</date>
+</imprint>
+</monogr>
+<note></note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Postepy teoryi powierzchni algebraicznych</title>
+<author>
+<forename>A.</forename>
+<surname>ROSENBLATT</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Isis </title>
+<imprint>
+<biblScope unit="volume">19</biblScope>
+<biblScope unit="page">92–100</biblScope>
+<date>1964</date>
+</imprint>
+</monogr>
+<note>[Development of the theory of algebraic surfaces. (In Polish)] </note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Khinchin's work in mathematical probability.</title>
+<author>
+<forename>Harald. A.I.</forename>
+<surname>CRAMÉR</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Ann.Math.Statist.,</title>
+<imprint>
+<biblScope unit="volume">23</biblScope>
+<biblScope unit="page">51–92</biblScope>
+<date>1912</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Sur quelques astronomes qui n&#8217;ont pas postulé implicitement l'uniformité de la rotation de la terre.</title>
+<author>
+<forename>F.H. van den</forename>
+<surname>DUNGEN</surname>
+</author>
+<author>
+<forename>J.F.</forename>
+<surname>COX</surname>
+</author>
+<author>
+<forename>J. van</forename>
+<surname>MIEGHEM</surname>
+</author>
+
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Arch.Int.Hist.Sci.,</title>
+<imprint>
+<biblScope unit="volume">8</biblScope>
+<biblScope unit="page">27–37</biblScope>
+<date>1955</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Laplace, probabiliste et statisticien, et ses précurseurs.</title>
+<author>
+<forename>D. van</forename>
+<surname>DANTZIG</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Scientia,</title>
+<imprint>
+<biblScope unit="volume">92</biblScope>
+<biblScope unit="page">269–272</biblScope>
+<date>1957</date>
+</imprint>
+</monogr>
+<note>If there were a descriptive note here we would add it.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+<biblStruct type="journalArticle" xml:id="cit1">
+<analytic>
+<title level="a">Meteorites and some of the problems which they present.</title>
+<author>
+<forename>Robert John Strutt</forename>
+<surname>RAYLEIGH</surname>
+</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Endeavour,</title>
+<imprint>
+<biblScope unit="volume">3</biblScope>
+<biblScope unit="page">127–34</biblScope>
+<date>1944</date>
+</imprint>
+</monogr>
+<note>8 fig.</note>
+<note type="tags">	
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+_____________________________________________________________________________________________
+BOOKS
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">The foundation of algebraic geometry. A very incomplete historical survey.</title>
+<author>
+<forename>B.L. van der.</forename>
+<surname>WAERDEN</surname>
+</author>
+<physDesc>437–39 p.</physDesc>
+<imprint>
+<pubPlace>New York</pubPlace>
+<publisher>Interscience</publisher>
+<date>1948</date>
+</imprint>
+</monogr>
+<note></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Die Geburt der modernen Mathematik. Historisches und Grundsätzliches</title>
+<author>
+<forename>Heinrich</forename>
+<surname>WIELEITNER</surname>
+</author>
+<physDesc>2 vols.</physDesc>
+<imprint>
+<pubPlace>Karlsruhe in Baden</pubPlace>
+<publisher>Braun</publisher>
+<date>1922-25</date>
+</imprint>
+</monogr>
+<note></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Le hazard.</title>
+<title level="s">Nouvelle Collection Sciencetifique</title>
+<author>
+<forename>Emile</forename>
+<surname>BOREL</surname>
+</author>
+<physDesc>311 p.</physDesc>
+<imprint>
+<pubPlace>Paris</pubPlace>
+<publisher>Alcan</publisher>
+<date>1914</date>
+</imprint>
+</monogr>
+<note></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Over de ruimte. [Concerning space. (In Dutch)].</title>
+<author>
+<forename>B.L. van der</forename>
+<surname>WAERDEN</surname>
+</author>
+<physDesc>18 p.</physDesc>
+<imprint>
+<pubPlace>Groningen-Djakarta</pubPlace>
+<publisher>Noordhoff</publisher>
+<date>1950</date>
+</imprint>
+</monogr>
+<note></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">the destinies of the stars</title>
+<author>
+<forename>Svante</forename>
+<surname>ARRHENIUS</surname>
+</author>
+<trans>Transl. from the Swedish by J.E. Fries</trans>
+<physDesc>xvii, p. 256</physDesc>
+<imprint>
+<pubPlace>New York</pubPlace>
+<publisher>Putnam</publisher>
+<date>1918</date>
+</imprint>
+</monogr>
+<note>Swedish original: Stjarnernes öden. 1915. French translation: Le destin des étoiles. Paris; Alcan, 1921.  </note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+
+
+
+
+
+
+
+
+
+
+
+_____________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Le calcul des probabilités, son évolution mathématique et philosophique</title>
+<author>
+<forename>Louis Gustave</forename>
+<surname>DU PASQUIER</surname>
+</author>
+<physDesc>xxi, 304 p.</physDesc>
+<imprint>
+<pubPlace>Paris</pubPlace>
+<publisher>J. Hermann</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>P.J. Richard<i>Rev.Gén.Sci.,</i>1927, 38: 83–84.</ref></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>P.J. Richard</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Rev.Gén.Sci.,</title>
+<imprint>
+<biblScope unit="volume">38</biblScope>
+<biblScope unit="page">83-84</biblScope>
+<date>1927</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+_____________________________________________________________________________________________
+
+
+
+
+
+
+
+
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Descriptive catalogue of the collection of microscopes in charge of the Utrecht University Museum. With an introductory historical survey of the resolving power of the microscope.</title>
+<author>
+<forename>P.H. van</forename>
+<surname>CITTERT</surname>
+</author>
+<physDesc>110 p.</physDesc>
+<imprint>
+<pubPlace>Groningen</pubPlace>
+<publisher>Noordhoff</publisher>
+<date>1934</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>M.A. Van Andel,<i>Bijdr.Gesch.Geneesk.,</i>1935, 15: 68 </ref></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>M.A. Van Andel</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Bijdr.Gesch.Geneesk.,</title>
+<imprint>
+<biblScope unit="volume">15</biblScope>
+<biblScope unit="page">68</biblScope>
+<date>1935</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+_____________________________________________________________________________________________
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Kulturgeschichte und Astronomie des Erdtrabanten.</title>
+<author>
+<forename>A.</forename>
+<surname>GÜTTLER</surname>
+</author>
+<author>
+<forename>W. Der Mond</forename>
+<surname>PETRI</surname>
+</author>
+
+<physDesc>71 p., ill.</physDesc>
+<imprint>
+<pubPlace>Heidelberg</pubPlace>
+<publisher>Heinz Moos Verlag.</publisher>
+<date>1962</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>Heinz Degen<i>Naturwiss.Rundsch.,</i>1963, 16: 118.</ref></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>Heinz Degen</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Naturwiss.Rundsch.,</title>
+<imprint>
+<biblScope unit="volume">16</biblScope>
+<biblScope unit="page">118</biblScope>
+<date>1963</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+
+_____________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">The planet Mars.</title>
+<author>
+<forename>Gérard de</forename>
+<surname>VAUCOULEURS</surname>
+</author>
+<trans>
+<forename>Patrick A.</forename>
+<surname>Moore</surname>
+</trans>
+
+<physDesc>87 p., ill.</physDesc>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>Faber</publisher>
+<date>1950</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>P.L. Dupont <i>Ciel Terre,</i>1947, 63: 61.</ref></note>
+<note>French edition: Le problème Martien (Paris: Elzévir, 1946)</note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>P.L. Dupont</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Ciel Terre,</title>
+<imprint>
+<biblScope unit="volume">61</biblScope>
+<biblScope unit="page">63</biblScope>
+<date>1947</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Die SternenweltNach hinterlassenen Aufzeichnungen bearbeitet und ergänzt von Knut Lundmark. Übers. von Alexis Finkelstein</title>
+<author>
+<forename>Svante</forename>
+<surname>ARRHENIUS </surname>
+</author>
+
+<physDesc>x, 359 p., ill.</physDesc>
+<imprint>
+<pubPlace>Leipzig</pubPlace>
+<publisher>Akademische Verlagsgesellschaft </publisher>
+<date>1931</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>P. Kirchberger <i>Deut.Lit.Zeitung,</i>1932, 3: 1288-90</ref></note>
+<note><p>Translation of “Stjärnwärlden”, the second part of an enlarged edition of “Världarnas utveckling”, 1906.</p></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>P.L. Dupont</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Ciel Terre,</title>
+<imprint>
+<biblScope unit="volume">61</biblScope>
+<biblScope unit="page">63</biblScope>
+<date>1947</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Die Prostitution</title>
+<author>
+<forename>Iwan</forename>
+<surname>BLOCH</surname>
+</author>
+
+<author>
+<forename>Georg </forename>
+<surname>Loewenstein</surname>
+</author>
+
+<physDesc>2 vols., xii, 370 p.; xxxvi, 870 p.</physDesc>
+<imprint>
+<pubPlace>Berlin</pubPlace>
+<publisher>Louis Marcus</publisher>
+<date>1912-1925</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>George Sarton<i>Isis,</i>1913, 1: 284-5</ref></note>
+<note type="tags">
+<note>Reviewed by <ref  target=“cit3”>Stephen d'Irsay<i>Isis,</i>1926, 8: 521-5</ref></note>
+<note type="tags">
+
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>George Sarton</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Isis,</title>
+<imprint>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="page">284-5</biblScope>
+<date>1913</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>Stephen d'Irsay</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Isis,</title>
+<imprint>
+<biblScope unit="volume">8</biblScope>
+<biblScope unit="page">521-5</biblScope>
+<date>1926</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref>
+</note>
+</biblStruct>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<biblStruct type="book" xml:id="cit2">
+<monogr>
+<title level="m">Medical work of the Knights Hospitallers of Saint John of Jerusalem</title>
+<author>	
+<forename>Edgar Erskine</forename>
+<surname>HUME</surname>
+</author>
+<physDesc>xxii, 371 p., ill.</physDesc>
+<imprint>
+<pubPlace>Baltimore</pubPlace>
+<publisher>Johns Hopkins Press</publisher>
+<date>1940</date>
+</imprint>
+</monogr>
+<note>Reviewed by <ref  target=“cit3”>Max Teichmann<i>Brit.J.Phil.Sci.,</i>1940, 13: 56–65.</ref></note>
+<note type="tags">
+<note type="tag">TAGS GO HERE</note>
+</note>
+</biblStruct>
+<biblStruct type="review" xml:id="cit3">
+<analytic>
+<title level="a">[Review]</title>
+<author>Max Teichmann</author>
+</analytic>
+<monogr>
+<title level="j" type=”abbreviated”>Brit.J.Phil.Sci.,</title>
+<imprint>
+<biblScope unit="volume">13</biblScope>
+<biblScope unit="page">56-65</biblScope>
+<date>1927</date>
+</imprint>
+</monogr>
+<note>Review of <ref  target=“cit2”></ref></note>
+</biblStruct>
+-->
+</div>
 </body>
 </text>
 </TEI>
