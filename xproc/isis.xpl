@@ -16,6 +16,7 @@
 	<file:mkdir href="../../build/normalized-tite" fail-on-error="false"/>
 	<file:mkdir href="../../build/report" fail-on-error="false"/>
 	<file:mkdir href="../../build/p5" fail-on-error="false"/>
+	<file:mkdir href="../../build/csv" fail-on-error="false"/>
 	<file:mkdir href="../../build/upconverted" fail-on-error="false"/>
 	<file:mkdir href="../../build/sample" fail-on-error="false"/>
 	
@@ -26,6 +27,7 @@
 	<p:for-each name="file">
 		<p:iteration-source select="/c:directory/c:file"/>
 		<p:variable name="filename" select="encode-for-uri(/c:file/@name)"/>
+		<p:variable name="base-filename" select="encode-for-uri(substring-before(/c:file/@name, '.xml'))"/>
 		<p:load name="tite">
 			<p:with-option name="href" select="concat('../tite/', $filename)"/>
 		</p:load>
@@ -68,11 +70,20 @@
 		</p:try>		
 		
 		<isis:transform name="p5" xslt="tite-to-p5.xsl"/>
-		<isis:upconvert-document/>
+		<isis:upconvert-document name="upconverted"/>
 		
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:store>
+		
+		<isis:transform name="csv" xslt="tei-bibl-to-csv.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
+		</p:store>		
 		
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/p5/', $filename)"/>
@@ -130,6 +141,11 @@
 		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
 		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
 		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
+		<isis:transform xslt="group-by-top-level-subject.xsl"/>
+		<isis:transform xslt="group-by-second-level-subject.xsl"/>
+		<isis:transform xslt="group-by-third-level-subject.xsl"/>
+		<isis:transform xslt="group-by-second-level-period.xsl"/>
+		<isis:transform xslt="group-by-third-level-period.xsl"/>
 		<isis:transform xslt="group-citations.xsl"/>
 		<isis:transform xslt="make-bibl.xsl"/>
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/>

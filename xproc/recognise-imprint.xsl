@@ -19,23 +19,21 @@
 		[preceding-sibling::node()[1]/self::tei:extent]
 		[following-sibling::node()[1][self::tei:note | self::tei:ref] or 
 		not(following-sibling::*)]">
-		<xsl:element name="imprint">
-			<!--  Berlin: Julius Springer, 1923. -->
-			<xsl:variable name="imprint-regex">([^:]*)(:\p{Z}*)([^,]*)(,\p{Z}*)(\p{Nd}*)(\.)</xsl:variable>
-			<xsl:analyze-string select="." regex="{$imprint-regex}">
-				<xsl:matching-substring>
-					<xsl:element name="pubPlace"><xsl:value-of select="regex-group(1)"/></xsl:element>
-					<xsl:value-of select="regex-group(2)"/>
-					<xsl:element name="publisher"><xsl:value-of select="regex-group(3)"/></xsl:element>
-					<xsl:value-of select="regex-group(4)"/>
-					<xsl:element name="date"><xsl:value-of select="regex-group(5)"/></xsl:element>
-					<xsl:value-of select="regex-group(6)"/>
-				</xsl:matching-substring>
-				<xsl:non-matching-substring>
-					<xsl:value-of select="."/>
-				</xsl:non-matching-substring>
-			</xsl:analyze-string>
-		</xsl:element>
+		<!--  Berlin: Julius Springer, 1923. -->
+		<xsl:variable name="imprint-regex">([^:]*)(:\p{Z}*)([^,]*)(,\p{Z}*)(\p{Nd}*)(\.)</xsl:variable>
+		<xsl:analyze-string select="." regex="{$imprint-regex}">
+			<xsl:matching-substring>
+				<xsl:element name="pubPlace"><xsl:value-of select="regex-group(1)"/></xsl:element>
+				<xsl:value-of select="regex-group(2)"/>
+				<xsl:element name="publisher"><xsl:value-of select="regex-group(3)"/></xsl:element>
+				<xsl:value-of select="regex-group(4)"/>
+				<xsl:element name="date"><xsl:value-of select="regex-group(5)"/></xsl:element>
+				<xsl:value-of select="regex-group(6)"/>
+			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<xsl:value-of select="."/>
+			</xsl:non-matching-substring>
+		</xsl:analyze-string>
 	</xsl:template>
 	
 </xsl:stylesheet>

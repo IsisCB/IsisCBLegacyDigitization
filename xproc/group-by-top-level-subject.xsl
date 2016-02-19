@@ -15,11 +15,23 @@
 	<xsl:template match="tei:body//tei:div">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<!-- handle all the citation groups -->
-			<xsl:for-each-group select="node()" group-starting-with="tei:p[tei:hi[@rend='b']]">
+			<!-- handle all the top level subjects -->
+			<!-- these headings are all in bold -->
+			<!-- they start with an all uppercase word, and contain no lower case letters -->
+			<xsl:for-each-group select="node()" group-starting-with="
+				tei:p[
+					tei:hi[@rend='b'][string(.) = string(..)] and
+					matches(., '^[A-Z]+ [^a-z]+$')
+				]
+			">
 				<xsl:choose>
-					<xsl:when test="self::tei:p[tei:hi[@rend='b']]">
-						<div type="party">
+					<xsl:when test="self::
+						tei:p[
+							tei:hi[@rend='b'][string(.) = string(..)] and
+							matches(., '^[A-Z]+ [^a-z]+$')
+						]
+					">
+						<div type="top-level-subject">
 							<head><xsl:apply-templates/></head>
 							<xsl:apply-templates select="current-group()[position() &gt; 1]"/>
 						</div>

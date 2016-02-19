@@ -28,7 +28,16 @@
 						[string-length(substring-before(., ' ')) &gt; 1]
 						[upper-case(substring-before(., ' ')) = substring-before(., ' ')]
 					">
-						<bibl>
+						<xsl:variable name="page" select="preceding::tei:pb[1]"/>
+						<bibl xml:id="{
+							concat(
+								'p',
+								$page/@n, '-', 
+								string(1 + count(
+									preceding::tei:bibl[. >> $page]
+								))
+							)
+						}">
 							<xsl:apply-templates select="current-group()"/>
 						</bibl><xsl:value-of select="codepoints-to-string(10)"/>
 					</xsl:when>

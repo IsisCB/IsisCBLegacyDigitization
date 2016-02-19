@@ -20,11 +20,12 @@
 	<!-- 97 p., front., 17 pl. -->
 	<!-- x, 359 p., 1 pl., 61 fig.  -->
 	<!--  ix, 361 p., pl., portr., bibliogr. -->
+	<!-- 258 pp., illus., bibl., index.  -->
 	<!-- Also journal extents:  -->
 	<!-- e.g. "8 fig." -->
 	<!-- div with type = articles or books is for recognising citations in the test document citation-test.xml -->
 	<xsl:template match="tei:bibl[@type='journalArticle']/text() | tei:div[contains(@type, 'articles')]//tei:p/text()">
-		<xsl:analyze-string select="." regex="(, (\d* )?pl.)|(, (\d* )?fig.)|(, (\d* )?ill.)|(, (\d* )?portr.)|(, (\d* )?bibliogr.)">
+		<xsl:analyze-string select="." regex="(, (\d* )?pl\.)|(, (\d* )?fig\.)|(, (\d* )?ill\.)|(, (\d* )?portr\.)|(, (\d* )?bibliogr\.)|(, (\d* )?illus\.)|(, (\d* )?bibl\.)">
 			<xsl:matching-substring>
 				<xsl:if test="regex-group(1)"><!-- plates -->
 					<xsl:text>, </xsl:text>
@@ -101,6 +102,36 @@
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
+				<xsl:if test="regex-group(11)"><!-- illus. -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">illustrations</xsl:attribute>
+							<xsl:if test="regex-group(12)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(12)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(12)"/>
+							</xsl:if>
+							<xsl:text>illus.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
+				<xsl:if test="regex-group(13)"><!-- bibliography -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">bibliography</xsl:attribute>
+							<xsl:if test="regex-group(14)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(14)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(14)"/>
+							</xsl:if>
+							<xsl:text>bibl.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
 			</xsl:matching-substring>
 			<xsl:non-matching-substring>
 				<xsl:value-of select="."/>
@@ -109,7 +140,7 @@
 	</xsl:template>
 	
 	<xsl:template match="tei:bibl[@type='book']/text() | tei:div[contains(@type, 'books')]//tei:p/text()">
-		<xsl:analyze-string select="." regex="( ({$roman-number-regex}),)?( (\d+) p\.)(, front.)?(, (\d* )?pl.)?(, (\d* )?fig.)?(, (\d* )?ill.)?(, (\d* )?portr.)?(, (\d* )?bibliogr.)?">
+		<xsl:analyze-string select="." regex="( ({$roman-number-regex}),)?( (\d+) pp?\.)(, front\.)?(, (\d* )?pl\.)?(, (\d* )?fig\.)?(, (\d* )?ill\.)?(, (\d* )?illus\.)?(, (\d* )?portr\.)?(, (\d* )?bibliogr\.)?(, (\d* )?bibl\.)?(, (\d* )?index\.)?">
 			<xsl:matching-substring>
 				<xsl:if test="regex-group(1)"><!-- roman number of prefatory pages, followed by comma-->
 					<xsl:element name="extent">
@@ -190,33 +221,78 @@
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(24)"><!-- portraits -->
+				<xsl:if test="regex-group(24)"><!-- illustrations -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
-							<xsl:attribute name="commodity">portraits</xsl:attribute>
+							<xsl:attribute name="commodity">illustrations</xsl:attribute>
 							<xsl:if test="regex-group(25)">
 								<xsl:attribute name="quantity">
 									<xsl:value-of select="regex-group(25)"/>
 								</xsl:attribute>
 								<xsl:value-of select="regex-group(25)"/>
 							</xsl:if>
-							<xsl:text>portr.</xsl:text>
+							<xsl:text>illus.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(26)"><!-- bibliography -->
+				<xsl:if test="regex-group(26)"><!-- portraits -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
-							<xsl:attribute name="commodity">bibliography</xsl:attribute>
+							<xsl:attribute name="commodity">portraits</xsl:attribute>
 							<xsl:if test="regex-group(27)">
 								<xsl:attribute name="quantity">
 									<xsl:value-of select="regex-group(27)"/>
 								</xsl:attribute>
 								<xsl:value-of select="regex-group(27)"/>
 							</xsl:if>
+							<xsl:text>portr.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
+				<xsl:if test="regex-group(28)"><!-- bibliography -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">bibliography</xsl:attribute>
+							<xsl:if test="regex-group(29)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(29)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(29)"/>
+							</xsl:if>
 							<xsl:text>bibliogr.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
+				<xsl:if test="regex-group(30)"><!-- bibliography -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">bibliography</xsl:attribute>
+							<xsl:if test="regex-group(31)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(31)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(31)"/>
+							</xsl:if>
+							<xsl:text>bibl.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
+				<xsl:if test="regex-group(32)"><!-- index -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">index</xsl:attribute>
+							<xsl:if test="regex-group(33)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(33)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(33)"/>
+							</xsl:if>
+							<xsl:text>index.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>

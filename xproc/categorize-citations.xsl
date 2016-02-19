@@ -27,12 +27,13 @@
 						followed by a comma, 
 						some whitespace, 
 						one or more decimal digits (the issue number), 
-						followed by a comma, 
-						followed by more white space,
+						optionally followed by a numeric expression in parentheses
+						followed by a colon, 
+						optionally followed by more white space,
 						followed by a decimal digit (start of page specification)
 					-->
 					<!-- e.g. "2010, 4: 3" -->
-					<xsl:when test="text()[matches(., '.*\p{Nd}{4},\p{Z}*\p{Nd}*:\p{Z}*\p{Nd}')]">journalArticle</xsl:when>
+					<xsl:when test="matches(., '.*\p{Nd}{4},\p{Z}*\p{Nd}*(\(\p{Nd}*\))?:\p{Z}?\p{Nd}')">journalArticle</xsl:when>
 					<xsl:otherwise>book</xsl:otherwise>
 				</xsl:choose>
 			</xsl:attribute>
