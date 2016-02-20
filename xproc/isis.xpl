@@ -76,11 +76,12 @@
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:store>
 		
-		<isis:transform name="csv" xslt="tei-bibl-to-csv.xsl">
+		<isis:transform xslt="tei-bibls-to-table.xsl">
 			<p:input port="source">
 				<p:pipe step="upconverted" port="result"/>
 			</p:input>
 		</isis:transform>
+		<isis:transform name="csv" xslt="tei-table-to-csv.xsl"/>
 		<p:store method="text">
 			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
 		</p:store>		
@@ -149,6 +150,7 @@
 		<isis:transform xslt="group-citations.xsl"/>
 		<isis:transform xslt="make-bibl.xsl"/>
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/>
+		<isis:transform xslt="assign-bibl-identifiers.xsl"/>
 		<isis:transform xslt="categorize-citations.xsl"/>
 		<isis:transform xslt="recognise-authors.xsl"/>
 		<isis:transform xslt="recognise-journal-titles.xsl"/>

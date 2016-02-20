@@ -12,7 +12,8 @@
 		</xsl:copy>
 	</xsl:template>
 	
-	<xsl:template match="tei:body//tei:div">
+	<!-- citations inside "initial-letter" divs are all parties (people and institutions) -->
+	<xsl:template match="tei:body//tei:div[not(@type='initial-letter')]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<!-- handle all the top level subjects -->
