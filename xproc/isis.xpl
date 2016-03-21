@@ -26,6 +26,9 @@
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
 		<p:iteration-source select="/c:directory/c:file"/>
+		<!--
+		<p:iteration-source select="/c:directory/c:file[@name='ISIS-04.xml']"/>
+		-->
 		<p:variable name="filename" select="encode-for-uri(/c:file/@name)"/>
 		<p:variable name="base-filename" select="encode-for-uri(substring-before(/c:file/@name, '.xml'))"/>
 		<p:load name="tite">

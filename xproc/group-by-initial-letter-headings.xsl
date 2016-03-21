@@ -19,7 +19,7 @@
 	<xsl:template match="
 		tei:body/tei:div[
 			tei:p[
-				string(.) = string(tei:hi[@rend='b']) and
+				string(.) = string(tei:hi[@rend='b'][1]) and
 				string-length(.) = 1
 			]
 		]">
@@ -27,14 +27,14 @@
 			<xsl:copy-of select="@*"/>
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:p[
-					string(.) = string(tei:hi[@rend='b']) and
+					string(.) = string(tei:hi[@rend='b'][1]) and
 					string-length(.) = 1
 				]
 			">
 				<xsl:choose>
 					<xsl:when test="
 						self::tei:p[
-							string(.) = string(tei:hi[@rend='b']) and
+							string(.) = string(tei:hi[@rend='b'][1]) and
 							string-length(.) = 1
 						]
 					">

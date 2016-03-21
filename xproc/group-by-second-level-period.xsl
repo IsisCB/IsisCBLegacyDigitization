@@ -25,18 +25,19 @@
 			<!-- these headings are all in bold, and start with a number,
 			optionally followed by a space, followed by 
 			an alphabetic token whose letters are all uppercase, 
+			(or, at least in ISIS-04.xml, in lower case)
 			followed optionally by a space and more text -->
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:p[
 					string(.) = string(tei:hi[@rend='b']) and
-					matches(., '^[0-9]+ ?[A-Z]+( .+)?$')
+					matches(., '^[0-9]+ ?[A-Za-z]+( .+)?$')
 				]
 			">
 				<xsl:choose>
 					<xsl:when test="self::
 						tei:p[
 							string(.) = string(tei:hi[@rend='b']) and
-							matches(., '^[0-9]+ ?[A-Z]+( .+)?$')
+							matches(., '^[0-9]+ ?[A-Za-z]+( .+)?$')
 						]
 					">
 						<div type="second-level-period">

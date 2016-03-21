@@ -37,11 +37,20 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<!-- Author name is the part of the first text element up to the full stop and space -->
-					<xsl:element name="author">
-						<xsl:value-of select="concat(substring-before(text()[1], '. '), '. ')"/>
-					</xsl:element>
-					<xsl:value-of select="substring-after(text()[1], '. ')"/>
-					<xsl:copy-of select="text()[1]/following-sibling::node()"/>
+					<xsl:variable name="author" select="substring-before(text()[1], '. ')"/>
+					<xsl:choose>
+						<xsl:when test="$author">
+							<xsl:element name="author">
+								<xsl:value-of select="concat($author, '. ')"/>
+							</xsl:element>
+							<xsl:value-of select="substring-after(text()[1], '. ')"/>
+							<xsl:copy-of select="text()[1]/following-sibling::node()"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:comment>No author!</xsl:comment>
+							<xsl:apply-templates/>
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>

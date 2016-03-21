@@ -10,7 +10,7 @@
 	<hi rend="b"><hi rend="i">see</hi> ABÉLARD, Pierre</hi>
 	-->
 	<xsl:template match="tei:p[
-		string(.) = string(tei:hi[@rend='b']) and
+		string(.) = string(tei:hi[@rend='b'][1]) and
 		tei:hi[@rend='b']/tei:hi[@rend='i'] ='see'
 	]">
 		<xsl:copy>

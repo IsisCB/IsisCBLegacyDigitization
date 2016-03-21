@@ -31,14 +31,14 @@
 			<!-- these headings are all in bold, and start with an alphabetic token whose initial letter(s) are uppercase but whose ending is in lower case -->
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:p[
-					string(.) = string(tei:hi[@rend='b']) and
+					string(.) = string(tei:hi[@rend='b'][1]) and
 					matches(., '^[A-Z]+[a-z]+ .+$')
 				]
 			">
 				<xsl:choose>
 					<xsl:when test="self::
 						tei:p[
-							string(.) = string(tei:hi[@rend='b']) and
+							string(.) = string(tei:hi[@rend='b'][1]) and
 							matches(., '^[A-Z]+[a-z]+ .+$')
 						]
 					">

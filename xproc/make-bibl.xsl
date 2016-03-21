@@ -17,16 +17,18 @@
 			<xsl:copy-of select="@*"/>
 			<!-- handle all the citations -->
 			<!-- each citation starts with a para whose first word is a person's name: a word
-			longer than 1 character, in upper case -->
+			longer than 1 character, in upper case, 
+			OR an Arabic name prefixed with the definite article "al-" in lower case -->
 			<xsl:for-each-group select="node()" group-starting-with="
+				tei:div |
 				tei:p
 					[string-length(substring-before(., ' ')) &gt; 1]
-					[upper-case(substring-before(., ' ')) = substring-before(., ' ')]
+					[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]
 			">
 				<xsl:choose>
 					<xsl:when test="self::tei:p
 						[string-length(substring-before(., ' ')) &gt; 1]
-						[upper-case(substring-before(., ' ')) = substring-before(., ' ')]
+						[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]
 					">
 						<xsl:variable name="page" select="preceding::tei:pb[1]"/>
 						<bibl>
@@ -44,15 +46,16 @@
 	<!-- a paragraph which begins a bibliographic citation just needs to be unwrapped from its para -->
 	<xsl:template priority="100" match="tei:body//tei:div/tei:p
 		[string-length(substring-before(., ' ')) &gt; 1]
-		[upper-case(substring-before(., ' ')) = substring-before(., ' ')]">
+		[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]">
 		<xsl:apply-templates/>
 	</xsl:template>
 	
 	<!-- a paragraph which follows on from a previous para in a bibliographic citation is a note -->
-	<xsl:template match="tei:body//tei:div/tei:p[preceding-sibling::tei:p]">
+	<xsl:template match="tei:body//tei:div/tei:p
+		[preceding-sibling::tei:p]
+		[not(tei:hi[@rend='b'])]">
 		<note><xsl:apply-templates/></note>
 	</xsl:template>
-	
 	
 </xsl:stylesheet>
 					

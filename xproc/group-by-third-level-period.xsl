@@ -18,18 +18,19 @@
 			<!-- handle all the third level periods -->
 			<!-- these headings are all in bold, and start with a number, 
 			followed by a token whose initial letter(s) are uppercase but whose ending is in lower case, 
+			(or, at least in ISIS-04.xml, all lower case)
 			optionally followed by a space and more text-->
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:p[
 					string(tei:hi[@rend='b']) = string(.) and
-					matches(., '^[0-9]+( )?[A-Z]+[a-z]+( .+)?$')
+					matches(., '^[0-9]+( )?[A-Z]+[a-z\-]+( .+)?$')
 				]
 			">
 				<xsl:choose>
 					<xsl:when test="self::
 						tei:p[
 							string(tei:hi[@rend='b']) = string(.) and
-							matches(., '^[0-9]+( )?[A-Z]+[a-z]+( .+)?$')
+							matches(., '^[0-9]+( )?[A-Z]+[a-z\-]+( .+)?$')
 						]
 					">
 						<div type="third-level-period">
