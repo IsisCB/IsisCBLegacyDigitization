@@ -70,11 +70,10 @@
 					<cell n="JournalTitle"><xsl:value-of select="tei:title[@level='j']"/></cell>
 					<cell n="VolumeFullText"><xsl:value-of select="tei:biblScope[@unit='volume']"/></cell>
 					<cell n="IssueFullText"><xsl:value-of select="tei:biblScope[@unit='issue']"/></cell>
-					<xsl:variable name="page-range" select="tei:biblScope[@unit='pp'][1]"/>
+					<xsl:variable name="page-range" select="tei:biblScope[@unit='page'][1]"/>
 					<cell n="PagesFullText"><xsl:value-of select="$page-range"/></cell>
-					<xsl:variable name="dash" select="normalize-space(translate($page-range, '0123456789', ''))"/>
-					<cell n="PagesBegin"><xsl:value-of select="substring-before($page-range, $dash)"/></cell>
-					<cell n="PagesEnd"><xsl:value-of select="substring-after($page-range, $dash)"/></cell>
+					<cell n="PagesBegin"><xsl:value-of select="$page-range/@from"/></cell>
+					<cell n="PagesEnd"><xsl:value-of select="$page-range/@to"/></cell>
 					<cell n="ExtentFullText"><xsl:value-of select="
 						normalize-space(
 							string-join(
@@ -117,7 +116,7 @@
 							' '
 						)
 					"/></cell>
-					<cell n="LocationInBibliography"><xsl:value-of select="	
+					<cell n="LocationInBibliography"><!--<xsl:value-of select="	
 						concat(
 							'Volume ', 
 							ancestor::tei:text/@xml:id, ', page ',  
@@ -126,7 +125,7 @@
 								(preceding::tei:bibl | ancestor::tei:bibl)[. >> preceding::tei:pb[1]]
 							))
 						)
-					"/></cell>
+					"/>--><!-- "Just provide the page number here. We can do the rest from the ID." --><xsl:value-of select="preceding::tei:pb[1]/@n"/></cell>
 					<cell n="FullCitation"><xsl:value-of select="."/></cell>
 				</row>
 			</xsl:for-each>

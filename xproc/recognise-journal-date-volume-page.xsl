@@ -31,7 +31,19 @@
 						</xsl:element>
 						<xsl:value-of select="regex-group(2)"/><!-- colon and whitespace -->			
 						<xsl:element name="biblScope">
-							<xsl:attribute name="unit">pp</xsl:attribute>
+							<xsl:attribute name="unit">page</xsl:attribute>
+							<xsl:variable name="range" select="regex-group(3)"/><!-- e.g. "210-12" -->
+							<!-- potentially a variety of characters could have been used for a dash in a page range -->
+							<xsl:variable name="dash" select="normalize-space(translate($range, '0123456789', ''))"/>
+							<xsl:variable name="from"  select="substring-before($range, $dash)"/><!-- "210" -->
+							<xsl:variable name="to" select="substring-after($range, $dash)"/><!-- "12" -->
+							<xsl:attribute name="from"><xsl:value-of select="$from"/></xsl:attribute>
+							<xsl:attribute name="to"><xsl:value-of select="
+								concat(
+									substring($from, 1, string-length($from) - string-length($to)),
+									$to
+								)
+							"/></xsl:attribute><!-- "2" + "12" = "212" -->
 							<xsl:value-of select="regex-group(3)"/><!-- numeric range -->
 						</xsl:element>
 						<xsl:value-of select="regex-group(4)"/><!-- terminal punctuation -->
