@@ -33,8 +33,18 @@
 						followed by a decimal digit (start of page specification)
 					-->
 					<!-- e.g. "2010, 4: 3" -->
+					<!--
 					<xsl:when test="matches(., '.*\p{Nd}{4},\p{Z}*\p{Nd}*(\(\p{Nd}*\))?:\p{Z}?\p{Nd}')">journalArticle</xsl:when>
-					<xsl:otherwise>book</xsl:otherwise>
+					-->
+					<xsl:otherwise>
+						<!-- a journal article citation will contain an italicised abbreviation of the journal's name -->
+						<!-- check the first italicised phrase against the full list of journal abbreviations -->
+						<xsl:variable name="possible-abbreviation" select="normalize-space(translate(tei:hi[@rend='i'][1], ',', ''))"/>
+						<xsl:choose>
+							<xsl:when test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:term[.=$possible-abbreviation]">journalArticle</xsl:when>
+							<xsl:otherwise>book</xsl:otherwise>
+						</xsl:choose>
+					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:attribute>
 			<xsl:apply-templates/>
