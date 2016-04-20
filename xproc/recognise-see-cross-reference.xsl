@@ -13,6 +13,7 @@
 		string(.) = string(tei:hi[@rend='b'][1]) and
 		tei:hi[@rend='b']/tei:hi[@rend='i'] ='see'
 	]">
+		<!-- TODO generate @id attributes matching these @target references -->
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:element name="ref">
@@ -21,7 +22,7 @@
 						concat(
 							'#', 
 							encode-for-uri(
-								normalize-space(text())
+								normalize-space(string-join(tei:hi[@rend='b']/text(), ' '))
 							)
 						)
 					"/>
