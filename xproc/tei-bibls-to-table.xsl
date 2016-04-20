@@ -10,6 +10,7 @@
 				<cell>ID</cell>
 				<cell>Title</cell>
 				<cell>Type</cell>
+				<cell>Heading</cell>
 				<cell>Description</cell>
 				<cell>AdditionalTitles</cell>
 				<cell>Authors</cell>
@@ -20,6 +21,7 @@
 				<cell>Publisher</cell>
 				<cell>YearPublished</cell>
 				<cell>BookSeriesTitle</cell>
+				<!--<cell>JournalTitleAbbreviation</cell>-->
 				<cell>JournalTitle</cell>
 				<cell>VolumeFullText</cell>
 				<cell>IssueFullText</cell>
@@ -37,37 +39,42 @@
 				<cell>FullCitation</cell>
 			</row>
 			<xsl:for-each select="tei:text/tei:body//tei:bibl">
+				<!-- if current bibl is a review, the source-book is the item reviewed -->
+				<xsl:variable name="source-book" select="ancestor::tei:bibl[1]"/>
 				<row>
 					<cell n="ID"><xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/></cell>
 					<cell n="Title"><xsl:value-of select="
 						(
 							tei:title[not(@level='j')],
-							if (ancestor::tei:bibl/tei:title[not(@level='j')]) then
+							if ($source-book/tei:title[not(@level='j')]) then
 								concat('Review of ', ancestor::tei:bibl/tei:title[not(@level='j')])
 							else
 								''
 						)[1]
 					"/></cell>
 					<cell n="Type"><xsl:value-of select="@type"/></cell>
-					<cell n="Description"><xsl:value-of select="tei:note"/></cell>
+					<cell n="Heading"><xsl:value-of select="
+						string-join(
+							for $div in (ancestor::tei:div) return $div/tei:head[1],
+							' / '
+						)
+					"/></cell>
+					<cell n="Description"><xsl:apply-templates mode="plain-text" select="tei:note"/></cell>
 					<cell n="AdditionalTitles">(not parsed)</cell>
 					<cell n="Authors"><xsl:value-of select="string-join(tei:author, ', ')"/></cell>
 					<cell n="Editors">(not parsed)</cell>
 					<cell n="Contributors">(not parsed)</cell>
-					<cell n="UnrecognizedMaterial"><xsl:value-of select="
-						normalize-space(
-							translate(
-								string-join(text(), ' '),
-								'.,:()[]',
-								''
-							)
-						)
-					"/></cell>
+					<cell n="UnrecognizedMaterial"><xsl:for-each select="text()[normalize-space()]">
+						<xsl:value-of select="concat('[', ., ']')"/>
+					</xsl:for-each></cell>
 					<cell n="PlacePublished"><xsl:value-of select="tei:pubPlace"/></cell>
 					<cell n="Publisher"><xsl:value-of select="tei:publisher"/></cell>
 					<cell n="YearPublished"><xsl:value-of select="tei:date"/></cell>
 					<cell n="BookSeriesTitle">(unparsed)</cell>
-					<cell n="JournalTitle"><xsl:value-of select="tei:title[@level='j']"/></cell>
+					<!--
+					<cell n="JournalTitleAbbreviation"><xsl:value-of select="tei:title[@level='j']/tei:abbr"/></cell>
+					-->
+					<cell n="JournalTitle"><xsl:value-of select="tei:title[@level='j']/tei:expan"/></cell>
 					<cell n="VolumeFullText"><xsl:value-of select="tei:biblScope[@unit='volume']"/></cell>
 					<cell n="IssueFullText"><xsl:value-of select="tei:biblScope[@unit='issue']"/></cell>
 					<xsl:variable name="page-range" select="tei:biblScope[@unit='page'][1]"/>
@@ -90,26 +97,26 @@
 						number((tei:extent/tei:measure[@commodity='prefatory pages']/@quantity, '0')[1]) +
 						number((tei:extent/tei:measure[@commodity='pages']/@quantity, '0')[1])
 					)"/></cell>
-					<cell n="SourceBookTitle"><xsl:value-of select="ancestor::tei:bibl/tei:title[not(@level='j')]"/></cell>
+					<cell n="SourceBookTitle"><xsl:value-of select="$source-book/tei:title[not(@level='j')]"/></cell>
 					<cell n="SourceBookResponsibility"><xsl:value-of select="
 						string-join(
-							ancestor::tei:bibl/tei:author,
+							$source-book/tei:author,
 							'; '
 						)
 					"/></cell>
 					<cell n="SourceBookPublicationDetails"><xsl:value-of select="
 						string-join(
 							(
-								ancestor::tei:bibl/tei:pubPlace,
-								ancestor::tei:bibl/tei:publisher,
-								ancestor::tei:bibl/tei:date
+								$source-book/tei:pubPlace,
+								$source-book/tei:publisher,
+								$source-book/tei:date
 							),
 							' '
 						)
 					"/></cell>
-					<cell n="SourceBookLink"><xsl:value-of select="
-						concat(ancestor::tei:text/@xml:id, '-', ancestor::tei:bibl[1]/@xml:id)
-					"/></cell>
+					<cell n="SourceBookLink"><xsl:if test="$source-book">
+						<xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', $source-book/@xml:id)"/>
+					</xsl:if></cell>
 					<cell n="ClassificationTerm"><xsl:value-of select="
 						substring-before(
 							concat(ancestor::tei:div[1][not(@type='party')]/tei:head[1], ' '),
@@ -126,13 +133,19 @@
 							))
 						)
 					"/>--><!-- "Just provide the page number here. We can do the rest from the ID." --><xsl:value-of select="preceding::tei:pb[1]/@n"/></cell>
-					<cell n="FullCitation"><xsl:value-of select="."/></cell>
+					<cell n="FullCitation"><xsl:apply-templates mode="plain-text" select="."/></cell>
 				</row>
 			</xsl:for-each>
 		</table>
 	</xsl:template>
 	
-     <xsl:variable name="quote" select="codepoints-to-string(34)"/> 	
+	<xsl:variable name="quote" select="codepoints-to-string(34)"/> 	
+     
+	<xsl:template match="*" mode="plain-text">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<!-- do not render expansions in FullCitation mode -->
+	<xsl:template match="tei:expan" mode="plain-text"/>
      
 </xsl:stylesheet>
 					
