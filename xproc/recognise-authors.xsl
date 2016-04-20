@@ -33,7 +33,7 @@
 						<xsl:copy-of select="$italicised-author-name-suffix"/>
 					</xsl:element>
 					<!-- remainder of citation ... -->
-					<xsl:copy-of select="$italicised-author-name-suffix/following-sibling::node()"/>
+					<xsl:apply-templates select="$italicised-author-name-suffix/following-sibling::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<!-- Author name is the part of the first text element up to the full stop and space -->
@@ -44,13 +44,45 @@
 								<xsl:value-of select="concat($author, '. ')"/>
 							</xsl:element>
 							<xsl:value-of select="substring-after(text()[1], '. ')"/>
-							<xsl:copy-of select="text()[1]/following-sibling::node()"/>
+							<xsl:apply-templates select="text()[1]/following-sibling::node()"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:comment>No author!</xsl:comment>
 							<xsl:apply-templates/>
 						</xsl:otherwise>
 					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:copy>
+	</xsl:template>
+	
+	<xsl:template match="tei:bibl[@type='review']">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<!-- review citations begin with "Reviewed by" or something like "Vol. 6-7 reviewed by" or "Dutch ed. reviewed by" -->
+			<!--  parse the first text node to identify the review author -->
+			<xsl:variable name="first-text-node" select="text()[1]"/>
+			<xsl:choose>
+				<xsl:when test="$first-text-node">
+					<xsl:analyze-string select="$first-text-node" regex="(.*eviewed by )([^,]+)(.*)">
+						<xsl:matching-substring>
+							<xsl:value-of select="regex-group(1)"/><!-- e.g. "Dutch ed. reviewed by " -->
+							<xsl:element name="author">
+								<xsl:value-of select="regex-group(2)"/>
+							</xsl:element>
+							<xsl:value-of select="regex-group(3)"/>
+						</xsl:matching-substring>
+						<xsl:non-matching-substring>
+							<xsl:comment>No author!</xsl:comment>
+							<xsl:value-of select="."/>
+						</xsl:non-matching-substring>
+					</xsl:analyze-string>
+					<!-- reproduce the remainder of the citation -->
+					<xsl:copy-of select="$first-text-node/following-sibling::node()"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:comment>No text nodes!</xsl:comment>
+					<xsl:apply-templates/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>

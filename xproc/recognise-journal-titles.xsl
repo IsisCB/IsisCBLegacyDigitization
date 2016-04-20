@@ -14,15 +14,21 @@
 	</xsl:template>
 	
 	<!-- italicised phrase is a journal title -->
-	<xsl:template match="tei:bibl[@type='journalArticle']/tei:hi[@rend='i']">
+	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/tei:hi[@rend='i']">
 		<xsl:element name="title">
 			<xsl:attribute name="level">j</xsl:attribute>
-			<xsl:apply-templates/>
+			<xsl:element name="abbr"><xsl:apply-templates/></xsl:element>
+			<xsl:variable name="abbreviation" select="normalize-space(translate(., ',', ''))"/>
+			<xsl:variable name="term"  select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:term[.=$abbreviation]"/>
+			<xsl:variable name="term-id-reference" select="concat('#', $term[1]/@xml:id)"/>
+			<xsl:variable name="gloss" select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:gloss[@target=$term-id-reference]"/>
+			<!-- TODO choose the shortest gloss? -->
+			<xsl:element name="expan"><xsl:value-of select="$gloss[1]"/></xsl:element>
 		</xsl:element>
 	</xsl:template>
 	
 	<!-- text sandwiched between an author and an italicised phrase is a title -->
-	<xsl:template match="tei:bibl[@type='journalArticle']/text()
+	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/text()
 		[normalize-space()]
 		[following-sibling::*[1]/self::tei:hi/@rend='i']
 		[preceding-sibling::*[1]/self::tei:author]
