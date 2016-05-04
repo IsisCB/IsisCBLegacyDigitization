@@ -11,6 +11,7 @@
 				<cell>Title</cell>
 				<cell>Type</cell>
 				<cell>Heading</cell>
+				<cell>SeePreferredHeading</cell>
 				<cell>Description</cell>
 				<cell>AdditionalTitles</cell>
 				<cell>Authors</cell>
@@ -38,12 +39,18 @@
 				<cell>LocationInBibliography</cell>
 				<cell>FullCitation</cell>
 			</row>
-			<xsl:for-each select="tei:text/tei:body//tei:bibl">
+			<!-- for each citation or cross reference -->
+			<xsl:for-each select="
+				tei:text/tei:body//tei:bibl |
+				tei:text/tei:body//tei:p[string(tei:ref) = normalize-space(.)]
+			">
 				<!-- if current bibl is a review, the source-book is the item reviewed -->
 				<xsl:variable name="source-book" select="ancestor::tei:bibl[1]"/>
 				<row>
-					<cell n="ID"><xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/></cell>
-					<cell n="Title"><xsl:value-of select="
+					<cell n="ID"><xsl:if test="self::tei:bibl">
+						<xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/>
+					</xsl:if></cell>
+					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="
 						(
 							tei:title[not(@level='j')],
 							if ($source-book/tei:title[not(@level='j')]) then
@@ -51,7 +58,7 @@
 							else
 								''
 						)[1]
-					"/></cell>
+					"/></xsl:if></cell>
 					<cell n="Type"><xsl:value-of select="@type"/></cell>
 					<cell n="Heading"><xsl:value-of select="
 						string-join(
@@ -59,6 +66,7 @@
 							' / '
 						)
 					"/></cell>
+					<cell n="SeePreferredHeading"><xsl:value-of select="self::tei:p/tei:ref"/></cell>
 					<cell n="Description"><xsl:apply-templates mode="plain-text" select="tei:note"/></cell>
 					<cell n="AdditionalTitles">(not parsed)</cell>
 					<cell n="Authors"><xsl:value-of select="string-join(tei:author, ', ')"/></cell>
