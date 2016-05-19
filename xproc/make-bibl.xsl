@@ -16,19 +16,17 @@
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<!-- handle all the citations -->
-			<!-- each citation starts with a para whose first word is a person's name: a word
-			longer than 1 character, in upper case, 
+			<!-- each citation starts with a para whose first word is a person's name: an upper-case word
+			at least 2 characters long, 
 			OR an Arabic name prefixed with the definite article "al-" in lower case -->
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:div |
 				tei:p
-					[string-length(substring-before(., ' ')) &gt; 1]
-					[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]
+					[starts-with(., 'al-') or matches(substring-before(., '\p{Lu}{2,}'), '')]
 			">
 				<xsl:choose>
 					<xsl:when test="self::tei:p
-						[string-length(substring-before(., ' ')) &gt; 1]
-						[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]
+						[starts-with(., 'al-') or matches(substring-before(., '\p{Lu}{2,}'), '')]
 					">
 						<xsl:variable name="page" select="preceding::tei:pb[1]"/>
 						<bibl>
