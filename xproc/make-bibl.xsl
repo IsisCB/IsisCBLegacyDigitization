@@ -22,11 +22,11 @@
 			<xsl:for-each-group select="node()" group-starting-with="
 				tei:div |
 				tei:p
-					[starts-with(., 'al-') or matches(substring-before(., '\p{Lu}{2,}'), '')]
+					[matches(., '^(al-)?\p{Lu}{2,}')]
 			">
 				<xsl:choose>
 					<xsl:when test="self::tei:p
-						[starts-with(., 'al-') or matches(substring-before(., '\p{Lu}{2,}'), '')]
+						[matches(., '^(al-)?\p{Lu}{2,}')]
 					">
 						<xsl:variable name="page" select="preceding::tei:pb[1]"/>
 						<bibl>
@@ -43,8 +43,7 @@
 	
 	<!-- a paragraph which begins a bibliographic citation just needs to be unwrapped from its para -->
 	<xsl:template priority="100" match="tei:body//tei:div/tei:p
-		[string-length(substring-before(., ' ')) &gt; 1]
-		[starts-with(., 'al-') or (upper-case(substring-before(., ' ')) = substring-before(., ' '))]">
+		[matches(., '^(al-)?\p{Lu}{2,}')]">
 		<xsl:apply-templates/>
 	</xsl:template>
 	
