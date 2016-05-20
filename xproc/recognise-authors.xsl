@@ -5,6 +5,9 @@
 	xmlns:tite="http://www.tei-c.org/ns/tite/1.0" 
 	exclude-result-prefixes="tei tite">
 	
+	<!-- a regex of possible name parts suitable for tagging with tei:nameLink -->
+	<xsl:variable name="nameLinks" select=" 'von|van der|van|de' "/>
+	
 	<!-- recognises the presence of an author within a bibl -->
 	<xsl:template match="*">
 		<xsl:copy>
@@ -20,7 +23,7 @@
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:choose>
-				<xsl:when test="(count(tei:hi[@rend='i']) &gt; 1) and not(contains(text()[1], '. '))">
+				<xsl:when test="(count(tei:hi[@rend='i']) &gt; 0) and not(contains(text()[1], '. '))">
 					<!-- more than 1 italicised phrase and first text node doesn't contain a full stop and space
 					implies first italicised phrase is a terminal author name-part -->
 					<!-- e.g.
@@ -36,7 +39,8 @@
 					<xsl:apply-templates select="$italicised-author-name-suffix/following-sibling::node()"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<!-- Author name is the part of the first text element up to the full stop and space -->
+					<!-- Author name is the part of the first text element up to the full stop and space,
+					except where a "nameLink" such as "von" appears after the name. (TODO) -->
 					<xsl:variable name="author" select="substring-before(text()[1], '. ')"/>
 					<xsl:choose>
 						<xsl:when test="$author">
