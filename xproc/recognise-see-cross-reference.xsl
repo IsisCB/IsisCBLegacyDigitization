@@ -8,10 +8,12 @@
 	<!-- recognises "see" cross-references, where a non-preferred term appears in a heading,
 	and the content of the section is just a single paragraph referring to the preferred term, e.g.
 	<hi rend="b"><hi rend="i">see</hi> ABÉLARD, Pierre</hi>
+	<hi rend="b"><hi rend="i">See</hi> JAMĀL al-DĪN al-AFGHĀNĪ</hi>
+	<hi rend="b"><hi rend="i">see also</hi> INSTITUT FÜR GESCHICHTE DER MEDIZIN, Unlversität, Würzburg</hi>
 	-->
 	<xsl:template match="tei:p[
 		string(.) = string(tei:hi[@rend='b'][1]) and
-		tei:hi[@rend='b']/tei:hi[@rend='i'] ='see'
+		tei:hi[@rend='b']/tei:hi[@rend='i'][starts-with(lower-case(.), 'see')]
 	]">
 		<!-- TODO generate @id attributes matching these @target references -->
 		<xsl:copy>
