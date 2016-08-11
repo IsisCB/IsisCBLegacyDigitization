@@ -8,6 +8,7 @@
 		<table>
 			<row role="label">
 				<cell>ID</cell>
+				<cell>Correction</cell>
 				<cell>Title</cell>
 				<cell>Type</cell>
 				<cell>Heading</cell>
@@ -50,6 +51,7 @@
 					<cell n="ID"><xsl:if test="self::tei:bibl">
 						<xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/>
 					</xsl:if></cell>
+					<cell n="Correction"><xsl:value-of select="(@subtype='correction')"/></cell>
 					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="
 						(
 							tei:title[not(@level='j')],
