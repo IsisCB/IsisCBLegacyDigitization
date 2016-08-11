@@ -39,9 +39,34 @@
 					<xsl:otherwise>
 						<!-- a journal article citation will contain an italicised abbreviation of the journal's name -->
 						<!-- check the first italicised phrase against the full list of journal abbreviations -->
-						<xsl:variable name="possible-abbreviation" select="normalize-space(translate(tei:hi[@rend='i'][1], ',', ''))"/>
+						<xsl:variable name="possible-abbreviation" select="
+							normalize-space(
+								translate(
+									replace(
+										normalize-unicode(tei:hi[@rend='i'][1], 'NFD'), 
+										'\p{IsCombiningDiacriticalMarks}', 
+										''
+									), 
+									',.', 
+									' '
+								)
+							)
+						"/>
 						<xsl:choose>
-							<xsl:when test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:term[.=$possible-abbreviation]">journalArticle</xsl:when>
+							<xsl:when test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:term[
+								normalize-space(
+									translate(
+										replace(
+											normalize-unicode(., 'NFD'), 
+											'\p{IsCombiningDiacriticalMarks}', 
+											''
+										), 
+										',.', 
+										' '
+									)
+								)
+								=$possible-abbreviation
+							]">journalArticle</xsl:when>
 							<xsl:otherwise>book</xsl:otherwise>
 						</xsl:choose>
 					</xsl:otherwise>
