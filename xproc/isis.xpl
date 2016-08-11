@@ -19,7 +19,8 @@
 	<file:mkdir href="../../build/p5" fail-on-error="false"/>
 	<file:mkdir href="../../build/csv" fail-on-error="false"/>
 	<file:mkdir href="../../build/upconverted" fail-on-error="false"/>
-	<file:mkdir href="../../build/sample" fail-on-error="false"/>
+	<file:mkdir href="../../build/p5/sample" fail-on-error="false"/>
+	<file:mkdir href="../../build/upconverted/sample" fail-on-error="false"/>
 	
 	<isis:test/>
 	
@@ -27,8 +28,9 @@
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
 		<p:iteration-source select="/c:directory/c:file"/>
-		<!--	
-		<p:iteration-source select="/c:directory/c:file[@name='ISIS-03.xml']"/>
+		<!--
+	
+		<p:iteration-source select="/c:directory/c:file[@name='ISIS-02.xml']"/>
 		-->
 
 		<p:output port="result"/>
@@ -100,7 +102,7 @@
 			</p:input>
 		</isis:transform>
 		<p:store>
-			<p:with-option name="href" select="concat('../../build/sample/', $filename)"/>
+			<p:with-option name="href" select="concat('../../build/p5/sample/', $filename)"/>
 		</p:store>	
 
 		<!-- continue transformation of p5 by recognising abbreviations and taxonomies -->
@@ -148,6 +150,15 @@
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:store>
+
+		<isis:transform xslt="make-sample.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store>
+			<p:with-option name="href" select="concat('../../build/upconverted/sample/', $filename)"/>
+		</p:store>
 		
 		<isis:transform xslt="tei-bibls-to-table.xsl">
 			<p:input port="source">
@@ -158,6 +169,15 @@
 		<p:store method="text">
 			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
 		</p:store>		
+		
+		<isis:transform xslt="tei-headings-to-csv.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-headings.csv')"/>
+		</p:store>	
 		
 	</p:for-each>
 	
@@ -187,7 +207,6 @@
 		<p:input port="source"/>
 		<p:output port="result"/>
 		<p:input port="parameters" kind="parameter"/>
-		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
 		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
 		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
 		<isis:transform xslt="group-by-top-level-subject.xsl"/>
@@ -207,6 +226,7 @@
 		<isis:transform xslt="recognise-book-extents.xsl"/>
 		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-imprint.xsl"/>
+		<isis:transform xslt="recognise-years.xsl"/>
 	</p:declare-step>
 	
 	<p:declare-step type="isis:test" name="test">
