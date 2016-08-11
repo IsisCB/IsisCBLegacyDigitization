@@ -1,0 +1,77 @@
+
+td {
+	vertical-align: top;
+}
+.pb {
+	display: block;
+	text-align: center;
+}
+.i {
+	font-style: italic;
+}
+.b {
+	font-weight: bold;
+}
+.center {
+	text-align: center;
+}
+		
+div {
+	margin: 0.25em;
+	padding: 0.25em;
+	border-color: grey;
+	border-style: dotted;
+	border-width: 1px;
+}
+div.bibl {
+	background-color: #E3E3E3;
+}
+div.bibl div.bibl {
+	background-color: #C4C4C4;
+}
+.author {
+	background-color: #FF9D00; /* orange */
+}
+.title {
+	background-color: #8BC9FF; /* pale blue */
+}
+.date {
+	background-color: #F47BA8; /* pink */
+}
+.biblScope {
+	background-color: #7BF4A7; /* greenish blue */
+}
+.extent {
+	background-color: #C0A9FF; /* violet */
+}
+.pubPlace {
+	background-color: #18FF00; /* bright green */
+}
+.publisher {
+	background-color: #855EF6; /* purple */
+}
+.ref {
+	background-color: #93FF00; /* yellowish green */
+}
+.year {
+	background-color: #ABFFD5;
+}
+.measure {
+	background-color: yellow;
+}
+.abbr {
+	text-decoration: underline;
+}
+div.note {
+	background-color: #FFFF8E;
+}
+span {
+	display: inline-block;
+	padding: 2pt;
+	margin: 2pt;
+}	
+a.permalink {
+	text-decoration: none;
+	color: blue;
+}
+
