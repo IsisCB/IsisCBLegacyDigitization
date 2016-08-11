@@ -68,13 +68,14 @@
 			<xsl:variable name="first-text-node" select="text()[1]"/>
 			<xsl:choose>
 				<xsl:when test="$first-text-node">
-					<xsl:analyze-string select="$first-text-node" regex="(.*eviewed by )([^,]+)(.*)">
+					<xsl:analyze-string select="$first-text-node" regex="((^by )|(.*eviewed by ))([^,]+)(.*)">
 						<xsl:matching-substring>
-							<xsl:value-of select="regex-group(1)"/><!-- e.g. "Dutch ed. reviewed by " -->
+							<xsl:value-of select="regex-group(2)"/><!-- e.g. "by " -->
+							<xsl:value-of select="regex-group(3)"/><!-- e.g. "Dutch ed. reviewed by " -->
 							<xsl:element name="author">
-								<xsl:value-of select="regex-group(2)"/>
+								<xsl:value-of select="regex-group(4)"/>
 							</xsl:element>
-							<xsl:value-of select="regex-group(3)"/>
+							<xsl:value-of select="regex-group(5)"/>
 						</xsl:matching-substring>
 						<xsl:non-matching-substring>
 							<xsl:comment>No author!</xsl:comment>

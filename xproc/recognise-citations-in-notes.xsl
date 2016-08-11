@@ -18,10 +18,27 @@
 	<xsl:template match="tei:bibl/tei:note[contains(., 'eviewed by')]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
+			<xsl:for-each-group group-ending-with="text()[contains(., '; by ')]" select="node()">
+				<xsl:element name="bibl">
+					<!-- previous text is the last text node preceding this citation; from '; by ' onwards it belongs to this citation -->
+					<xsl:variable name="previous-text" select="preceding-sibling::node()[1]/self::text()[contains(., '; by ')]"/>
+					<xsl:if test="$previous-text">
+						<xsl:value-of select="concat('by ', substring-after($previous-text, '; by '))"/>
+					</xsl:if>
+					<!-- include the rest of the group (except the final text node -->
+					<xsl:apply-templates select="current-group()[not(self::text()[contains(., '; by ')])]"/>
+					<!-- the first part of the final text node belongs here -->
+					<xsl:for-each select="current-group()[self::text()[contains(., '; by ')]]">
+						<xsl:value-of select="concat(substring-before(., '; by '), '; ')"/>
+					</xsl:for-each>
+				</xsl:element>
+			</xsl:for-each-group>
 			<!-- wrap the contents of the note in another bibl -->
+			<!--
 			<xsl:element name="bibl">
 				<xsl:apply-templates/>
 			</xsl:element>
+			-->
 		</xsl:copy>
 	</xsl:template>
 	
