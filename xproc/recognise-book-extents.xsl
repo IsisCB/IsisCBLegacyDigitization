@@ -21,11 +21,12 @@
 	<!-- x, 359 p., 1 pl., 61 fig.  -->
 	<!--  ix, 361 p., pl., portr., bibliogr. -->
 	<!-- 258 pp., illus., bibl., index.  -->
+	<!-- xxviii, 406 p., 12 pl., 7 maps. -->
 	<!-- Also journal extents:  -->
 	<!-- e.g. "8 fig." -->
 	<!-- div with type = articles or books is for recognising citations in the test document citation-test.xml -->
 	<xsl:template match="tei:bibl[@type='journalArticle']/text() | tei:div[contains(@type, 'articles')]//tei:p/text()">
-		<xsl:analyze-string select="." regex="(, (\d* )?pl\.)|(, (\d* )?fig\.)|(, (\d* )?ill\.)|(, (\d* )?portr\.)|(, (\d* )?bibliogr\.)|(, (\d* )?illus\.)|(, (\d* )?bibl\.)">
+		<xsl:analyze-string select="." regex="(, (\d* )?pl\.)|(, (\d* )?fig\.)|(, (\d* )?ill\.)|(, (\d* )?portr\.)|(, (\d* )?bibliogr\.)|(, (\d* )?illus\.)|(, (\d* )?bibl\.)|(, (\d* )?maps)">
 			<xsl:matching-substring>
 				<xsl:if test="regex-group(1)"><!-- plates -->
 					<xsl:text>, </xsl:text>
@@ -129,6 +130,21 @@
 								<xsl:value-of select="regex-group(14)"/>
 							</xsl:if>
 							<xsl:text>bibl.</xsl:text>
+						</xsl:element>
+					</xsl:element>
+				</xsl:if>
+				<xsl:if test="regex-group(15)"><!-- maps -->
+					<xsl:text>, </xsl:text>
+					<xsl:element name="extent">
+						<xsl:element name="measure">
+							<xsl:attribute name="commodity">maps</xsl:attribute>
+							<xsl:if test="regex-group(16)">
+								<xsl:attribute name="quantity">
+									<xsl:value-of select="regex-group(16)"/>
+								</xsl:attribute>
+								<xsl:value-of select="regex-group(16)"/>
+							</xsl:if>
+							<xsl:text>maps.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
