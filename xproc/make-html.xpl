@@ -31,6 +31,21 @@
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/html/', $output-filename)"/>
 		</p:store>
+		
+		<isis:transform xslt="tei-unparsed-citation-italics-to-table.xsl">
+			<p:input port="source">
+				<p:pipe step="p5" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store>
+			<p:with-option name="href" select="
+				concat(
+					'../../build/csv/', 
+					substring-before($filename, '.xml'), 
+					'-unparsed-italics.csv'
+				)
+			"/>
+		</p:store>
 	</p:for-each>
 	
 	<file:copy href="../css/proofing.css" target="../../build/html/proofing.css" xmlns:file="http://exproc.org/proposed/steps/file"/>
