@@ -170,6 +170,16 @@
 			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
 		</p:store>		
 		
+		<isis:transform xslt="tei-unparsed-citation-italics-to-table.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<isis:transform xslt="tei-table-to-csv.xsl"/>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-unparsed-italics.csv')"/>
+		</p:store>		
+		
 		<isis:transform xslt="tei-headings-to-csv.xsl">
 			<p:input port="source">
 				<p:pipe step="upconverted" port="result"/>
@@ -218,14 +228,16 @@
 		<isis:transform xslt="make-bibl.xsl"/>
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/><!-- i.e. reviews -->
 		<isis:transform xslt="assign-bibl-identifiers.xsl"/>
-		<isis:transform xslt="categorize-citations.xsl"/><!-- into books, journal articles, and reviews -->
+		<isis:transform xslt="categorize-citations.xsl"/><!-- into books, book chapters, journal articles, and reviews -->
 		<isis:transform xslt="recognise-authors.xsl"/>
 		<isis:transform xslt="recognise-journal-titles.xsl"/>
 		<isis:transform xslt="recognise-cb-references.xsl"/>
 		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
+		<isis:transform xslt="recognise-book-chapter-titles.xsl"/><!-- could merrge with recognise-book-chapter-titles.xsl -->
+		<isis:transform xslt="recognise-book-chapter-page-range.xsl"/>
 		<isis:transform xslt="recognise-book-extents.xsl"/>
-		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-imprint.xsl"/>
+		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-years.xsl"/>
 	</p:declare-step>
 	

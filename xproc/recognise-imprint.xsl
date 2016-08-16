@@ -15,12 +15,16 @@
 	</xsl:template>
 	
 	<!-- a book's imprint is the remainder after the last extent-->
-	<xsl:template match="tei:bibl[@type='book']/text()
-		[preceding-sibling::node()[1]/self::tei:extent]
+	<!-- a book chapter's imprint is the remainder after the chapter page range (if any), or after the title -->
+	<!--
+	Division between a book title and the start of the imprint
+	NB a bookChapter will have no extents (i.e. book statistics) but will have a biblScope (i.e. cited range of pages)
+	-->
+	<xsl:template match="tei:bibl[@type=('book', 'bookChapter')]/text()
 		[following-sibling::node()[1][self::tei:note | self::tei:ref] or 
 		not(following-sibling::*)]">
 		<!--  Berlin: Julius Springer, 1923. -->
-		<xsl:variable name="imprint-regex">([^:]*)(:\p{Z}*)([^,]*)(,\p{Z}*)(\p{Nd}*)(\.)</xsl:variable>
+		<xsl:variable name="imprint-regex">([^:.]*[.]?)(:\p{Z}*)([^,]*)(,\p{Z}*)(\p{Nd}*)(\.)</xsl:variable>
 		<xsl:analyze-string select="." regex="{$imprint-regex}">
 			<xsl:matching-substring>
 				<xsl:element name="pubPlace"><xsl:value-of select="regex-group(1)"/></xsl:element>

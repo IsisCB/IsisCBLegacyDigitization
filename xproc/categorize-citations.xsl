@@ -53,6 +53,7 @@
 							)
 						"/>
 						<xsl:choose>
+							<!-- if the italicised text matches one of the journal title abbreviations, then the citation is of a journal article -->
 							<xsl:when test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt//tei:term[
 								normalize-space(
 									translate(
@@ -67,7 +68,14 @@
 								)
 								=$possible-abbreviation
 							]">journalArticle</xsl:when>
-							<xsl:otherwise>book</xsl:otherwise>
+							<xsl:otherwise>
+								<!-- the citation is either of a book, or just a chapter within a book -->
+								<xsl:choose>
+									<!-- e.g. OSLER, William. William Beaumont. In: Selected writings of Sir William Osler, 12 July 1849 to 29 December 1919. Ed. by Alfred White Franklin with an introduction by G.L. Keynes. London: Oxford University Press, 1951. [CB 78/154] -->
+									<xsl:when test="contains(., '. In: ')">bookChapter</xsl:when>
+									<xsl:otherwise>book</xsl:otherwise>
+								</xsl:choose>
+							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:otherwise>
 				</xsl:choose>
