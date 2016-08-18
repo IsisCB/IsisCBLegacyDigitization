@@ -237,6 +237,7 @@
 		<isis:transform xslt="recognise-book-chapter-page-range.xsl"/>
 		<isis:transform xslt="recognise-book-extents.xsl"/>
 		<isis:transform xslt="recognise-imprint.xsl"/>
+		<isis:transform xslt="recognise-book-series-title.xsl"/>
 		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-years.xsl"/>
 	</p:declare-step>

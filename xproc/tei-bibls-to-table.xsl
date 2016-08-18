@@ -54,9 +54,9 @@
 					<cell n="Correction"><xsl:value-of select="(@subtype='correction')"/></cell>
 					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="
 						(
-							tei:title[not(@level='j')],
-							if ($source-book/tei:title[not(@level='j')]) then
-								concat('Review of ', ancestor::tei:bibl/tei:title[not(@level='j')])
+							tei:title[not(@level)],
+							if ($source-book/tei:title[not(@level)]) then
+								concat('Review of ', ancestor::tei:bibl/tei:title[not(@level)])
 							else
 								''
 						)[1]
