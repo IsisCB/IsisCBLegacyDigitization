@@ -217,6 +217,7 @@
 		<p:input port="source"/>
 		<p:output port="result"/>
 		<p:input port="parameters" kind="parameter"/>
+		<isis:transform xslt="convert-highlight-to-unicode-characters.xsl"/>
 		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
 		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
 		<isis:transform xslt="group-by-top-level-subject.xsl"/>
@@ -233,8 +234,8 @@
 		<isis:transform xslt="recognise-journal-titles.xsl"/>
 		<isis:transform xslt="recognise-cb-references.xsl"/>
 		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
-		<isis:transform xslt="recognise-book-chapter-titles.xsl"/><!-- could merrge with recognise-book-chapter-titles.xsl -->
-		<isis:transform xslt="recognise-book-chapter-page-range.xsl"/>
+		<isis:transform xslt="recognise-book-chapter-titles.xsl"/>
+		<isis:transform xslt="recognise-book-chapter-page-range.xsl"/><!-- could merrge with recognise-book-chapter-titles.xsl -->
 		<isis:transform xslt="recognise-book-extents.xsl"/>
 		<isis:transform xslt="recognise-imprint.xsl"/>
 		<isis:transform xslt="recognise-book-series-title.xsl"/>

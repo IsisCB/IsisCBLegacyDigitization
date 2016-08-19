@@ -15,9 +15,21 @@
 	</xsl:template>
 	
 	<xsl:template match="tei:bibl[@type='bookChapter']/text()[contains(., '. In: ')]">
-		<xsl:analyze-string select="." regex="(p\. )(\p{{Nd}}*–\p{{Nd}}*)">
+		<xsl:analyze-string select="." regex="(p\. )({$roman-number-regex}([-–]){$roman-number-regex}, )?(\p{{Nd}}*([-–])\p{{Nd}}*)">
 			<xsl:matching-substring>
-				<xsl:variable name="range" select="regex-group(2)"/>
+				<xsl:variable name="roman-number-groups" select="12"/>
+				<xsl:variable name="roman-range" select="regex-group(2)"/>
+				<xsl:if test="$roman-range">
+					<xsl:element name="biblScope">
+						<xsl:attribute name="unit">prefatory-page</xsl:attribute>
+						<xsl:variable name="dash" select="regex-group($roman-number-groups + 3)"/>
+						<xsl:attribute name="from"  select="substring-before($roman-range, $dash)"/><!-- "lii" -->
+						<xsl:attribute name="to" select="substring-after($roman-range, $dash)"/><!-- "lxvii" -->
+						<xsl:value-of select="regex-group(1)"/>
+						<xsl:value-of select="$roman-range"/>
+					</xsl:element>
+				</xsl:if>
+				<xsl:variable name="range" select="regex-group(2 * $roman-number-groups + 2 + 2)"/>
 				<xsl:element name="biblScope">
 					<xsl:attribute name="unit">page</xsl:attribute>
 					<xsl:variable name="dash" select="normalize-space(translate($range, '0123456789', ''))"/>
@@ -30,7 +42,10 @@
 							$to
 						)
 					"/></xsl:attribute><!-- "2" + "12" = "212" -->
-					<xsl:value-of select="."/>
+					<xsl:if test="not($roman-range)">
+						<xsl:value-of select="regex-group(1)"/>
+					</xsl:if>
+					<xsl:value-of select="$range"/>
 				</xsl:element>
 			</xsl:matching-substring>
 			<xsl:non-matching-substring>
@@ -38,6 +53,9 @@
 			</xsl:non-matching-substring>
 		</xsl:analyze-string>
 	</xsl:template>
-
+	
+	<!-- recognise roman numbers from 1 to 399 (d, m, etc not supported) -->
+	<xsl:variable name="roman-number-regex">(c{0,3})((xc)|(xl)|(l?)(x{0,3}))(ix)?((iv)|((v)?(i{0,3})))</xsl:variable>
+	
 </xsl:stylesheet>
 					

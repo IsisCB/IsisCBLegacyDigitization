@@ -21,18 +21,20 @@
 					<xsl:value-of select="regex-group(1)"/>
 				</xsl:element>
 				<xsl:value-of select="regex-group(2)"/><!-- comma and whitespace -->
-				<xsl:analyze-string select="regex-group(3)" regex="(\p{{Nd}}*)(:\p{{Z}}*)((\p{{Nd}}*–\p{{Nd}}*)|(\p{{Nd}}*))([,\.])">
-					<!-- date, colon and any whitespace, page range or single page number, finally comma or full stop -->
+				<xsl:analyze-string select="regex-group(3)" regex="(no.\s?)?(\p{{Nd}}*)(:\p{{Z}}*)((\p{{Nd}}*–\p{{Nd}}*)|(\p{{Nd}}*))([,\.])">
+					<!-- volume, colon and any whitespace, page range or single page number, finally comma or full stop -->
+					<!-- TODO volume number may be preceded with "no." or "no. " -->
 					<!-- NB if comma, then what follows are extents (e.g. "8 fig.") -->
 					<xsl:matching-substring>
 						<xsl:element name="biblScope">
 							<xsl:attribute name="unit">volume</xsl:attribute>
 							<xsl:value-of select="regex-group(1)"/>
+							<xsl:value-of select="regex-group(2)"/>
 						</xsl:element>
-						<xsl:value-of select="regex-group(2)"/><!-- colon and whitespace -->
-						<xsl:variable name="range-or-page-number" select="regex-group(3)"/>
-						<xsl:variable name="range" select="regex-group(4)"/><!-- e.g. "210-12" -->
-						<xsl:variable name="page-number" select="regex-group(5)"/><!-- e.g. "210" -->
+						<xsl:value-of select="regex-group(3)"/><!-- colon and whitespace -->
+						<xsl:variable name="range-or-page-number" select="regex-group(4)"/>
+						<xsl:variable name="range" select="regex-group(5)"/><!-- e.g. "210-12" -->
+						<xsl:variable name="page-number" select="regex-group(6)"/><!-- e.g. "210" -->
 						<xsl:element name="biblScope">
 							<xsl:attribute name="unit">page</xsl:attribute>
 							<xsl:choose>
@@ -56,7 +58,7 @@
 							</xsl:choose>
 							<xsl:value-of select="$range-or-page-number"/><!-- the element content -->
 						</xsl:element>
-						<xsl:value-of select="regex-group(6)"/><!-- terminal punctuation -->
+						<xsl:value-of select="regex-group(7)"/><!-- terminal punctuation -->
 					</xsl:matching-substring>
 					<xsl:non-matching-substring>
 						<xsl:value-of select="."/>
