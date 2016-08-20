@@ -44,8 +44,9 @@
 			<xsl:call-template name="attributes-as-title"/>
 			<xsl:for-each select="@xml:id">
 				<xsl:attribute name="id"><xsl:copy-of select="."/></xsl:attribute>
-				<a class="permalink" href="#{.}" title="{.}">¶</a> 
+				<a class="permalink" href="#{.}" title="{.}">¶</a>
 			</xsl:for-each>
+			<span class="bibl-type">[<xsl:value-of select="@type"/>]</span>
 			<xsl:apply-templates/>
 		</div>
 	</xsl:template>

@@ -16,6 +16,10 @@ td {
 	text-align: center;
 }
 		
+span.bibl-type {
+	color: darkmagenta;
+}
+
 div {
 	margin: 0.25em;
 	padding: 0.25em;
