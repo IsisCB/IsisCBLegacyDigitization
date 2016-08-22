@@ -52,8 +52,9 @@
 		</xsl:element>
 	</xsl:template>
 	
+
 	<!-- text sandwiched between an author and an italicised phrase is a title -->
-	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/text()
+	<xsl:template match="tei:bibl[@type='journalArticle']/text()
 		[normalize-space()]
 		[following-sibling::*[1]/self::tei:hi/@rend='i']
 		[preceding-sibling::*[1]/self::tei:author]

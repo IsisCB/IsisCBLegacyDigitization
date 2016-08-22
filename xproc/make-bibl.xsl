@@ -17,7 +17,7 @@
 	<!-- Irish names may contain an apostrophe. -->
 	<!-- Additionally, some Arabic names begin with the article "al-" in lower case, but are otherwise in all caps -->
 	<!-- Further, some citations begin with an asterisk to show that they are corrections to previously published citations -->
-	<xsl:variable name="surname-regex">^(\* ?)?(al-)?(Mc)?(Mac)?(['‘'-]|\p{Lu}|\p{IsCombiningDiacriticalMarks}){2,}</xsl:variable>
+	<xsl:variable name="surname-regex">^(\* ?)?(al-)?(Mc)?(Mac)?(['‘'’-]|\p{Lu}|\p{IsCombiningDiacriticalMarks}){2,}</xsl:variable>
 	
 	<xsl:template match="tei:body//tei:div">
 		<xsl:copy>

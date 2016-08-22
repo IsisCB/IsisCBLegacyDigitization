@@ -20,6 +20,7 @@
 			<xsl:copy-of select="@*"/>
 			<xsl:for-each-group group-ending-with="text()[contains(., '; by ')]" select="node()">
 				<xsl:element name="bibl">
+					<xsl:attribute name="type">review</xsl:attribute>
 					<!-- previous text is the last text node preceding this citation; from '; by ' onwards it belongs to this citation -->
 					<xsl:variable name="previous-text" select="preceding-sibling::node()[1]/self::text()[contains(., '; by ')]"/>
 					<xsl:if test="$previous-text">

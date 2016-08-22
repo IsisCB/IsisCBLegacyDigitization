@@ -30,7 +30,7 @@
 		not(following-sibling::*)]">
 		<!--  Berlin: Julius Springer, 1923. -->
 		<xsl:variable name="book-series-regex">(\(([^\)]+)\))?</xsl:variable>
-		<xsl:variable name="imprint-regex">(\p{Z}+)(([^):.]|\.\w)*)[\.]?(:\p{Z}+)([^,]*)(,\p{Z}+)(\p{Nd}{4})([\.,])</xsl:variable>
+		<xsl:variable name="imprint-regex">(\p{Z}+)(([^):.]|\.\w)*)[\.]?(:\p{Z}+)(.*)(,\p{Z}+)?(\p{Nd}{4})([\.,])</xsl:variable>
 		<xsl:analyze-string select="." regex="{$book-series-regex}{$imprint-regex}">
 			<xsl:matching-substring>
 				<xsl:variable name="book-series" select="regex-group(1)"/>
@@ -43,7 +43,11 @@
 				<xsl:value-of select="regex-group(3)"/><!-- white space -->
 				<xsl:element name="pubPlace"><xsl:value-of select="regex-group(4)"/></xsl:element>
 				<xsl:value-of select="regex-group(6)"/><!-- colon, white space -->
-				<xsl:element name="publisher"><xsl:value-of select="regex-group(7)"/></xsl:element>
+				<!-- publisher is optional -->
+				<xsl:variable name="publisher" select="regex-group(7)"/>
+				<xsl:if test="$publisher">
+					<xsl:element name="publisher"><xsl:value-of select="$publisher"/></xsl:element>
+				</xsl:if>
 				<xsl:value-of select="regex-group(8)"/><!-- comma, white space -->
 				<xsl:element name="date"><xsl:value-of select="regex-group(9)"/></xsl:element>
 				<xsl:value-of select="regex-group(10)"/><!-- full stop or comma -->

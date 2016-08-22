@@ -24,6 +24,23 @@
 		</xsl:element>
 		<xsl:value-of select="substring-after(., $chapter-title)"/>
 	</xsl:template>
+	
+	<xsl:template match="tei:bibl[@type='bookChapter']/text()[1][not(contains(., '. In: '))]">
+		<xsl:analyze-string select="." regex="^(\s*)(.+)">
+			<xsl:matching-substring>
+				<xsl:value-of select="regex-group(1)"/><!-- leading white space -->
+				<xsl:element name="biblScope">
+					<xsl:attribute name="unit">chapter</xsl:attribute>
+					<xsl:element name="title">
+						<xsl:value-of select="regex-group(2)"/>
+					</xsl:element>
+				</xsl:element>
+			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<xsl:value-of select="."/>
+			</xsl:non-matching-substring>
+		</xsl:analyze-string>
+	</xsl:template>	
 
 </xsl:stylesheet>
 					

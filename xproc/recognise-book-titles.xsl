@@ -26,11 +26,23 @@
 	<!-- Where a chapter in a book is cited, the book's title is sandwiched between the chapter's title and a biblScope giving number of pages, if any, or imprint -->
 	<!-- and is preceded by the text '. In: ' -->
 	<xsl:template match="tei:bibl[@type='bookChapter']/text()
+		[preceding-sibling::node()[1]/self::tei:biblScope/@unit='chapter']
 		[starts-with(., '. In: ')]
-		[preceding-sibling::node()[1]/self::tei:biblScope/@unit='chapter']">
+	">
 		<xsl:text>. In: </xsl:text>
 		<xsl:element name="title">
 			<xsl:value-of select="substring-after(., ' In: ')"/>
+		</xsl:element>
+	</xsl:template>
+	
+	<!-- Except that chapters published in books which are conference proceedings and festschrifts have a different format; -->
+	<!-- the chapter title is in plain text following the author name, and is immediately followed by the book title in italics, with no ' In: ' -->
+	<xsl:template match="tei:bibl[@type='bookChapter']/tei:hi[@rend='i']
+		[preceding-sibling::node()[1]/self::tei:biblScope/@unit='chapter']
+	">
+		<xsl:element name="title">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
 		</xsl:element>
 	</xsl:template>
 	

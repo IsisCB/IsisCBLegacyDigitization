@@ -12,6 +12,8 @@
 		</xsl:copy>
 	</xsl:template>
 	
+	<xsl:variable name="journal-volume-page-regex">(no.\s?)?(\p{Nd}+)(:\p{Z}+)((\p{Nd}+[-–]\p{Nd}+)|(\p{Nd}+))([;,\.])*</xsl:variable>
+	
 	<!-- text following a journal title contains publication metadata; date, volume number, pages -->
 	<xsl:template match="tei:bibl/text()[preceding-sibling::*[1]/self::tei:title/@level='j']">
 		<!-- 4 numeric digits, comma, any whitespace, any other characters -->
@@ -21,7 +23,7 @@
 					<xsl:value-of select="regex-group(1)"/>
 				</xsl:element>
 				<xsl:value-of select="regex-group(2)"/><!-- comma and whitespace -->
-				<xsl:analyze-string select="regex-group(3)" regex="(no.\s?)?(\p{{Nd}}*)(:\p{{Z}}*)((\p{{Nd}}*–\p{{Nd}}*)|(\p{{Nd}}*))([,\.])">
+				<xsl:analyze-string select="regex-group(3)" regex="{$journal-volume-page-regex}">
 					<!-- volume, colon and any whitespace, page range or single page number, finally comma or full stop -->
 					<!-- TODO volume number may be preceded with "no." or "no. " -->
 					<!-- NB if comma, then what follows are extents (e.g. "8 fig.") -->

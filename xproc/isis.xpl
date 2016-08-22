@@ -27,10 +27,10 @@
 	
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
-		<p:iteration-source select="/c:directory/c:file"/>
+		<p:iteration-source select="/c:directory/c:file[@name='ISIS-01.xml']"/>
 		<!--
 	
-		<p:iteration-source select="/c:directory/c:file[@name='ISIS-02.xml']"/>
+		<p:iteration-source select="/c:directory/c:file[@name=('ISIS-02.xml', 'ISIS-04.xml', 'ISIS-05.xml', 'ISIS-06.xml', 'ISIS-07.xml')]"/>
 		-->
 
 		<p:output port="result"/>
@@ -240,6 +240,7 @@
 		<isis:transform xslt="recognise-imprint.xsl"/>
 		<isis:transform xslt="recognise-book-series-title.xsl"/>
 		<isis:transform xslt="recognise-book-titles.xsl"/>
+		<isis:transform xslt="recognise-boilerplate.xsl"/>
 		<isis:transform xslt="recognise-years.xsl"/>
 	</p:declare-step>
 	
