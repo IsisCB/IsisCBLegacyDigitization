@@ -20,6 +20,7 @@
 	
 	<xsl:template match="tei:text">
 		<body>
+			<xsl:call-template name="statistics"/>
 			<xsl:apply-templates/>
 		</body>
 	</xsl:template>
@@ -161,6 +162,54 @@
 				)
 			"/>
 		</xsl:attribute>
+	</xsl:template>
+	
+	<xsl:template name="statistics">
+		<div class="statistics">
+			<h1>Statistics</h1>
+			<table>
+				<tr>
+					<th rowspan="2">Citation Type</th>
+					<th rowspan="2">Number</th>
+					<th colspan="4">Characters</th>
+				</tr>
+				<tr>
+					<th>Total</th>
+					<th>Parsed</th>
+					<th>Unparsed</th>
+					<th>% Parsed</th>
+				</tr>
+				<xsl:for-each-group select="//tei:bibl" group-by="@type">
+					<xsl:call-template name="statistics-row">
+						<xsl:with-param name="type" select="@type"/>
+						<xsl:with-param name="bibl-list" select="current-group()"/>
+					</xsl:call-template>
+				</xsl:for-each-group>
+				<xsl:call-template name="statistics-row">
+					<xsl:with-param name="type" select=" 'total' "/>
+					<xsl:with-param name="bibl-list" select="//tei:bibl"/>
+				</xsl:call-template>
+			</table>
+		</div>
+	</xsl:template>
+	
+	<xsl:template name="statistics-row">
+		<xsl:param name="bibl-list"/>
+		<xsl:param name="type"/>
+		<xsl:variable name="content" select="$bibl-list/node()"/>
+		<xsl:variable name="parsed-content" select="$content[not(self::tei:note)]"/>
+		<xsl:variable name="unparsed-content" select="$content[self::text()] | $content[self::tei:hi]"/>
+		<xsl:variable name="content-length" select="sum(for $c in $content return string-length($c))"/>
+		<xsl:variable name="parsed-content-length" select="sum(for $p in $parsed-content return string-length($p))"/>
+		<xsl:variable name="unparsed-content-length" select="sum(for $u in $unparsed-content return string-length($u))"/>
+		<tr>
+			<td class="text"><xsl:value-of select="$type"/></td>
+			<td><xsl:value-of select="count($bibl-list)"/></td>
+			<td><xsl:value-of select="$content-length"/></td>
+			<td><xsl:value-of select="$parsed-content-length"/></td>
+			<td><xsl:value-of select="$unparsed-content-length"/></td>
+			<td><xsl:value-of select="format-number(1 - ($unparsed-content-length div $content-length), '#%')" /></td>
+		</tr>		
 	</xsl:template>
 	
 </xsl:stylesheet>

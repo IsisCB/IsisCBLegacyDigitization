@@ -1,4 +1,31 @@
 
+div.statistics {
+	font-family: sans-serif;
+}
+div.statistics table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}	
+div.statistics tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+div.statistics td, div.statistics th {
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	vertical-align: bottom;
+	border: 1px solid #ddd;
+}
+div.statistics th {
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+}
+div.statistics td {
+	text-align: right;
+}
+
 td {
 	vertical-align: top;
 }
@@ -18,6 +45,10 @@ td {
 		
 span.bibl-type {
 	color: darkmagenta;
+}
+
+span.seg {
+	background-color: lavenderblush;
 }
 
 div {
