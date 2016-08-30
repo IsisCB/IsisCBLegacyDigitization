@@ -27,7 +27,7 @@
 	
 	<p:directory-list path="../tite" include-filter="^.*\.xml$"/>
 	<p:for-each name="file">
-		<p:iteration-source select="/c:directory/c:file[@name='ISIS-01.xml']"/>
+		<p:iteration-source select="/c:directory/c:file"/>
 		<!--
 	
 		<p:iteration-source select="/c:directory/c:file[@name=('ISIS-02.xml', 'ISIS-04.xml', 'ISIS-05.xml', 'ISIS-06.xml', 'ISIS-07.xml')]"/>

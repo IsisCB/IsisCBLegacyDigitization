@@ -12,7 +12,7 @@
 		</xsl:copy>
 	</xsl:template>
 	
-	<xsl:variable name="journal-volume-page-regex">(no.\s?)?(\p{Nd}+)(:\p{Z}+)((\p{Nd}+[-–]\p{Nd}+)|(\p{Nd}+))([;,\.])*</xsl:variable>
+	<xsl:variable name="journal-volume-page-regex">((\p{Nd}+)(:\p{Z}+))?((no.\s?)?(\p{Nd}+)(,\s+))?((\p{Nd}+[–-]\p{Nd}+)|(\p{Nd}+))([,;\.])?</xsl:variable>
 	
 	<!-- text following a journal title contains publication metadata; date, volume number, pages -->
 	<xsl:template match="tei:bibl/text()[preceding-sibling::*[1]/self::tei:title/@level='j']">
@@ -23,44 +23,61 @@
 					<xsl:value-of select="regex-group(1)"/>
 				</xsl:element>
 				<xsl:value-of select="regex-group(2)"/><!-- comma and whitespace -->
-				<xsl:analyze-string select="regex-group(3)" regex="{$journal-volume-page-regex}">
+				<xsl:analyze-string select="regex-group(3)" regex="^{$journal-volume-page-regex}">
 					<!-- volume, colon and any whitespace, page range or single page number, finally comma or full stop -->
-					<!-- TODO volume number may be preceded with "no." or "no. " -->
+					<!-- volume number may be preceded with "no." or "no. " -->
 					<!-- NB if comma, then what follows are extents (e.g. "8 fig.") -->
 					<xsl:matching-substring>
-						<xsl:element name="biblScope">
-							<xsl:attribute name="unit">volume</xsl:attribute>
-							<xsl:value-of select="regex-group(1)"/>
-							<xsl:value-of select="regex-group(2)"/>
-						</xsl:element>
-						<xsl:value-of select="regex-group(3)"/><!-- colon and whitespace -->
-						<xsl:variable name="range-or-page-number" select="regex-group(4)"/>
-						<xsl:variable name="range" select="regex-group(5)"/><!-- e.g. "210-12" -->
-						<xsl:variable name="page-number" select="regex-group(6)"/><!-- e.g. "210" -->
-						<xsl:element name="biblScope">
-							<xsl:attribute name="unit">page</xsl:attribute>
-							<xsl:choose>
-								<xsl:when test="$range">
-									<!-- potentially a variety of characters could have been used for a dash in a page range -->
-									<xsl:variable name="dash" select="normalize-space(translate($range, '0123456789', ''))"/>
-									<xsl:variable name="from"  select="substring-before($range, $dash)"/><!-- "210" -->
-									<xsl:variable name="to" select="substring-after($range, $dash)"/><!-- "12" -->
-									<xsl:attribute name="from"><xsl:value-of select="$from"/></xsl:attribute>
-									<xsl:attribute name="to"><xsl:value-of select="
-										concat(
-											substring($from, 1, string-length($from) - string-length($to)),
-											$to
-										)
-									"/></xsl:attribute><!-- "2" + "12" = "212" -->
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="from"><xsl:value-of select="$page-number"/></xsl:attribute>
-									<xsl:attribute name="to"><xsl:value-of select="$page-number"/></xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-							<xsl:value-of select="$range-or-page-number"/><!-- the element content -->
-						</xsl:element>
-						<xsl:value-of select="regex-group(7)"/><!-- terminal punctuation -->
+						<xsl:variable name="volume-and-suffix" select="regex-group(1)"/>
+						<xsl:variable name="volume" select="regex-group(2)"/>
+						<xsl:variable name="volume-colon-space-suffix" select="regex-group(3)"/>
+						<xsl:variable name="issue-number-including-prefix-and-comma" select="regex-group(4)"/>
+						<xsl:variable name="issue-number-prefix" select="regex-group(5)"/>
+						<xsl:variable name="issue-number" select="regex-group(6)"/>
+						<xsl:variable name="issue-number-comma" select="regex-group(7)"/>
+						<xsl:variable name="page-or-range" select="regex-group(8)"/>
+						<xsl:variable name="range" select="regex-group(9)"/>
+						<xsl:variable name="page" select="regex-group(10)"/>
+						<xsl:variable name="terminal-punctuation" select="regex-group(11)"/>
+						<xsl:if test="$volume">
+							<xsl:element name="biblScope">
+								<xsl:attribute name="unit">volume</xsl:attribute>
+								<xsl:attribute name="from"><xsl:value-of select="$volume"/></xsl:attribute>
+								<xsl:value-of select="$volume-and-suffix"/>
+							</xsl:element>
+						</xsl:if>
+						<xsl:if test="$issue-number-including-prefix-and-comma">
+							<xsl:element name="biblScope">
+								<xsl:attribute name="unit">issue</xsl:attribute>
+								<xsl:attribute name="from"><xsl:value-of select="$issue-number"/></xsl:attribute>
+								<xsl:value-of select="$issue-number-including-prefix-and-comma"/>
+							</xsl:element>
+						</xsl:if>
+						<xsl:if test="$page-or-range">
+							<xsl:element name="biblScope">
+								<xsl:attribute name="unit">page</xsl:attribute>
+								<xsl:choose>
+									<xsl:when test="$range">
+										<!-- potentially a variety of characters could have been used for a dash in a page range -->
+										<xsl:variable name="dash" select="normalize-space(translate($range, '0123456789', ''))"/>
+										<xsl:variable name="from"  select="substring-before($range, $dash)"/><!-- "210" -->
+										<xsl:variable name="to" select="substring-after($range, $dash)"/><!-- "12" -->
+										<xsl:attribute name="from"><xsl:value-of select="$from"/></xsl:attribute>
+										<xsl:attribute name="to"><xsl:value-of select="
+											concat(
+												substring($from, 1, string-length($from) - string-length($to)),
+												$to
+											)
+										"/></xsl:attribute><!-- "2" + "12" = "212" -->
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:attribute name="from"><xsl:value-of select="$page"/></xsl:attribute>
+									</xsl:otherwise>
+								</xsl:choose>
+								<xsl:value-of select="$page-or-range"/><!-- the element content -->
+							</xsl:element>
+						</xsl:if>
+						<xsl:value-of select="$terminal-punctuation"/>
 					</xsl:matching-substring>
 					<xsl:non-matching-substring>
 						<xsl:value-of select="."/>

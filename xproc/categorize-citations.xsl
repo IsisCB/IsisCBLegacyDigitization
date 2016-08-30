@@ -25,7 +25,7 @@
 		'),)?( (\d+) pp?\.)(, front\.)?(, (\d* )?pl\.)?(, (\d* )?fig\.)?(, (\d* )?ill\.)?(, (\d* )?illus\.)?(, (\d* )?portr\.)?(, (\d* )?bibliogr\.)?(, (\d* )?bibl\.)?(, (\d* )?index\.)?'
 	)"/>
 	<xsl:variable name="journal-article-extents-regex">(, (\d* )?pl\.)|(, (\d* )?fig\.)|(, (\d* )?ill\.)|(, (\d* )?portr\.)|(, (\d* )?bibliogr\.)|(, (\d* )?illus\.)|(, (\d* )?bibl\.)|(, (\d* )?maps)</xsl:variable>
-	<xsl:variable name="journal-date-volume-page-regex">(\p{Nd}{4})(,\p{Z}*)(no.\s?)?(\p{Nd}+)(:\p{Z}+)((\p{Nd}+[-–]\p{Nd}+)|(\p{Nd}+))([;,\.])*</xsl:variable>
+	<xsl:variable name="journal-date-volume-page-regex">(\p{Nd}{4})(,\p{Z}*)((\p{Nd}+)(:\p{Z}+))?((no.\s?)?(\p{Nd}+)(,\s+))?((\p{Nd}+[–-]\p{Nd}+)|(\p{Nd}+))([,;\.])?</xsl:variable>
 	<xsl:variable name="book-chapter-page-range-regex" select="concat(
 		'(p\. )(',
 		$roman-number-regex,

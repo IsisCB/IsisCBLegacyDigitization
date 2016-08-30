@@ -30,7 +30,7 @@
 		not(following-sibling::*)]">
 		<!--  Berlin: Julius Springer, 1923. -->
 		<xsl:variable name="book-series-regex">(\(([^\)]+)\))?</xsl:variable>
-		<xsl:variable name="imprint-regex">(\p{Z}+)(([^):.]|\.\w)*)[\.]?(:\p{Z}+)(.*)(,\p{Z}+)?(\p{Nd}{4})([\.,])</xsl:variable>
+		<xsl:variable name="imprint-regex">(\p{Z}+)(([^):.]|\.\w)*)[\.]?(:\p{Z}+)([^:]*)(,\p{Z}+)?(\p{Nd}{4})([\.,])</xsl:variable>
 		<xsl:analyze-string select="." regex="{$book-series-regex}{$imprint-regex}">
 			<xsl:matching-substring>
 				<xsl:variable name="book-series" select="regex-group(1)"/>
