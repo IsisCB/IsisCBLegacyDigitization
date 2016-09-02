@@ -150,6 +150,15 @@
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:store>
+		
+		<!--
+		<p:store>
+			<p:input port="source">
+				<p:pipe step="upconverted" port="debug"/>
+			</p:input>
+			<p:with-option name="href" select="concat('../../build/upconverted/debug-', $filename)"/>
+		</p:store>
+		-->
 
 		<isis:transform xslt="make-sample.xsl">
 			<p:input port="source">
@@ -215,7 +224,10 @@
 	
 	<p:declare-step type="isis:upconvert-document" name="upconvert-document">
 		<p:input port="source"/>
-		<p:output port="result"/>
+		<p:output port="result" primary="true"/>
+		<p:output port="debug">
+			<p:pipe step="authors" port="result"/>
+		</p:output>
 		<p:input port="parameters" kind="parameter"/>
 		<isis:transform xslt="convert-highlight-to-unicode-characters.xsl"/>
 		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
@@ -226,11 +238,12 @@
 		<isis:transform xslt="group-by-second-level-period.xsl"/>
 		<isis:transform xslt="group-by-third-level-period.xsl"/>
 		<isis:transform xslt="group-citations.xsl"/>
-		<isis:transform xslt="make-bibl.xsl"/>
+		<isis:transform xslt="make-bibl.xsl"/><!-- recognise top-level citations (not the review citations in notes) -->
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/><!-- i.e. reviews -->
+		<isis:transform xslt="split-citations-around-milestones.xsl"/><!-- split bibl elements into multiple bibl elements -->
 		<isis:transform xslt="assign-bibl-identifiers.xsl"/>
 		<isis:transform xslt="categorize-citations.xsl"/><!-- into books, book chapters, journal articles, and reviews -->
-		<isis:transform xslt="recognise-authors.xsl"/>
+		<isis:transform xslt="recognise-authors.xsl" name="authors"/>
 		<isis:transform xslt="recognise-journal-titles.xsl"/>
 		<isis:transform xslt="recognise-cb-references.xsl"/>
 		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
