@@ -42,7 +42,9 @@
 			<xsl:variable name="content" select="string-join(node()[not(self::tei:note)], '')"/>
 			<xsl:choose>
 				<!-- a bibl in a note in another bibl is a citation of a review of the containing bibl -->
-				<xsl:when test="parent::tei:note/parent::tei:bibl">review</xsl:when>
+				<xsl:when test="parent::tei:note/parent::tei:bibl">
+					<xsl:attribute name="type">review</xsl:attribute>
+				</xsl:when>
 				<!-- e.g. OSLER, William. William Beaumont. In: Selected writings of Sir William Osler, 12 July 1849 to 29 December 1919. Ed. by Alfred White Franklin with an introduction by G.L. Keynes. London: Oxford University Press, 1951. [CB 78/154] -->
 				<xsl:when test="contains($content, '. In: ')">
 					<xsl:attribute name="type">bookChapter</xsl:attribute>
