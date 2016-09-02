@@ -14,6 +14,29 @@
 		</xsl:copy>
 	</xsl:template>
 	
+	<!-- in a book citation in the book review section, the title includes everything between the last author and the next semantic element, whatever that is -->
+	<xsl:template match="tei:bibl[@type='book'][@subtype='book-review-section']">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:variable name="last-author" select="tei:author[not(following-sibling::tei:author)]"/>
+			<xsl:variable name="first-non-title" select="*[not(self::tei:author | self::tei:hi)][1]"/>
+			<xsl:choose>
+				<xsl:when test="$last-author">
+					<xsl:copy-of select="node()[. &lt;&lt; $last-author] | $last-author"/>
+					<xsl:element name="title">
+						<xsl:copy-of select="$last-author/following-sibling::node()[. &lt;&lt; $first-non-title]"/>
+					</xsl:element>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:element name="title">
+						<xsl:copy-of select="node()[. &lt;&lt; $first-non-title]"/>
+					</xsl:element>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:copy-of select="$first-non-title | $first-non-title/following-sibling::node()"/>
+		</xsl:copy>
+	</xsl:template>
+	
 	<!-- Where an entire book is cited, the book's title is sandwiched between the book's author and an "extent" (number of pages, etc) -->
 	<xsl:template match="tei:bibl[@type='book']/text()
 		[preceding-sibling::node()[1]/self::tei:author]
