@@ -34,13 +34,55 @@
 					</xsl:for-each>
 				</xsl:element>
 			</xsl:for-each-group>
-			<!-- wrap the contents of the note in another bibl -->
-			<!--
-			<xsl:element name="bibl">
-				<xsl:apply-templates/>
-			</xsl:element>
-			-->
 		</xsl:copy>
+	</xsl:template>
+	
+	<!-- in the "book review" section of volume 7, starting on page 605, all the top-level citations are of books, and a simpler format is used for review citations -->
+	<xsl:template match="tei:bibl[ancestor::tei:text/@xml:id='ISIS-07' and preceding::tei:pb/@n='605']">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:attribute name="type">book</xsl:attribute>
+			<xsl:attribute name="subtype">book-review-section</xsl:attribute>
+			<xsl:apply-templates mode="book-review-section"/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="*" mode="book-review-section">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates mode="book-review-section"/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="tei:note" mode="book-review-section">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<!-- e.g. 
+			L. Dulieu in Bibl. Renaiss., 1967, 29:289–90. J.M. Lopez Piñero in Asclepio, 1965, 17:281–2. C.H. Talbot in Isis, 1967, 58:575–6. W.D. Sharpe in Speculum, 1968, 43:119–21. E. Seidler in Sudhoffs Arch., 1967, 51:280–1.
+			-->
+			<xsl:element name="bibl">
+				<xsl:attribute name="type">review</xsl:attribute>
+				<xsl:attribute name="subtype">book-review-section</xsl:attribute>
+				<xsl:apply-templates mode="book-review-section-review"/>
+			</xsl:element>
+		</xsl:copy>
+	</xsl:template>	
+	
+	<xsl:template match="node()" mode="book-review-section-review">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+
+	<!-- text following an italicised number with optional trailing colon, in a book-review-section review may straddle the boundary between one review and another -->
+	<!-- if so, a milestone is inserted to mark that boundary, and later the bibl will be split around this milestone -->
+	<xsl:template match="text()[preceding-sibling::*[1]/self::tei:hi[@rend='i'][matches(., '^[0-9]+:?$')]]" mode="book-review-section-review">
+		<xsl:analyze-string select="." regex="^(\([0-9]+\))?:?[0-9]+(–[0-9]+)?(, [0-9]+(–[0-9]+)?)*\. ">
+			<xsl:matching-substring>
+				<!-- first bibl finishes after the page number or page range -->
+				<xsl:value-of select="."/>
+				<xsl:element name="milestone"/>
+			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<xsl:value-of select="."/>
+			</xsl:non-matching-substring>
+		</xsl:analyze-string>
 	</xsl:template>
 	
 </xsl:stylesheet>
