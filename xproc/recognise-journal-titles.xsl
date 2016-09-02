@@ -14,7 +14,8 @@
 	</xsl:template>
 	
 	<!-- italicised phrase is a journal title -->
-	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/tei:hi[@rend='i']">
+	<!-- unless it's only numeric with optional trailing colon (in which case it's a journal volume number -->
+	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/tei:hi[@rend='i'][not(matches(., '^[0-9]+:?$'))]">
 		<xsl:element name="title">
 			<xsl:attribute name="level">j</xsl:attribute>
 			<xsl:element name="abbr"><xsl:apply-templates/></xsl:element>
