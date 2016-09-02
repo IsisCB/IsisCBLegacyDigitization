@@ -56,7 +56,7 @@
 						(
 							tei:title[not(@level)],
 							if ($source-book/tei:title[not(@level)]) then
-								concat('Review of ', ancestor::tei:bibl/tei:title[not(@level)])
+								concat('Review of ', $source-book/tei:title[not(@level)][1])
 							else
 								''
 						)[1]
