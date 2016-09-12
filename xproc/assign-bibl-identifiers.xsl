@@ -49,14 +49,21 @@
 				<xsl:variable name="top-level-bibl-count" select="
 					string(
 						1 + count(
-							($top-level-bibl/preceding::tei:bibl[ not(.//tei:bibl)] ) [. >> $page]
+							(
+								$top-level-bibl/preceding::tei:bibl
+									[ not(ancestor::tei:bibl)] 
+									[. >> $page]
+							)
 						)
 					)
 				"/>
 				<!-- compute the position of this second-level bibl in the sequence of descendants of the same top-level bibl -->
+				<xsl:variable name="current-bibl" select="."/>
 				<xsl:variable name="second-level-bibl-count" select="
 					format-number(
-						1 + count(preceding::tei:bibl [. >> $top-level-bibl]),
+						1 + count(
+							$top-level-bibl//tei:bibl[. &lt;&lt; $current-bibl]
+						),
 						'00'
 					)
 				"/>
