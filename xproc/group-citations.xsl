@@ -15,16 +15,35 @@
 	<xsl:template match="tei:body//tei:div">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<!-- handle all the citation groups -->
-			<xsl:for-each-group select="node()" group-starting-with="tei:p[tei:hi[@rend='b']]">
+			<!-- handle all the remaining citation groups -->
+			<!-- a Party heading begins with the ALL-CAPS name of the party (or Arabic "al-" prefix or ‘ character) -->
+			<!-- a sub-heading begings with a lower-case code -->
+			<xsl:variable name="party-name-regex">^((al-)|‘|\p{Lu})</xsl:variable>
+			<xsl:for-each-group select="node()" group-starting-with="tei:p[tei:hi[@rend='b'][matches(., $party-name-regex)]]">
 				<xsl:choose>
-					<xsl:when test="self::tei:p[tei:hi[@rend='b']]">
+					<xsl:when test="self::tei:p[tei:hi[@rend='b'][matches(., $party-name-regex)]]">
 						<div type="party">
 							<head><xsl:apply-templates/></head>
-							<xsl:apply-templates select="current-group()[position() &gt; 1]"/>
+							<xsl:for-each-group 
+								select="current-group()[position() &gt; 1]" 
+								group-starting-with="tei:p[tei:hi[@rend='b']]">
+								<xsl:choose>
+									<xsl:when test="self::tei:p[tei:hi[@rend='b']]">
+										<div type="party-subsection">
+											<head><xsl:apply-templates/></head>
+											<xsl:apply-templates select="current-group[position() &gt; 1]"/>
+										</div>
+									</xsl:when>
+									<xsl:otherwise>
+										<!-- leading nodes at the beginning of the div which don't fall under a heading -->
+										<xsl:apply-templates select="current-group()"/>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:for-each-group>
 						</div>
 					</xsl:when>
 					<xsl:otherwise>
+						<!-- leading nodes at the beginning of the div which don't fall under a heading -->
 						<xsl:apply-templates select="current-group()"/>
 					</xsl:otherwise>
 				</xsl:choose>
