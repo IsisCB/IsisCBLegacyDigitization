@@ -48,7 +48,6 @@
 				<!-- e.g. OSLER, William. William Beaumont. In: Selected writings of Sir William Osler, 12 July 1849 to 29 December 1919. Ed. by Alfred White Franklin with an introduction by G.L. Keynes. London: Oxford University Press, 1951. [CB 78/154] -->
 				<xsl:when test="contains($content, '. In: ')">
 					<xsl:attribute name="type">bookChapter</xsl:attribute>
-					<xsl:attribute name="subtype">contains-in</xsl:attribute>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:variable name="book-or-chapter" select="matches($content, $book-or-chapter-regex)"/>
@@ -83,9 +82,10 @@
 							<xsl:attribute name="type">journalArticle</xsl:attribute>
 						</xsl:otherwise>
 					</xsl:choose>
-					
+					<!-- for debugging, record the basis for the classification -->
+					<!--
 					<xsl:attribute name="subtype">
-						<!-- for debugging, record the basis for the classification -->
+						
 						<xsl:value-of select="string-join(
 							(
 								if ($book-extents) then 'book-extents' else 'no-book-extents',
@@ -97,6 +97,7 @@
 							, ' '
 						)"/>
 					</xsl:attribute>
+					-->
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:apply-templates/>
