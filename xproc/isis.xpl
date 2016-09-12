@@ -160,43 +160,7 @@
 		</p:store>
 		-->
 
-		<isis:transform xslt="make-sample.xsl">
-			<p:input port="source">
-				<p:pipe step="upconverted" port="result"/>
-			</p:input>
-		</isis:transform>
-		<p:store>
-			<p:with-option name="href" select="concat('../../build/upconverted/sample/', $filename)"/>
-		</p:store>
-		
-		<isis:transform xslt="tei-bibls-to-table.xsl">
-			<p:input port="source">
-				<p:pipe step="upconverted" port="result"/>
-			</p:input>
-		</isis:transform>
-		<isis:transform name="csv" xslt="tei-table-to-csv.xsl"/>
-		<p:store method="text">
-			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
-		</p:store>		
-		
-		<isis:transform xslt="tei-unparsed-citation-italics-to-table.xsl">
-			<p:input port="source">
-				<p:pipe step="upconverted" port="result"/>
-			</p:input>
-		</isis:transform>
-		<isis:transform xslt="tei-table-to-csv.xsl"/>
-		<p:store method="text">
-			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-unparsed-italics.csv')"/>
-		</p:store>		
-		
-		<isis:transform xslt="tei-headings-to-csv.xsl">
-			<p:input port="source">
-				<p:pipe step="upconverted" port="result"/>
-			</p:input>
-		</isis:transform>
-		<p:store method="text">
-			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-headings.csv')"/>
-		</p:store>	
+
 		
 	</p:for-each>
 	
@@ -226,7 +190,7 @@
 		<p:input port="source"/>
 		<p:output port="result" primary="true"/>
 		<p:output port="debug">
-			<p:pipe step="authors" port="result"/>
+			<p:pipe step="journal-titles" port="result"/>
 		</p:output>
 		<p:input port="parameters" kind="parameter"/>
 		<isis:transform xslt="convert-highlight-to-unicode-characters.xsl"/>
@@ -241,10 +205,10 @@
 		<isis:transform xslt="make-bibl.xsl"/><!-- recognise top-level citations (not the review citations in notes) -->
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/><!-- i.e. reviews -->
 		<isis:transform xslt="split-citations-around-milestones.xsl"/><!-- split bibl elements into multiple bibl elements -->
-		<isis:transform xslt="assign-bibl-identifiers.xsl"/>
 		<isis:transform xslt="categorize-citations.xsl"/><!-- into books, book chapters, journal articles, and reviews -->
 		<isis:transform xslt="recognise-authors.xsl" name="authors"/>
-		<isis:transform xslt="recognise-journal-titles.xsl"/>
+		<isis:transform xslt="recognise-journal-titles.xsl" name="journal-titles"/>
+		<isis:transform xslt="recognise-journal-article-titles.xsl" name="journal-article-titles"/>
 		<isis:transform xslt="recognise-cb-references.xsl"/>
 		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
 		<isis:transform xslt="recognise-book-chapter-titles.xsl"/>
@@ -255,6 +219,7 @@
 		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-boilerplate.xsl"/>
 		<isis:transform xslt="recognise-years.xsl"/>
+		<isis:transform xslt="assign-bibl-identifiers.xsl"/>
 	</p:declare-step>
 	
 	<p:declare-step type="isis:test" name="test">

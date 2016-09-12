@@ -21,20 +21,58 @@
 	<p:for-each name="p5-file">
 		<p:iteration-source select="/c:directory/c:file"/>
 		<p:variable name="filename" select="encode-for-uri(/c:file/@name)"/>
-		<p:variable name="output-filename" select="concat(substring-before($filename, '.xml'), '.html')"/>
+		<p:variable name="base-filename" select="substring-before($filename, '.xml')"/>
 
-		<p:load name="p5">
+		<p:load name="upconverted">
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:load>	
 		
 		<isis:transform xslt="tei-to-html.xsl"/>
 		<p:store>
-			<p:with-option name="href" select="concat('../../build/html/', $output-filename)"/>
+			<p:with-option name="href" select="concat('../../build/html/', $base-filename, '.html')"/>
 		</p:store>
+		
+		<isis:transform xslt="make-sample.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store>
+			<p:with-option name="href" select="concat('../../build/upconverted/sample/', $filename)"/>
+		</p:store>
+		
+		<isis:transform xslt="tei-bibls-to-table.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<isis:transform name="csv" xslt="tei-table-to-csv.xsl"/>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '.csv')"/>
+		</p:store>		
 		
 		<isis:transform xslt="tei-unparsed-citation-italics-to-table.xsl">
 			<p:input port="source">
-				<p:pipe step="p5" port="result"/>
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<isis:transform xslt="tei-table-to-csv.xsl"/>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-unparsed-italics.csv')"/>
+		</p:store>		
+		
+		<isis:transform xslt="tei-headings-to-csv.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
+			</p:input>
+		</isis:transform>
+		<p:store method="text">
+			<p:with-option name="href" select="concat('../../build/csv/', $base-filename, '-headings.csv')"/>
+		</p:store>	
+
+		<isis:transform xslt="tei-unparsed-citation-italics-to-table.xsl">
+			<p:input port="source">
+				<p:pipe step="upconverted" port="result"/>
 			</p:input>
 		</isis:transform>
 		<p:store>
