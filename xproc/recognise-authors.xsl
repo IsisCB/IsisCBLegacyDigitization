@@ -62,7 +62,10 @@
 	
 
 
+<!--
 	<xsl:template match="tei:bibl[@type='book'][@subtype='book-review-section']">
+	-->
+	<xsl:template priority="100" match="tei:bibl[not(@type='review')][ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:attribute name="ana">new-parser</xsl:attribute>

@@ -15,7 +15,9 @@
 	</xsl:template>
 	
 	<!-- in a book citation in the book review section, the title includes everything between the last author and the next semantic element, whatever that is -->
-	<xsl:template match="tei:bibl[@type='book'][@subtype='book-review-section']">
+	<!--<xsl:template match="tei:bibl[@type='book'][@subtype='book-review-section']">-->
+	<xsl:template match="tei:bibl[not(@type=('review', 'journalArticle'))][ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]">
+
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:variable name="last-author" select="tei:author[not(following-sibling::tei:author)]"/>

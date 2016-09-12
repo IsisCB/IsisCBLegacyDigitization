@@ -15,7 +15,15 @@
 	<xsl:variable name="journal-volume-page-regex">((\p{Nd}+)(:\p{Z}+))?((no.\s?)?(\p{Nd}+)(,\s+))?((\p{Nd}+[–-]\p{Nd}+)|(\p{Nd}+))([,;\.])?</xsl:variable>
 	
 	<!-- in the book review section of volume 7, the text node following the journal title contains just the date -->
+<!--
 	<xsl:template match="tei:bibl[@type='review' and @subtype='book-review-section']/text()[preceding-sibling::*[1]/self::tei:title/@level='j']">
+-->
+	<xsl:template priority="100" match="tei:bibl
+		[@type=('journalArticle', 'review')]
+		[ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]
+		/text()
+			[preceding-sibling::*[1]/self::tei:title/@level='j']
+	">
 		<xsl:analyze-string select="." regex="([0-9]{{4}})(.*)">
 			<xsl:matching-substring>
 				<xsl:element name="date">
@@ -29,7 +37,15 @@
 		</xsl:analyze-string>
 	</xsl:template>
 	<!-- in the book review section of vol 7, an italicised text node that's numeric (with optional trailing colon) is a volume number -->
-	<xsl:template match="tei:bibl[@type='review' and @subtype='book-review-section']/tei:hi[@rend='i'][matches(., '[0-9]*:?')]">
+	<!--<xsl:template match="tei:bibl[@type='review' and @subtype='book-review-section']/tei:hi[@rend='i'][matches(., '[0-9]*:?')]">-->
+	<xsl:template match="
+		tei:bibl
+			[@type=('journalArticle', 'review')]
+			[ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]
+			/tei:hi
+				[@rend='i']
+				[matches(., '[0-9]+:?')]
+	">
 		<xsl:variable name="volume" select="substring-before(concat(., ':'), ':')"/>
 		<xsl:element name="biblScope">
 			<xsl:copy-of select="@*"/>
@@ -39,13 +55,25 @@
 		</xsl:element>
 	</xsl:template>
 	<!-- in the book review section of vol 7, a text node that follows italicised text node that's numeric (with optional trailing colon) is a page range -->
-	<xsl:variable name="book-review-page-regex">^(\(([0-9]+)\))?(:)?(([0-9]+)(–([0-9]*))?)</xsl:variable>
+	<xsl:variable name="book-review-page-regex">^(\(([0-9]+)\))?(:)?( ?([0-9]+)(–([0-9]*))?)</xsl:variable>
+<!--
 	<xsl:template match="
 		tei:bibl[@type='review' and @subtype='book-review-section']
 			/text()[
 				preceding-sibling::*[1]/self::tei:hi[@rend='i'][matches(., '[0-9]*:?')]
 			]
 	">
+-->
+	<xsl:template match="
+		tei:bibl
+			[@type=('journalArticle', 'review')]
+			[ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]
+			/text()[
+				preceding-sibling::*[1]/self::tei:hi[@rend='i'][matches(., '[0-9]+:?')]
+			]
+	">	
+	
+
 		<xsl:analyze-string select="." regex="{$book-review-page-regex}">
 			<xsl:matching-substring>
 				<xsl:variable name="parenthetical-issue-number" select="regex-group(1)"/><!-- (4) -->
@@ -85,7 +113,9 @@
 	</xsl:template>	
 	
 	<!-- text following a journal title contains publication metadata; date, volume number, pages -->
-	<xsl:template match="tei:bibl[not(@type='review' and @subtype='book-review-section')]/text()[preceding-sibling::*[1]/self::tei:title/@level='j']">
+	<xsl:template match="tei:bibl
+		[not(@type='review' and @subtype='book-review-section')]
+		/text()[preceding-sibling::*[1]/self::tei:title/@level='j']">
 		<!-- 4 numeric digits, comma, any whitespace, any other characters -->
 		<xsl:analyze-string select="." regex="(\p{{Nd}}{{4}})(,\p{{Z}}*)(.*)">
 			<xsl:matching-substring>

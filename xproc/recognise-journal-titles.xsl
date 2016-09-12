@@ -15,7 +15,17 @@
 	
 	<!-- italicised phrase is a journal title -->
 	<!-- unless it's only numeric with optional trailing colon (in which case it's a journal volume number -->
-	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/tei:hi[@rend='i'][not(matches(., '^[0-9]+:?$'))]">
+	<!-- or if it has italic text to the right of it (other than a journal number), in which case it is italic text embedded in a article title -->
+	<xsl:template match="tei:bibl[@type='journalArticle' or @type='review']/tei:hi[@rend='i']
+		[not(matches(., '^[0-9–]+:?$'))]
+		[
+			not(
+				following-sibling::tei:hi
+					[@rend='i']
+					[not(matches(., '^[0-9–]+:?$'))]
+			)
+		]
+	">
 		<xsl:element name="title">
 			<xsl:attribute name="level">j</xsl:attribute>
 			<xsl:element name="abbr"><xsl:apply-templates/></xsl:element>
@@ -54,16 +64,6 @@
 	</xsl:template>
 	
 
-	<!-- text sandwiched between an author and an italicised phrase is a title -->
-	<xsl:template match="tei:bibl[@type='journalArticle']/text()
-		[normalize-space()]
-		[following-sibling::*[1]/self::tei:hi/@rend='i']
-		[preceding-sibling::*[1]/self::tei:author]
-	">
-		<xsl:element name="title">
-			<xsl:value-of select="."/>
-		</xsl:element>
-	</xsl:template>	
 	
 </xsl:stylesheet>
 					
