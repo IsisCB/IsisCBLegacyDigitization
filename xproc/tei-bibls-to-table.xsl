@@ -23,7 +23,7 @@
 				<cell>Publisher</cell>
 				<cell>YearPublished</cell>
 				<cell>BookSeriesTitle</cell>
-				<!--<cell>JournalTitleAbbreviation</cell>-->
+				<cell>JournalTitleAbbreviation</cell>
 				<cell>JournalTitle</cell>
 				<cell>VolumeFullText</cell>
 				<cell>IssueFullText</cell>
@@ -52,7 +52,7 @@
 						<xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/>
 					</xsl:if></cell>
 					<cell n="Correction"><xsl:value-of select="(@subtype='correction')"/></cell>
-					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="
+					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="normalize-space(
 						(
 							tei:title[not(@level)],
 							if ($source-book/tei:title[not(@level)]) then
@@ -60,7 +60,7 @@
 							else
 								''
 						)[1]
-					"/></xsl:if></cell>
+					)"/></xsl:if></cell>
 					<cell n="Type"><xsl:value-of select="@type"/></cell>
 					<cell n="Heading"><xsl:value-of select="
 						string-join(
@@ -74,17 +74,18 @@
 					<cell n="Authors"><xsl:value-of select="string-join(tei:author, ', ')"/></cell>
 					<cell n="Editors">(not parsed)</cell>
 					<cell n="Contributors">(not parsed)</cell>
-					<cell n="UnrecognizedMaterial"><xsl:for-each select="text()[normalize-space()]">
-						<xsl:value-of select="concat('[', ., ']')"/>
-					</xsl:for-each></cell>
+					<!-- list of all unparsed text which is not composed entirely of punctuation and whitespace -->
+					<cell n="UnrecognizedMaterial"><xsl:value-of select="
+						string-join(
+							for $text in (text()[matches(., '(\p{L}|\p{N})')]) return normalize-space($text),
+							' [...] '
+						)"/></cell>
 					<cell n="PlacePublished"><xsl:value-of select="tei:pubPlace"/></cell>
 					<cell n="Publisher"><xsl:value-of select="tei:publisher"/></cell>
 					<cell n="YearPublished"><xsl:value-of select="tei:date"/></cell>
-					<cell n="BookSeriesTitle">(unparsed)</cell>
-					<!--
-					<cell n="JournalTitleAbbreviation"><xsl:value-of select="tei:title[@level='j']/tei:abbr"/></cell>
-					-->
-					<cell n="JournalTitle"><xsl:value-of select="tei:title[@level='j']/tei:expan"/></cell>
+					<cell n="BookSeriesTitle"><xsl:value-of select="normalize-space(tei:title[@level='s'])"/></cell>
+					<cell n="JournalTitleAbbreviation"><xsl:value-of select="normalize-space(tei:title[@level='j']/tei:abbr)"/></cell>
+					<cell n="JournalTitle"><xsl:value-of select="normalize-space(tei:title[@level='j']/tei:expan)"/></cell>
 					<cell n="VolumeFullText"><xsl:value-of select="tei:biblScope[@unit='volume']"/></cell>
 					<cell n="IssueFullText"><xsl:value-of select="tei:biblScope[@unit='issue']"/></cell>
 					<xsl:variable name="page-range" select="tei:biblScope[@unit='page'][1]"/>
@@ -107,7 +108,7 @@
 						number((tei:extent/tei:measure[@commodity='prefatory pages']/@quantity, '0')[1]) +
 						number((tei:extent/tei:measure[@commodity='pages']/@quantity, '0')[1])
 					)"/></cell>
-					<cell n="SourceBookTitle"><xsl:value-of select="$source-book/tei:title[not(@level='j')]"/></cell>
+					<cell n="SourceBookTitle"><xsl:value-of select="normalize-space($source-book/tei:title[not(@level)])"/></cell>
 					<cell n="SourceBookResponsibility"><xsl:value-of select="
 						string-join(
 							$source-book/tei:author,
