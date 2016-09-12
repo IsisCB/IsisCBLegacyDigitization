@@ -196,8 +196,8 @@
 	<xsl:template name="statistics-row">
 		<xsl:param name="bibl-list"/>
 		<xsl:param name="type"/>
-		<xsl:variable name="content" select="$bibl-list/node()"/>
-		<xsl:variable name="parsed-content" select="$content[not(self::tei:note)]"/>
+		<xsl:variable name="content" select="$bibl-list/node()[not(self::tei:note)]"/>
+		<xsl:variable name="parsed-content" select="$content[not(self::text() | self::tei:hi)]"/>
 		<xsl:variable name="unparsed-content" select="$content[self::text()] | $content[self::tei:hi]"/>
 		<xsl:variable name="content-length" select="sum(for $c in $content return string-length($c))"/>
 		<xsl:variable name="parsed-content-length" select="sum(for $p in $parsed-content return string-length($p))"/>
