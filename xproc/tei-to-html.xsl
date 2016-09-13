@@ -208,7 +208,12 @@
 			<td><xsl:value-of select="$content-length"/></td>
 			<td><xsl:value-of select="$parsed-content-length"/></td>
 			<td><xsl:value-of select="$unparsed-content-length"/></td>
-			<td><xsl:value-of select="format-number(1 - ($unparsed-content-length div $content-length), '#%')" /></td>
+			<td><xsl:choose>
+				<xsl:when test="$content-length &gt; 0">
+					<xsl:value-of select="format-number(1 - ($unparsed-content-length div $content-length), '#%')" />
+				</xsl:when>
+				<xsl:otherwise>n/a</xsl:otherwise>
+			</xsl:choose></td>
 		</tr>		
 	</xsl:template>
 	
