@@ -16,7 +16,7 @@
 	
 	<!-- in a book citation in the book review section, the title includes everything between the last author and the next semantic element, whatever that is -->
 	<!--<xsl:template match="tei:bibl[@type='book'][@subtype='book-review-section']">-->
-	<xsl:template match="tei:bibl[not(@type=('review', 'journalArticle'))][ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]">
+	<xsl:template match="tei:bibl[not(@type=('review', 'journalArticle', 'bookChapter'))][ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]">
 
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
@@ -37,6 +37,17 @@
 			</xsl:choose>
 			<xsl:copy-of select="$first-non-title | $first-non-title/following-sibling::node()"/>
 		</xsl:copy>
+	</xsl:template>
+	<!-- in bookChapter citations in vols 6 and 7, book titles are highlighted in italics following the word " in " -->
+	<xsl:template priority="100" match="tei:bibl
+		[@type='bookChapter']
+		[ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]
+		/tei:hi[@rend='i'][not(preceding-sibling::tei:hi[@rend='i'])]
+	">
+		<xsl:element name="title">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</xsl:element>	
 	</xsl:template>
 	
 	<!-- Where an entire book is cited, the book's title is sandwiched between the book's author and an "extent" (number of pages, etc) -->
@@ -71,5 +82,6 @@
 		</xsl:element>
 	</xsl:template>
 	
+
 </xsl:stylesheet>
 					

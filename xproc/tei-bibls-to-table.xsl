@@ -9,6 +9,7 @@
 			<row role="label">
 				<cell>ID</cell>
 				<cell>Correction</cell>
+				<cell>ChapterTitle</cell>
 				<cell>Title</cell>
 				<cell>Type</cell>
 				<cell>Heading</cell>
@@ -52,6 +53,11 @@
 						<xsl:value-of select="concat(ancestor::tei:text/@xml:id, '-', @xml:id)"/>
 					</xsl:if></cell>
 					<cell n="Correction"><xsl:value-of select="(@subtype='correction')"/></cell>
+					<cell n="ChapterTitle"><xsl:value-of select="
+						normalize-space(
+							self::tei:bibl/tei:biblScope[@unit='chapter']/tei:title
+						)
+					"/></cell>
 					<cell n="Title"><xsl:if test="self::tei:bibl"><xsl:value-of select="normalize-space(
 						(
 							tei:title[not(@level)],

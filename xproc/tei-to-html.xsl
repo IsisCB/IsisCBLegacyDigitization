@@ -82,7 +82,16 @@
 	<!-- headings -->
 	<xsl:template match="tei:head">
 		<xsl:variable name="level" select="count(ancestor-or-self::tei:div)"/>
-		<xsl:element name="h{$level}"><xsl:call-template name="attributes-as-title"/><xsl:apply-templates/></xsl:element>
+		<xsl:element name="h{$level}">
+			<xsl:call-template name="attributes-as-title"/>
+			<xsl:if test="@rend='†'">
+				<xsl:attribute name="class">dagger</xsl:attribute> 
+			</xsl:if>
+			<xsl:if test="@rend='*'">
+				<xsl:attribute name="class">asterisk</xsl:attribute> 
+			</xsl:if>
+			<xsl:apply-templates/>
+		</xsl:element>
 	</xsl:template>
 	
 	<!-- semantic phrase-level elements within citations, etc -->

@@ -22,6 +22,7 @@
 	<!--  ix, 361 p., pl., portr., bibliogr. -->
 	<!-- 258 pp., illus., bibl., index.  -->
 	<!-- xxviii, 406 p., 12 pl., 7 maps. -->
+	<!-- x + 413 pp., port., illus., index. -->
 	<!-- Also journal extents:  -->
 	<!-- e.g. "8 fig." -->
 	<!-- div with type = articles or books is for recognising citations in the test document citation-test.xml -->
@@ -156,9 +157,9 @@
 	</xsl:template>
 	
 	<xsl:template match="tei:bibl[@type='book']/text() | tei:div[contains(@type, 'books')]//tei:p/text()">
-		<xsl:analyze-string select="." regex="( ({$roman-number-regex}),)?( (\d+) pp?\.)(, front\.)?(, (\d* )?pl\.)?(, (\d* )?fig\.)?(, (\d* )?ill\.)?(, (\d* )?illus\.)?(, (\d* )?portr\.)?(, (\d* )?bibliogr\.)?(, (\d* )?bibl\.)?(, (\d* )?index\.)?">
+		<xsl:analyze-string select="." regex="( ({$roman-number-regex})(,| \+))?( (\d+) pp?\.)(, front\.)?(, (\d* )?pl\.)?(, (\d* )?fig\.)?(, (\d* )?ill\.)?(, (\d* )?illus\.)?(, (\d* )?portr\.)?(, (\d* )?bibliogr\.)?(, (\d* )?bibl\.)?(, (\d* )?index\.)?">
 			<xsl:matching-substring>
-				<xsl:if test="regex-group(1)"><!-- roman number of prefatory pages, followed by comma-->
+				<xsl:if test="regex-group(1)"><!-- roman number of prefatory pages, followed by comma or + -->
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">prefatory pages</xsl:attribute>
@@ -171,18 +172,18 @@
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(15)"><!-- arabic page number count -->
+				<xsl:if test="regex-group(16)"><!-- arabic page number count -->
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">pages</xsl:attribute>
 							<xsl:attribute name="quantity">
-								<xsl:value-of select="regex-group(16)"/><!-- the arabic number -->
+								<xsl:value-of select="regex-group(17)"/><!-- the arabic number -->
 							</xsl:attribute>
-							<xsl:value-of select="regex-group(15)"/>
+							<xsl:value-of select="regex-group(16)"/>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(17)"><!-- frontispiece -->
+				<xsl:if test="regex-group(18)"><!-- frontispiece -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
@@ -192,121 +193,121 @@
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(18)"><!-- plates -->
+				<xsl:if test="regex-group(19)"><!-- plates -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">plates</xsl:attribute>
-							<xsl:if test="regex-group(19)">
+							<xsl:if test="regex-group(20)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(19)"/><!-- just " pl. " means some unspecified number of plates? -->
+									<xsl:value-of select="regex-group(20)"/><!-- just " pl. " means some unspecified number of plates? -->
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(19)"/>
+								<xsl:value-of select="regex-group(20)"/>
 							</xsl:if>
 							<xsl:text>pl.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(20)"><!-- figures -->
+				<xsl:if test="regex-group(21)"><!-- figures -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">figures</xsl:attribute>
-							<xsl:if test="regex-group(21)">
+							<xsl:if test="regex-group(22)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(21)"/>
+									<xsl:value-of select="regex-group(22)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(21)"/>
+								<xsl:value-of select="regex-group(22)"/>
 							</xsl:if>
 							<xsl:text>fig.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(22)"><!-- illustrations -->
+				<xsl:if test="regex-group(23)"><!-- illustrations -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">illustrations</xsl:attribute>
-							<xsl:if test="regex-group(23)">
+							<xsl:if test="regex-group(24)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(23)"/>
+									<xsl:value-of select="regex-group(24)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(23)"/>
+								<xsl:value-of select="regex-group(24)"/>
 							</xsl:if>
 							<xsl:text>ill.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(24)"><!-- illustrations -->
+				<xsl:if test="regex-group(25)"><!-- illustrations -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">illustrations</xsl:attribute>
-							<xsl:if test="regex-group(25)">
+							<xsl:if test="regex-group(26)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(25)"/>
+									<xsl:value-of select="regex-group(26)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(25)"/>
+								<xsl:value-of select="regex-group(26)"/>
 							</xsl:if>
 							<xsl:text>illus.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(26)"><!-- portraits -->
+				<xsl:if test="regex-group(27)"><!-- portraits -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">portraits</xsl:attribute>
-							<xsl:if test="regex-group(27)">
+							<xsl:if test="regex-group(28)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(27)"/>
+									<xsl:value-of select="regex-group(28)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(27)"/>
+								<xsl:value-of select="regex-group(28)"/>
 							</xsl:if>
 							<xsl:text>portr.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(28)"><!-- bibliography -->
+				<xsl:if test="regex-group(29)"><!-- bibliography -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">bibliography</xsl:attribute>
-							<xsl:if test="regex-group(29)">
+							<xsl:if test="regex-group(30)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(29)"/>
+									<xsl:value-of select="regex-group(30)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(29)"/>
+								<xsl:value-of select="regex-group(30)"/>
 							</xsl:if>
 							<xsl:text>bibliogr.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(30)"><!-- bibliography -->
+				<xsl:if test="regex-group(31)"><!-- bibliography -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">bibliography</xsl:attribute>
-							<xsl:if test="regex-group(31)">
+							<xsl:if test="regex-group(32)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(31)"/>
+									<xsl:value-of select="regex-group(32)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(31)"/>
+								<xsl:value-of select="regex-group(32)"/>
 							</xsl:if>
 							<xsl:text>bibl.</xsl:text>
 						</xsl:element>
 					</xsl:element>
 				</xsl:if>
-				<xsl:if test="regex-group(32)"><!-- index -->
+				<xsl:if test="regex-group(33)"><!-- index -->
 					<xsl:text>, </xsl:text>
 					<xsl:element name="extent">
 						<xsl:element name="measure">
 							<xsl:attribute name="commodity">index</xsl:attribute>
-							<xsl:if test="regex-group(33)">
+							<xsl:if test="regex-group(34)">
 								<xsl:attribute name="quantity">
-									<xsl:value-of select="regex-group(33)"/>
+									<xsl:value-of select="regex-group(34)"/>
 								</xsl:attribute>
-								<xsl:value-of select="regex-group(33)"/>
+								<xsl:value-of select="regex-group(34)"/>
 							</xsl:if>
 							<xsl:text>index.</xsl:text>
 						</xsl:element>

@@ -68,7 +68,7 @@
 	<xsl:template priority="100" match="tei:bibl[not(@type='review')][ancestor::tei:text/@xml:id=('ISIS-06', 'ISIS-07')]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
-			<xsl:attribute name="ana">new-parser</xsl:attribute>
+			<!--<xsl:attribute name="ana">new-parser</xsl:attribute>-->
 			<xsl:variable name="first-text-node" select="text()[1]"/>
 			<xsl:variable name="case-mapped">
 				<xsl:analyze-string select="$first-text-node" regex="Mac|Mc|Al-|\(ed.\)|\(eds.\)">

@@ -13,7 +13,7 @@
 	</xsl:template>
 	
 	<!-- citations inside "initial-letter" divs are all parties (people and institutions) -->
-	<xsl:template match="tei:body//tei:div[not(@type='initial-letter')]">
+	<xsl:template match="tei:body//tei:div[not(@type='initial-letter')][ancestor::tei:text/@xml:id=('ISIS-03', 'ISIS-04', 'ISIS-07')]">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<!-- handle all the top level subjects -->

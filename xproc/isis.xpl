@@ -150,17 +150,17 @@
 		<p:store>
 			<p:with-option name="href" select="concat('../../build/upconverted/', $filename)"/>
 		</p:store>
-		
+
 		<!--
-		<p:store>
-			<p:input port="source">
+		<p:for-each>
+			<p:iteration-source>
 				<p:pipe step="upconverted" port="debug"/>
-			</p:input>
-			<p:with-option name="href" select="concat('../../build/upconverted/debug-', $filename)"/>
-		</p:store>
+			</p:iteration-source>
+			<p:store>
+				<p:with-option name="href" select="concat('../../build/upconverted/debug-', string(p:iteration-position()), '-', $filename)"/>
+			</p:store>
+		</p:for-each>
 		-->
-
-
 		
 	</p:for-each>
 	
@@ -189,19 +189,20 @@
 	<p:declare-step type="isis:upconvert-document" name="upconvert-document">
 		<p:input port="source"/>
 		<p:output port="result" primary="true"/>
-		<p:output port="debug">
-			<p:pipe step="journal-titles" port="result"/>
+		<p:output port="debug" sequence="true">
+			<p:pipe step="recognised-book-series-titles" port="result"/>
 		</p:output>
 		<p:input port="parameters" kind="parameter"/>
 		<isis:transform xslt="convert-highlight-to-unicode-characters.xsl"/>
 		<isis:transform xslt="recognise-see-cross-reference.xsl"/>
+		<isis:transform xslt="flag-daggers.xsl" name="daggers-flagged"/>
 		<isis:transform xslt="group-by-initial-letter-headings.xsl"/>
 		<isis:transform xslt="group-by-top-level-subject.xsl"/>
 		<isis:transform xslt="group-by-second-level-subject.xsl"/>
 		<isis:transform xslt="group-by-third-level-subject.xsl"/>
 		<isis:transform xslt="group-by-second-level-period.xsl"/>
-		<isis:transform xslt="group-by-third-level-period.xsl"/>
-		<isis:transform xslt="group-citations.xsl"/>
+		<isis:transform xslt="group-by-third-level-period.xsl" name="grouped-by-period"/>
+		<isis:transform xslt="group-citations.xsl"/><!-- parties -->
 		<isis:transform xslt="make-bibl.xsl"/><!-- recognise top-level citations (not the review citations in notes) -->
 		<isis:transform xslt="recognise-citations-in-notes.xsl"/><!-- i.e. reviews -->
 		<isis:transform xslt="split-citations-around-milestones.xsl"/><!-- split bibl elements into multiple bibl elements -->
@@ -210,12 +211,12 @@
 		<isis:transform xslt="recognise-journal-titles.xsl" name="journal-titles"/>
 		<isis:transform xslt="recognise-journal-article-titles.xsl" name="journal-article-titles"/>
 		<isis:transform xslt="recognise-cb-references.xsl"/>
-		<isis:transform xslt="recognise-journal-date-volume-page.xsl"/>
-		<isis:transform xslt="recognise-book-chapter-titles.xsl"/>
+		<isis:transform xslt="recognise-journal-date-volume-page.xsl" name="recognised-journal-publication-details"/>
+		<isis:transform xslt="recognise-book-chapter-titles.xsl" name="recognised-book-chapter-titles"/>
 		<isis:transform xslt="recognise-book-chapter-page-range.xsl"/><!-- could merrge with recognise-book-chapter-titles.xsl -->
 		<isis:transform xslt="recognise-book-extents.xsl"/>
 		<isis:transform xslt="recognise-imprint.xsl"/>
-		<isis:transform xslt="recognise-book-series-title.xsl"/>
+		<isis:transform xslt="recognise-book-series-title.xsl" name="recognised-book-series-titles"/>
 		<isis:transform xslt="recognise-book-titles.xsl"/>
 		<isis:transform xslt="recognise-boilerplate.xsl"/>
 		<isis:transform xslt="recognise-years.xsl"/>

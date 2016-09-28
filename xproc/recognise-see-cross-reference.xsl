@@ -19,6 +19,8 @@
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:element name="ref">
+				<!-- names are too unreliable to be used as references -->
+				<!--
 				<xsl:attribute name="target">
 					<xsl:value-of select="
 						concat(
@@ -29,6 +31,7 @@
 						)
 					"/>
 				</xsl:attribute>
+				-->
 				<xsl:apply-templates/>
 			</xsl:element>
 		</xsl:copy>
